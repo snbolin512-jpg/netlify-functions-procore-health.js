@@ -1,5 +1,6 @@
 {
-  "name": "pm-jarvis-v012-full-command-procore",
-  "version": "0.12.0",
-  "private": true
+  "name": "omegaboy-v0132-command-center-procore",
+  "version": "0.13.2",
+  "private": true,
+  "description": "\u03a9boy command center with Procore integration, mascot, CO/RFI logs, packet bubbles, schedule and manpower tools."
 }

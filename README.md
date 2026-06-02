@@ -1,13 +1,17 @@
-# PM Jarvis V0.12 — Full Command Center + Procore Integration
+# Ωboy V0.13.2 — Command Center + Procore
 
-Upload these files/folders to the root of the GitHub repo connected to Netlify.
+This build corrects the app name to **Ωboy** and incorporates the uploaded dog mascot.
 
-Includes:
-- Full inline frontend in index.html
-- Procore Netlify functions
-- netlify.toml
-- package.json
+Included:
+- Ωboy branding
+- Mascot image in sidebar and cockpit
+- Procore Integration
+- Packet Triage with packet bubbles
+- Change Order Log
+- RFI Log
+- Schedule Command
+- Manpower Loading
+- Graph View
+- Audit Log
 
-After commit, Netlify should deploy:
-- the main Jarvis frontend at /
-- 6 Netlify Functions at /.netlify/functions/*
+Upload/replace this package at the GitHub repo root.

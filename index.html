@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>PM Jarvis V0.12 — Full Command Center + Procore</title>
+<title>Ωboy V0.13.2 — Command Center + Procore</title>
 <style>
 :root{
 --bg:#f5f8fc;--ink:#102033;--muted:#66758d;--line:#e3ebf5;--card:#fff;--soft:#f7f9fd;
@@ -45,13 +45,155 @@ canvas{width:100%;background:#f8fafc;border:1px solid #e5edf6;border-radius:22px
 .drawer{position:fixed;top:18px;right:18px;width:min(560px,calc(100vw - 36px));height:calc(100vh - 36px);background:#fff;border-radius:28px;box-shadow:0 30px 90px rgba(23,39,67,.24);z-index:50;padding:24px;transform:translateX(calc(100% + 44px));transition:.2s ease;overflow:auto}.drawer.open{transform:translateX(0)}.drawerClose{float:right;border:none;background:#f1f5f9;border-radius:50%;width:40px;height:40px;font-size:24px;cursor:pointer}.backdrop{display:none;position:fixed;inset:0;background:rgba(15,23,42,.18);z-index:45}.backdrop.open{display:block}
 .drawerActions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.drawerActions button{border:1px solid #dbeafe;background:#eff6ff;color:#1d4ed8;border-radius:14px;padding:12px;font-weight:900;cursor:pointer}
 .graph{position:relative;height:560px;border-radius:26px;background:#eef5ff;border:1px solid #dbeafe;overflow:hidden}.node{position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-size:11px;font-weight:900;color:#fff;cursor:pointer;border:2px solid rgba(255,255,255,.55);padding:5px}.node.packet{background:var(--blue)}.node.branch{background:var(--purple)}.node.risk{background:var(--red)}.edge{position:absolute;height:2px;background:rgba(100,116,139,.35);transform-origin:left center}.edge.hot{height:4px;background:rgba(225,29,72,.45)}
+
+/* V0.13 CO/RFI logs + cleaner packet triage bubbles */
+.packetBubble{
+  border:1px solid #dbeafe;
+  background:linear-gradient(180deg,#ffffff,#f8fbff);
+  border-radius:30px;
+  padding:18px;
+  box-shadow:0 14px 36px rgba(23,39,67,.08);
+  margin-bottom:18px;
+}
+.packetBubble .record{
+  border-color:#e6eef9;
+  box-shadow:none;
+}
+.packetBubble .branchShelf{
+  display:grid;
+  gap:10px;
+  margin-top:12px;
+  padding:12px;
+  border-radius:22px;
+  background:#f5f8fc;
+  border:1px solid #e5edf6;
+}
+.packetBubbleHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+.packetBubbleHeader span{
+  font-size:12px;
+  font-weight:900;
+  color:#64748b;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.logTableWrap{
+  overflow:auto;
+  border:1px solid #e5edf6;
+  border-radius:22px;
+  background:#fff;
+  box-shadow:var(--shadow2);
+}
+.logTable{
+  width:100%;
+  border-collapse:collapse;
+  min-width:980px;
+}
+.logTable th{
+  text-align:left;
+  color:#64748b;
+  font-size:11px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:14px;
+  background:#f8fafc;
+  border-bottom:1px solid #e5edf6;
+}
+.logTable td{
+  padding:14px;
+  border-bottom:1px solid #eef2f7;
+  vertical-align:top;
+  color:#334155;
+  line-height:1.4;
+}
+.logTable tr:hover td{
+  background:#fbfdff;
+}
+.statusSelect{
+  width:100%;
+  min-width:160px;
+  border:1px solid #dbeafe;
+  background:#eff6ff;
+  color:#1d4ed8;
+  border-radius:12px;
+  padding:9px 10px;
+  font-weight:900;
+}
+.statusSelect.co-approved{background:#ecfdf5;color:#047857;border-color:#bbf7d0}
+.statusSelect.co-denied{background:#fff1f2;color:#be123c;border-color:#fecdd3}
+.statusSelect.co-pending{background:#fefce8;color:#a16207;border-color:#fde68a}
+.statusSelect.rfi-closed,.statusSelect.rfi-incorporated{background:#ecfdf5;color:#047857;border-color:#bbf7d0}
+.statusSelect.rfi-awaiting,.statusSelect.rfi-submitted{background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe}
+.statusSelect.rfi-drafting{background:#fefce8;color:#a16207;border-color:#fde68a}
+.statusSelect.rfi-void{background:#f8fafc;color:#64748b;border-color:#e2e8f0}
+.logSub{
+  display:block;
+  margin-top:5px;
+  color:#64748b;
+  font-size:12px;
+}
+.logPill{
+  display:inline-flex;
+  align-items:center;
+  border-radius:999px;
+  padding:5px 8px;
+  font-size:11px;
+  font-weight:900;
+  background:#f1f5f9;
+  color:#64748b;
+  margin-top:5px;
+}
+
+
+.mascotHero{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  background:linear-gradient(135deg,#ffffff,#f8fbff);
+  border:1px solid #e5edf6;
+  border-radius:30px;
+  padding:18px;
+  box-shadow:var(--shadow2);
+  margin-bottom:18px;
+}
+.mascotHero img{
+  width:116px;
+  height:116px;
+  object-fit:contain;
+  border-radius:24px;
+  background:#fff;
+  box-shadow:0 10px 24px rgba(23,39,67,.12);
+}
+.mascotHero h3{
+  margin:0 0 6px;
+  font-size:24px;
+  letter-spacing:-.045em;
+}
+.mascotHero p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.5;
+}
+.identityMascot{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+  border-radius:16px;
+  background:#fff;
+  box-shadow:0 8px 20px rgba(23,39,67,.10);
+}
+
 @media(max-width:1550px){.kpis{grid-template-columns:repeat(3,1fr)}.north,.three,.two,.four{grid-template-columns:1fr}.focusGrid{grid-template-columns:1fr}.buttonRow{grid-template-columns:1fr 1fr}.branchGrid{grid-template-columns:1fr}}
 @media(max-width:900px){.rail{position:relative;inset:auto;width:auto;margin:14px}.workspace{margin-left:0;width:100%;padding:22px 16px}.hero{display:block}.kpis,.buttonRow{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <aside class="rail">
-  <div class="identity"><div class="mark">J</div><div><h1>PM Jarvis</h1><p>V0.12 Full Command + Procore</p></div></div>
+  <div class="identity"><img class="identityMascot" src="assets/omegaboy-mascot.png" alt="Ωboy mascot"><div><h1>Ωboy</h1><p>V0.13.2 Mascot Build</p></div></div>
   <div class="actionStack">
     <button id="btnPMDay" class="primary" type="button">Simulate PM Day</button>
     <button id="btnHealth" type="button">Check Procore Health</button>
@@ -66,6 +208,8 @@ canvas{width:100%;background:#f8fafc;border:1px solid #e5edf6;border-radius:22px
     <button class="nav" data-view="daily" type="button">Daily PM Workflow</button>
     <button class="nav" data-view="triage" type="button">Packet Triage</button>
     <button class="nav" data-view="branches" type="button">Branch Control</button>
+    <button class="nav" data-view="colog" type="button">Change Order Log</button>
+    <button class="nav" data-view="rfilog" type="button">RFI Log</button>
     <button class="nav" data-view="schedule" type="button">Schedule Command</button>
     <button class="nav" data-view="manpower" type="button">Manpower Loading</button>
     <button class="nav" data-view="graph" type="button">Graph View</button>
@@ -81,14 +225,23 @@ canvas{width:100%;background:#f8fafc;border:1px solid #e5edf6;border-radius:22px
     <div>
       <div class="eyebrow">Senior PM operating system</div>
       <h2 id="viewTitle">Executive Cockpit</h2>
-      <p id="viewSub">Full command center restored with Procore event ingestion, priority queue, daily workflow, branching, schedule variance, manpower loading, graph view, and audit trail.</p>
+      <p id="viewSub">Ωboy command center with Procore integration, cleaner packet triage bubbles, auto-populating Change Order and RFI logs, dropdown pipeline statuses, schedule variance, manpower loading, graph view, and audit trail.</p>
     </div>
     <div id="status" class="statusPill">Ready</div>
   </header>
 
   <section id="cockpit" class="view active">
+    <div class="mascotHero">
+      <img src="assets/omegaboy-mascot.png" alt="Ωboy mascot">
+      <div>
+        <div class="eyebrow">Mascot online</div>
+        <h3>Ωboy is watching the packets.</h3>
+        <p>Your command-center companion for Procore events, RFIs, change orders, schedule movement, manpower pressure, and PM daily workflow.</p>
+      </div>
+    </div>
+
     <div class="north">
-      <div class="northCard"><span class="eyebrow">Start here</span><h3>Today’s Command Focus</h3><p>Jarvis should tell you what changed, why it matters, who owns it, and when to move on.</p></div>
+      <div class="northCard"><span class="eyebrow">Start here</span><h3>Ωboy Command Focus</h3><p>Ωboy should tell you what changed, why it matters, who owns it, and when to move on.</p></div>
       <div class="focusGrid" id="focusCards"></div>
     </div>
     <div class="kpis">
@@ -109,6 +262,21 @@ canvas{width:100%;background:#f8fafc;border:1px solid #e5edf6;border-radius:22px
   <section id="daily" class="view"><div class="card page"><div class="cardTitle"><h3>Daily PM Workflow</h3><span class="tag">move-on rules</span></div><p class="hint">This turns the open packet queue into an operating plan, so you do not get trapped in the weeds.</p><div id="dailyList" class="timeline"></div></div></section>
   <section id="triage" class="view"><div class="card page"><div class="cardTitle"><h3>Packet Triage</h3><span class="tag">living packets</span></div><div id="packetList" class="stack"></div></div></section>
   <section id="branches" class="view"><div class="card page"><div class="cardTitle"><h3>Branch Control</h3><span class="tag">non-mutually-exclusive</span></div><div id="branchList" class="stack"></div></div></section>
+  
+  <section id="colog" class="view">
+    <div class="card page">
+      <div class="cardTitle"><h3>Change Order Log</h3><span class="tag">auto-built from CO branches</span></div>
+      <p class="hint">When a packet is branched into <b>CO Candidate</b> from Packet Triage, Jarvis creates a high-level change order log item. Use the dropdown to track commercial status.</p>
+      <div id="coLogList"></div>
+    </div>
+  </section>
+  <section id="rfilog" class="view">
+    <div class="card page">
+      <div class="cardTitle"><h3>RFI Log</h3><span class="tag">auto-built from RFI branches</span></div>
+      <p class="hint">When a packet is branched into <b>RFI</b> from Packet Triage, Jarvis creates a high-level RFI pipeline item. Use the dropdown to track whether it is drafting, submitted, awaiting response, answered, incorporated, or closed.</p>
+      <div id="rfiLogList"></div>
+    </div>
+  </section>
   <section id="schedule" class="view"><div class="card page"><div class="cardTitle"><h3>Schedule Command</h3><span class="tag">baseline vs revised</span></div><div id="scheduleSummary" class="hint"></div><div id="scheduleList" class="stack" style="margin-top:14px"></div></div></section>
   <section id="manpower" class="view"><div class="card page"><div class="cardTitle"><h3>Manpower Loading</h3><span class="tag">click bars</span></div><canvas id="manpowerCanvas" height="360"></canvas><div id="manpowerContext" class="hint" style="margin-top:14px">Load a schedule to generate manpower context.</div><div id="manpowerDrivers" class="stack" style="margin-top:14px"></div></div></section>
   <section id="graph" class="view"><div class="card page"><div class="cardTitle"><h3>Graph View</h3><span class="tag">active packet network</span></div><div id="graphCanvas" class="graph"></div><div id="nodeInfo" class="hint" style="margin-top:14px">Click a node for context.</div></div></section>
@@ -123,11 +291,11 @@ canvas{width:100%;background:#f8fafc;border:1px solid #e5edf6;border-radius:22px
 
 <script>
 (function(){
-const KEY='jarvis_v012_full_state';
+const KEY='jarvis_v013_co_rfi_logs_state';
 let state=loadState();
 let barHit=[];
 const $=id=>document.getElementById(id);
-function empty(){return{counter:0,rawEvents:[],normalized:[],packets:[],branches:[],audit:[],baseline:[],schedule:[],scheduleRevs:[],baselineLoad:[],manpowerLoad:[],selectedWeek:null,health:null}}
+function empty(){return{counter:0,rawEvents:[],normalized:[],packets:[],branches:[],coLog:[],rfiLog:[],audit:[],baseline:[],schedule:[],scheduleRevs:[],baselineLoad:[],manpowerLoad:[],selectedWeek:null,health:null}}
 function loadState(){try{return Object.assign(empty(),JSON.parse(localStorage.getItem(KEY))||{})}catch{return empty()}}
 function save(){localStorage.setItem(KEY,JSON.stringify(state))}
 function now(){return new Date().toLocaleString()}
@@ -151,8 +319,81 @@ function rebuildManpower(){state.baselineLoad=buildLoad(state.baseline);state.ma
 function loadBaseline(){state.baseline=sampleSchedule(false);state.schedule=sampleSchedule(false);state.scheduleRevs=[];rebuildManpower();audit('Baseline loaded','Baseline project schedule loaded');save();render();status('Baseline loaded')}
 function scheduleRev(){if(!state.baseline.length)state.baseline=sampleSchedule(false);state.schedule=sampleSchedule(TrueFalse(true));state.scheduleRevs=detectScheduleRevs(state.baseline,state.schedule);rebuildManpower();state.scheduleRevs.forEach(r=>createPacket({type:'SCH',title:`Schedule REV: ${r.id} — ${r.name}`,summary:r.reason,score:82,detectedAt:r.detectedAt,source:'schedule'},false));audit('Schedule REV simulated',`${state.scheduleRevs.length} activities changed`);save();render();status('Schedule REV detected')}
 function TrueFalse(v){return v}
-function createPacket(p,doRender=true){state.counter++;let packet={id:p.id||'PKT-'+String(state.counter).padStart(3,'0'),type:p.type||'REV',title:p.title,summary:p.summary,score:p.score||75,detectedAt:p.detectedAt||now(),source:p.source||'manual',status:'NEW',closed:false,moneyAtRisk:p.moneyAtRisk||0,recommendedBranches:p.recommendedBranches||['RFI','CO Candidate','Risk / Constraint','Coordination']};state.packets.unshift(packet);audit('Packet created',packet.title);if(doRender){save();render()}return packet}
-function branch(packetId,type){let p=state.packets.find(x=>x.id===packetId);if(!p||p.closed)return;let exists=state.branches.some(b=>b.packetId===packetId&&b.type===type&&b.status!=='RESOLVED');if(exists)return;let b={id:type.slice(0,3).toUpperCase()+'-BR-'+String(state.branches.length+1).padStart(3,'0'),packetId,type,title:`${type} from ${p.id}`,summary:p.summary,status:'OPEN',score:p.score,created:now()};state.branches.unshift(b);p.status='BRANCHED';if(type.includes('CO'))p.moneyAtRisk=p.moneyAtRisk||42000;audit('Branch created',`${b.title} linked to ${p.title}`);save();render()}
+function createPacket(p,doRender=true){state.counter++;let packet={id:p.id||'ΩPKT-'+String(state.counter).padStart(3,'0'),type:p.type||'REV',title:p.title,summary:p.summary,score:p.score||75,detectedAt:p.detectedAt||now(),source:p.source||'manual',status:'NEW',closed:false,moneyAtRisk:p.moneyAtRisk||0,recommendedBranches:p.recommendedBranches||['RFI','CO Candidate','Risk / Constraint','Coordination']};state.packets.unshift(packet);audit('Packet created',packet.title);if(doRender){save();render()}return packet}
+function branch(packetId,type){
+  let p=state.packets.find(x=>x.id===packetId);
+  if(!p||p.closed)return;
+  let exists=state.branches.some(b=>b.packetId===packetId&&b.type===type&&b.status!=='RESOLVED');
+  if(exists)return;
+  let b={id:type.slice(0,3).toUpperCase()+'-BR-'+String(state.branches.length+1).padStart(3,'0'),packetId,type,title:`${type} from ${p.id}`,summary:p.summary,status:'OPEN',score:p.score,created:now()};
+  state.branches.unshift(b);
+  p.status='BRANCHED';
+  if(type.includes('CO'))p.moneyAtRisk=p.moneyAtRisk||42000;
+  createLogFromBranch(b,p);
+  audit('Branch created',`${b.title} linked to ${p.title}`);
+  save();
+  render();
+}
+function createLogFromBranch(b,p){
+  if(b.type==='CO Candidate' && !state.coLog.some(x=>x.branchId===b.id)){
+    state.coLog.unshift({
+      id:'CO-'+String(state.coLog.length+1).padStart(3,'0'),
+      packetId:p.id,
+      branchId:b.id,
+      title:p.title,
+      summary:p.summary,
+      amount:p.moneyAtRisk||42000,
+      status:'PENDING',
+      created:now(),
+      source:p.source||'packet'
+    });
+    audit('CO log item created',`${p.title} added to Change Order Log`);
+  }
+  if(b.type==='RFI' && !state.rfiLog.some(x=>x.branchId===b.id)){
+    state.rfiLog.unshift({
+      id:'RFI-'+String(state.rfiLog.length+1).padStart(3,'0'),
+      packetId:p.id,
+      branchId:b.id,
+      subject:p.title,
+      question:p.summary,
+      status:'DRAFTING',
+      created:now(),
+      nextAction:'Draft question and confirm who owns the design response.',
+      source:p.source||'packet'
+    });
+    audit('RFI log item created',`${p.title} added to RFI Log`);
+  }
+}
+function updateCOStatus(id,status){
+  let item=state.coLog.find(x=>x.id===id);
+  if(!item)return;
+  item.status=status;
+  item.updated=now();
+  audit('CO status updated',`${id} set to ${status}`);
+  save();
+  render();
+}
+function updateRFIStatus(id,status){
+  let item=state.rfiLog.find(x=>x.id===id);
+  if(!item)return;
+  item.status=status;
+  item.updated=now();
+  item.nextAction = rfiNextAction(status);
+  audit('RFI status updated',`${id} set to ${status}`);
+  save();
+  render();
+}
+function rfiNextAction(status){
+  return ({
+    DRAFTING:'Draft question, attach references, and identify required answer date.',
+    SUBMITTED:'Track ball-in-court and confirm receipt.',
+    AWAITING_RESPONSE:'Monitor overdue risk and escalate if answer blocks work.',
+    ANSWERED:'Review answer for cost, schedule, procurement, and drawing impact.',
+    INCORPORATED:'Confirm answer has been incorporated into field plan / cost record.',
+    CLOSED:'No further RFI action unless related change remains open.',
+    VOID:'No action; RFI path voided.'
+  })[status] || 'Confirm next action.';
+}
 function resolveBranch(id){let b=state.branches.find(x=>x.id===id);if(!b)return;b.status='RESOLVED';b.resolved=now();audit('Branch resolved',id);let p=state.packets.find(x=>x.id===b.packetId);if(p){let bs=state.branches.filter(x=>x.packetId===p.id);p.status=bs.every(x=>x.status==='RESOLVED')?'READY TO CLOSE':'ACTIVE'}save();render()}
 function closePacket(id){let p=state.packets.find(x=>x.id===id);if(!p)return;let bs=state.branches.filter(x=>x.packetId===id);if(bs.length&&!bs.every(x=>x.status==='RESOLVED')){alert('Resolve open branches before final close.');return}p.closed=true;p.status='CLOSED';audit('Packet closed',p.title);save();render()}
 function normalizeProcore(raw){let obj=raw.object||{};let type=raw.eventType||'unknown';let detectedAt=raw.detectedAt||now();if(type.includes('drawing'))return{id:'NORM-'+String(state.normalized.length+1).padStart(3,'0'),source:'procore',eventType:'drawing_revision_detected',detectedAt,packet:{type:'REV',title:`Procore Drawing REV: ${obj.drawingNumber||'Unknown'} — ${obj.title||'Drawing Revision'}`,summary:`${obj.revision||'REV'} detected from Procore. Review for scope, procurement, schedule, and CO exposure.`,score:scorePacket(75,'REV'),detectedAt,source:'procore',moneyAtRisk:42000,recommendedBranches:['RFI','CO Candidate','Risk / Constraint','Procurement Check','Schedule Review']}};if(type.includes('schedule'))return{id:'NORM-'+String(state.normalized.length+1).padStart(3,'0'),source:'procore',eventType:'schedule_update_detected',detectedAt,packet:{type:'SCH',title:`Procore Schedule Update: ${obj.name||obj.id||'Schedule File'}`,summary:obj.change||'Schedule update requires baseline comparison.',score:78,detectedAt,source:'procore',recommendedBranches:['Risk / Constraint','Coordination','Manpower Review','CO Candidate']}};return{id:'NORM-'+String(state.normalized.length+1).padStart(3,'0'),source:'procore',eventType:'unknown',detectedAt,packet:null}}
@@ -161,13 +402,96 @@ async function mock(kind){status(`Loading Procore ${kind} event...`);try{let url
 function pmDay(){state=empty();loadBaseline();createPacket({type:'REV',title:'Procore Drawing REV: E6.0 — One-Line / Gear Schedule',summary:'ATS note revised; potential procurement/startup impact.',score:91,source:'procore',moneyAtRisk:85000,recommendedBranches:['RFI','CO Candidate','Risk / Constraint','Procurement Check','Schedule Review']},false);createPacket({type:'REV',title:'Electrical Sheets E2.1 / E4.3',summary:'Branch circuit scope added and feeder routing shifted near Corridor C.',score:83,source:'procore',moneyAtRisk:42000,recommendedBranches:['RFI','CO Candidate','Coordination','Manpower Review']},false);branch(state.packets[0].id,'Risk / Constraint');branch(state.packets[0].id,'CO Candidate');branch(state.packets[1].id,'RFI');state.schedule=sampleSchedule(true);state.scheduleRevs=detectScheduleRevs(state.baseline,state.schedule);rebuildManpower();audit('PM day simulated','Loaded realistic executive PM scenario');save();render();status('PM Day simulated')}
 function priorityItems(){let packets=state.packets.filter(p=>!p.closed).map(p=>({kind:'Packet',score:p.score,title:p.title,body:p.summary,payload:p}));let branches=state.branches.filter(b=>b.status!=='RESOLVED'&&state.packets.some(p=>p.id===b.packetId&&!p.closed)).map(b=>({kind:'Branch',score:b.score,title:b.title,body:b.summary,payload:b}));return [...packets,...branches].sort((a,b)=>b.score-a.score)}
 function workflow(){return priorityItems().slice(0,7).map((it,i)=>{let min=it.score>=90?30:it.score>=80?25:it.score>=70?20:15;let action=it.kind==='Packet'?'Confirm branch paths, assign owner, preserve entitlement, and create the next decision path.':'Advance or resolve branch. If blocked, assign owner and move on.';let move=it.score>=85?'Move on after decision path is created, even if final resolution is pending.':'Move on after owner, due date, and next action are captured.';return{order:i+1,min,title:it.title,action,move,score:it.score,payload:it.payload}})}
-function render(){metrics();renderCockpit();renderLists();renderSchedule();renderManpower();renderGraph();renderProcore();renderAudit()}
+function render(){metrics();renderCockpit();renderLists();renderLogs();renderSchedule();renderManpower();renderGraph();renderProcore();renderAudit()}
 function metrics(){let active=state.packets.filter(p=>!p.closed);$('mPackets').textContent=active.length;$('mHeat').textContent=active.filter(p=>p.score>=80).length;$('mMoney').textContent=money(active.reduce((a,p)=>a+(p.moneyAtRisk||0),0));$('mBranches').textContent=state.branches.filter(b=>b.status!=='RESOLVED').length;$('mPeak').textContent=(state.manpowerLoad||[]).reduce((m,w)=>Math.max(m,w.crew||0),0);$('mRaw').textContent=state.rawEvents.length;$('healthBox').textContent=state.health?JSON.stringify(state.health,null,2):'Not checked yet.'}
 function renderCockpit(){let items=priorityItems();$('focusCards').innerHTML=items.slice(0,4).map(it=>rec(it.title,it.body,[{text:it.kind,cls:'blue'},{text:'Score '+it.score,cls:it.score>=85?'critical':'high'}],it.payload)).join('')||'<div class="empty">No priority items. Run Simulate PM Day or Procore event.</div>';$('priorityList').innerHTML=items.slice(0,8).map((it,i)=>rec(`#${i+1} — ${it.title}`,it.body,[{text:it.kind,cls:'blue'},{text:'Score '+it.score,cls:it.score>=85?'critical':'high'}],it.payload)).join('')||'<div class="empty">No priority items.</div>';let wf=workflow();$('workflowPreview').innerHTML=wf.slice(0,4).map(s=>workflowHTML(s)).join('')||'<div class="empty">No workflow yet.</div>';$('dailyList').innerHTML=wf.map(s=>workflowHTML(s)).join('')||'<div class="empty">No workflow yet.</div>'}
 function workflowHTML(s){return `<div class="record timebox" data-payload="${encodeURIComponent(JSON.stringify(s.payload))}"><div class="minutes">${s.min}<small>min</small></div><div><h4>${s.order}. ${esc(s.title)}</h4><p><b>Work mode:</b> ${esc(s.action)}</p><p><b>Move-on rule:</b> ${esc(s.move)}</p></div></div>`}
-function packetHTML(p){let branches=state.branches.filter(b=>b.packetId===p.id);let branchExtra=`<div class="branchGrid">${['RFI','CO Candidate','Risk / Constraint','Coordination','Procurement Check','Manpower Review'].map(t=>`<button class="branchBtn" data-branch="${esc(t)}" data-packet="${esc(p.id)}" type="button">${esc(t)}</button>`).join('')}<button class="branchBtn" data-close="${esc(p.id)}" type="button">Final Close</button></div>`;let bhtml=branches.map(b=>branchHTML(b)).join('');return rec(`${p.id} — ${p.title}`,`${p.summary} Detected ${p.detectedAt}.`,[{text:p.type,cls:'blue'},{text:p.status,cls:'mod'},{text:'Score '+p.score,cls:p.score>=85?'critical':'high'}],p,branchExtra)+bhtml}
+function packetHTML(p){
+  let branches=state.branches.filter(b=>b.packetId===p.id);
+  let branchExtra=`<div class="branchGrid">${['RFI','CO Candidate','Risk / Constraint','Coordination','Procurement Check','Manpower Review'].map(t=>`<button class="branchBtn" data-branch="${esc(t)}" data-packet="${esc(p.id)}" type="button">${esc(t)}</button>`).join('')}<button class="branchBtn" data-close="${esc(p.id)}" type="button">Final Close</button></div>`;
+  let bhtml=branches.length?`<div class="branchShelf">${branches.map(b=>branchHTML(b)).join('')}</div>`:'';
+  return `<div class="packetBubble">
+    <div class="packetBubbleHeader"><span>Packet Bubble</span><span>${esc(p.id)} • ${esc(p.status)}</span></div>
+    ${rec(`${p.id} — ${p.title}`,`${p.summary} Detected ${p.detectedAt}.`,[{text:p.type,cls:'blue'},{text:p.status,cls:'mod'},{text:'Score '+p.score,cls:p.score>=85?'critical':'high'}],p,branchExtra)}
+    ${bhtml}
+  </div>`;
+}
 function branchHTML(b){let extra=`<div class="buttonRow"><button class="actionBtn" data-resolve="${esc(b.id)}" type="button">Resolve Branch</button></div>`;return rec(`${b.id} — ${b.title}`,b.summary,[{text:b.status,cls:b.status==='RESOLVED'?'low':'high'},{text:'Score '+b.score,cls:'mod'}],b,extra)}
 function renderLists(){$('packetList').innerHTML=state.packets.filter(p=>!p.closed).map(packetHTML).join('')||'<div class="empty">No active packets.</div>';$('branchList').innerHTML=state.branches.map(branchHTML).join('')||'<div class="empty">No branches.</div>';$('rawList').innerHTML=state.rawEvents.map(e=>rec(`${e.id} — ${e.raw.eventType}`,`Received ${e.receivedAt}. Source ${e.raw.source}.`,[{text:'Raw',cls:'blue'}],e.raw)).join('')||'<div class="empty">No raw events.</div>';$('normalizedList').innerHTML=state.normalized.map(n=>rec(`${n.id} — ${n.eventType}`,n.packet?`${n.packet.title}. Packet generated.`:'No packet generated.',[{text:n.source,cls:'blue'},{text:n.packet?'Packet':'No Packet',cls:n.packet?'low':'high'}],n)).join('')||'<div class="empty">No normalized events.</div>'}
+
+function renderLogs(){
+  if($('coLogList')){
+    $('coLogList').innerHTML = state.coLog.length ? `
+      <div class="logTableWrap"><table class="logTable">
+        <thead><tr><th>CO #</th><th>Source Packet</th><th>High-Level Scope / Basis</th><th>ROM Value</th><th>Status</th><th>Created</th></tr></thead>
+        <tbody>
+          ${state.coLog.map(item=>`
+            <tr>
+              <td><b>${esc(item.id)}</b><span class="logSub">${esc(item.branchId)}</span></td>
+              <td>${esc(item.packetId)}<span class="logSub">${esc(item.title)}</span></td>
+              <td>${esc(item.summary)}<span class="logPill">${esc(item.source)}</span></td>
+              <td><b>${money(item.amount)}</b></td>
+              <td>
+                <select class="statusSelect ${coStatusClass(item.status)}" data-co-status="${esc(item.id)}">
+                  ${['PENDING','APPROVED','DENIED'].map(s=>`<option value="${s}" ${item.status===s?'selected':''}>${coStatusLabel(s)}</option>`).join('')}
+                </select>
+              </td>
+              <td>${esc(item.created)}${item.updated?`<span class="logSub">Updated ${esc(item.updated)}</span>`:''}</td>
+            </tr>`).join('')}
+        </tbody>
+      </table></div>` : '<div class="empty">No change order log items yet. In Packet Triage, create a CO Candidate branch from any packet.</div>';
+  }
+  if($('rfiLogList')){
+    $('rfiLogList').innerHTML = state.rfiLog.length ? `
+      <div class="logTableWrap"><table class="logTable">
+        <thead><tr><th>RFI #</th><th>Source Packet</th><th>Question / Issue</th><th>Pipeline Status</th><th>Next PM Action</th><th>Created</th></tr></thead>
+        <tbody>
+          ${state.rfiLog.map(item=>`
+            <tr>
+              <td><b>${esc(item.id)}</b><span class="logSub">${esc(item.branchId)}</span></td>
+              <td>${esc(item.packetId)}<span class="logSub">${esc(item.subject)}</span></td>
+              <td>${esc(item.question)}<span class="logPill">${esc(item.source)}</span></td>
+              <td>
+                <select class="statusSelect ${rfiStatusClass(item.status)}" data-rfi-status="${esc(item.id)}">
+                  ${['DRAFTING','SUBMITTED','AWAITING_RESPONSE','ANSWERED','INCORPORATED','CLOSED','VOID'].map(s=>`<option value="${s}" ${item.status===s?'selected':''}>${rfiStatusLabel(s)}</option>`).join('')}
+                </select>
+              </td>
+              <td>${esc(item.nextAction||rfiNextAction(item.status))}</td>
+              <td>${esc(item.created)}${item.updated?`<span class="logSub">Updated ${esc(item.updated)}</span>`:''}</td>
+            </tr>`).join('')}
+        </tbody>
+      </table></div>` : '<div class="empty">No RFI log items yet. In Packet Triage, create an RFI branch from any packet.</div>';
+  }
+}
+function coStatusLabel(s){
+  return ({PENDING:'Pending',APPROVED:'Approved',DENIED:'Denied'})[s]||s;
+}
+function coStatusClass(s){
+  return ({PENDING:'co-pending',APPROVED:'co-approved',DENIED:'co-denied'})[s]||'co-pending';
+}
+function rfiStatusLabel(s){
+  return ({
+    DRAFTING:'Drafting',
+    SUBMITTED:'Submitted',
+    AWAITING_RESPONSE:'Awaiting Response',
+    ANSWERED:'Answered',
+    INCORPORATED:'Incorporated',
+    CLOSED:'Closed',
+    VOID:'Void'
+  })[s]||s;
+}
+function rfiStatusClass(s){
+  return ({
+    DRAFTING:'rfi-drafting',
+    SUBMITTED:'rfi-submitted',
+    AWAITING_RESPONSE:'rfi-awaiting',
+    ANSWERED:'rfi-awaiting',
+    INCORPORATED:'rfi-incorporated',
+    CLOSED:'rfi-closed',
+    VOID:'rfi-void'
+  })[s]||'rfi-drafting';
+}
+
 function renderSchedule(){$('scheduleSummary').innerHTML=state.schedule.length?`Baseline activities: ${state.baseline.length}. Revised activities: ${state.schedule.length}. Schedule REVs detected: ${state.scheduleRevs.length}.`:'No schedule loaded.';$('scheduleList').innerHTML=(state.schedule||[]).map(a=>{let changed=state.scheduleRevs.find(r=>r.id===a.id);return rec(`${a.id} — ${a.name}`,`Area ${a.area}. Week ${a.start}-${a.start+a.duration-1}. Crew ${a.crew}.`,[{text:a.critical?'Critical':'Noncritical',cls:a.critical?'critical':'mod'},{text:changed?'Changed':'Baseline',cls:changed?'high':'low'}],a)}).join('')||'<div class="empty">Load baseline schedule.</div>'}
 function renderManpower(){drawManpower();let load=state.manpowerLoad||[];let base=state.baselineLoad||[];let total=load.reduce((a,w)=>a+w.hours,0);let baseTotal=base.reduce((a,w)=>a+w.hours,0);let peak=load.reduce((m,w)=>w.crew>m.crew?w:m,{week:0,crew:0,hours:0});let selected=state.selectedWeek?load.find(w=>w.week===state.selectedWeek):null;$('manpowerContext').innerHTML=load.length?`<b>Context:</b> Peak revised manpower is ${peak.crew} crew in week ${peak.week}. Revised labor-hours ${total}; baseline ${baseTotal}; variance ${total-baseTotal>=0?'+':''}${total-baseTotal} hours.${selected?`<br><br><b>Selected week ${selected.week}:</b> ${selected.reasons.join('; ')||'No active scheduled work.'}`:''}`:'Load baseline or schedule REV.';$('manpowerDrivers').innerHTML=load.map((w,i)=>{let b=base[i]||{crew:0,hours:0};let delta=w.hours-b.hours;return rec(`Week ${w.week} — ${w.crew} crew`,`${w.hours} hours revised vs ${b.hours} baseline. Delta ${delta>=0?'+':''}${delta} hours. Drivers: ${w.reasons.join('; ')||'None'}`,[{text:delta>0?'UP':delta<0?'DOWN':'EVEN',cls:delta>0?'high':delta<0?'low':'mod'}],w)}).join('')||'<div class="empty">No manpower load.</div>'}
 function drawManpower(){let c=$('manpowerCanvas');if(!c)return;let ctx=c.getContext('2d');let w=c.width=Math.max(800,c.clientWidth*2);let h=c.height=720;ctx.clearRect(0,0,w,h);let load=state.manpowerLoad.length?state.manpowerLoad:Array.from({length:16},(_,i)=>({week:i+1,crew:0,hours:0,reasons:[]}));let base=state.baselineLoad.length?state.baselineLoad:Array.from({length:16},(_,i)=>({week:i+1,crew:0,hours:0,reasons:[]}));let max=Math.max(1,...load.map(x=>x.crew),...base.map(x=>x.crew));let left=70,top=50,bottom=70,right=30,chartH=h-top-bottom,chartW=w-left-right;barHit=[];ctx.fillStyle='#162235';ctx.font='28px Arial';ctx.fillText('Manpower loading — baseline vs revised',left,32);ctx.strokeStyle='#dbeafe';for(let i=0;i<=4;i++){let y=top+i*chartH/4;ctx.beginPath();ctx.moveTo(left,y);ctx.lineTo(w-right,y);ctx.stroke();ctx.fillStyle='#64748b';ctx.font='18px Arial';ctx.fillText(String(Math.round(max-i*max/4)),20,y+6)}let bw=chartW/load.length;load.forEach((d,i)=>{let b=base[i]||{crew:0};let x=left+i*bw;let baseH=b.crew/max*chartH,revH=d.crew/max*chartH;let baseX=x+bw*.18,revX=x+bw*.52,barW=Math.max(8,bw*.23);ctx.fillStyle='#cbd5e1';ctx.fillRect(baseX,top+chartH-baseH,barW,baseH);ctx.fillStyle=d.crew-b.crew>0?'#f97316':d.crew-b.crew<0?'#10b981':'#2563eb';ctx.fillRect(revX,top+chartH-revH,barW,revH);if(state.selectedWeek===d.week){ctx.strokeStyle='#1d4ed8';ctx.lineWidth=4;ctx.strokeRect(revX-4,top+chartH-revH-4,barW+8,revH+8);ctx.lineWidth=1}ctx.fillStyle='#64748b';ctx.font='18px Arial';ctx.fillText('W'+d.week,x+bw*.26,h-28);if(d.crew){ctx.fillStyle='#162235';ctx.fillText(String(d.crew),revX,top+chartH-revH-8)}barHit.push({week:d.week,x1:revX/2,x2:(revX+barW)/2})});if(!c.dataset.bound){c.addEventListener('click',e=>{let rect=c.getBoundingClientRect(),x=e.clientX-rect.left;let hit=barHit.find(b=>x>=b.x1-8&&x<=b.x2+8);if(hit){state.selectedWeek=hit.week;save();render()}});c.dataset.bound='true'}}
@@ -178,7 +502,7 @@ function view(v){document.querySelectorAll('.nav').forEach(b=>b.classList.remove
 function open(payload){$('drawerTitle').textContent=payload.title||payload.name||payload.id||payload.eventType||'Item context';let packetActions=payload.id&&String(payload.id).startsWith('PKT-')?`<div class="drawerActions"><button data-branch="RFI" data-packet="${esc(payload.id)}">Open RFI</button><button data-branch="CO Candidate" data-packet="${esc(payload.id)}">Open CO Candidate</button><button data-branch="Risk / Constraint" data-packet="${esc(payload.id)}">Open Risk</button><button data-nav="daily">Open Daily Workflow</button></div>`:'';$('drawerBody').innerHTML=`<div class="briefing"><pre style="white-space:pre-wrap">${esc(JSON.stringify(payload,null,2))}</pre></div>${packetActions}`;$('drawer').classList.add('open');$('backdrop').classList.add('open')}
 function closeDrawer(){$('drawer').classList.remove('open');$('backdrop').classList.remove('open')}
 function reset(){if(confirm('Reset local Jarvis demo state?')){state=empty();save();render();status('Reset')}}
-function bind(){console.log('Jarvis V0.12 bound');$('btnPMDay').onclick=pmDay;$('btnHealth').onclick=health;$('btnHealth2').onclick=health;$('btnMockDrawing').onclick=()=>mock('drawing');$('btnMockDrawing2').onclick=()=>mock('drawing');$('btnMockSchedule').onclick=()=>mock('schedule');$('btnMockSchedule2').onclick=()=>mock('schedule');$('btnBaseline').onclick=loadBaseline;$('btnScheduleRev').onclick=scheduleRev;$('btnReset').onclick=reset;$('drawerClose').onclick=closeDrawer;$('backdrop').onclick=closeDrawer;document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>view(b.dataset.view));document.body.addEventListener('click',e=>{let nav=e.target.closest('[data-nav]');if(nav){view(nav.dataset.nav);closeDrawer();return}let br=e.target.closest('[data-branch]');if(br){branch(br.dataset.packet,br.dataset.branch);return}let res=e.target.closest('[data-resolve]');if(res){resolveBranch(res.dataset.resolve);return}let cl=e.target.closest('[data-close]');if(cl){closePacket(cl.dataset.close);return}let card=e.target.closest('[data-payload]');if(card){try{open(JSON.parse(decodeURIComponent(card.dataset.payload)))}catch(err){console.error(err)}}})}
+function bind(){console.log('Ωboy V0.13.1 bound');$('btnPMDay').onclick=pmDay;$('btnHealth').onclick=health;$('btnHealth2').onclick=health;$('btnMockDrawing').onclick=()=>mock('drawing');$('btnMockDrawing2').onclick=()=>mock('drawing');$('btnMockSchedule').onclick=()=>mock('schedule');$('btnMockSchedule2').onclick=()=>mock('schedule');$('btnBaseline').onclick=loadBaseline;$('btnScheduleRev').onclick=scheduleRev;$('btnReset').onclick=reset;$('drawerClose').onclick=closeDrawer;$('backdrop').onclick=closeDrawer;document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>view(b.dataset.view));document.body.addEventListener('change',e=>{let co=e.target.closest('[data-co-status]');if(co){updateCOStatus(co.dataset.coStatus,co.value);return}let rfi=e.target.closest('[data-rfi-status]');if(rfi){updateRFIStatus(rfi.dataset.rfiStatus,rfi.value);return}});document.body.addEventListener('click',e=>{let nav=e.target.closest('[data-nav]');if(nav){view(nav.dataset.nav);closeDrawer();return}let br=e.target.closest('[data-branch]');if(br){branch(br.dataset.packet,br.dataset.branch);return}let res=e.target.closest('[data-resolve]');if(res){resolveBranch(res.dataset.resolve);return}let cl=e.target.closest('[data-close]');if(cl){closePacket(cl.dataset.close);return}let card=e.target.closest('[data-payload]');if(card){try{open(JSON.parse(decodeURIComponent(card.dataset.payload)))}catch(err){console.error(err)}}})}
 document.addEventListener('DOMContentLoaded',()=>{bind();render();status('Ready')});
 })();
 </script>
