@@ -1,6 +1,6 @@
 {
-  "name": "omegaboy-v0132-command-center-procore",
-  "version": "0.13.2",
+  "name": "omegaboy-v014-guide-mode",
+  "version": "0.14.0",
   "private": true,
-  "description": "\u03a9boy command center with Procore integration, mascot, CO/RFI logs, packet bubbles, schedule and manpower tools."
+  "description": "\u03a9boy command center with Guide Mode, Procore integration, CO/RFI logs, and packet workflow."
 }

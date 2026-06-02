@@ -1,7 +1,6 @@
-# Deploy Notes — Ωboy V0.13.2
+# Deploy Notes — Ωboy V0.14 Guide Mode
 
 Upload/replace these at GitHub repo root:
-
 - index.html
 - package.json
 - README.md
@@ -11,15 +10,12 @@ Upload/replace these at GitHub repo root:
 - netlify/
 - assets/
 
-Important:
-- The mascot image is located at `assets/omegaboy-mascot.png`.
-- Do not place `assets/` inside `netlify/`.
-- Keep Procore credentials only in Netlify environment variables.
-
-Test:
-1. Confirm sidebar says Ωboy.
-2. Confirm dog mascot appears.
-3. Check Procore Health.
-4. Procore Drawing REV.
-5. Packet Triage → CO Candidate → Change Order Log.
-6. Packet Triage → RFI → RFI Log.
+Test sequence:
+1. Confirm Ωboy appears in sidebar/cockpit.
+2. Click Simulate PM Day.
+3. Click Ωboy Focus Priority.
+4. Click Packet Triage.
+5. Click Ωboy Focus Priority again.
+6. Open CO Candidate and RFI branches.
+7. Confirm Change Order Log and RFI Log populate.
+8. Test Hide Ωboy and Ωboy Guide toggle.

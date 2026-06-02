@@ -1,17 +1,20 @@
-# Ωboy V0.13.2 — Command Center + Procore
+# Ωboy V0.14 — Guide Mode
 
-This build corrects the app name to **Ωboy** and incorporates the uploaded dog mascot.
+This build adds the first version of Ωboy as a workflow guide.
 
-Included:
-- Ωboy branding
-- Mascot image in sidebar and cockpit
-- Procore Integration
-- Packet Triage with packet bubbles
-- Change Order Log
-- RFI Log
-- Schedule Command
-- Manpower Loading
-- Graph View
-- Audit Log
+New:
+- Floating Ωboy mascot
+- Ωboy Guide Mode toggle
+- Focus Priority button
+- Hide/Show Ωboy button
+- Ωboy moves toward the highest-priority visible packet/task
+- Ωboy speech bubble explains why that task matters
+- Highlight ring around guided target
+- Existing CO/RFI logs retained
+- Existing Procore integration retained
 
-Upload/replace this package at the GitHub repo root.
+Test:
+1. Simulate PM Day.
+2. Click Ωboy Focus Priority.
+3. Confirm Ωboy moves to the highest priority visible item and explains why.
+4. Create CO Candidate / RFI branches and verify logs still populate.

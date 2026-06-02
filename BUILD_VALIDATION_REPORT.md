@@ -1,11 +1,11 @@
-# Build Validation Report — Ωboy V0.13.2
+# Build Validation Report — Ωboy V0.14 Guide Mode
 
-- App name corrected to Ωboy: PASS
-- Mascot asset included: PASS
-- Mascot referenced in index.html: PASS
+- Guide Dog layer present: PASS
+- Guide Focus function present: PASS
+- Guide toggle buttons present: PASS
+- Mascot asset retained: PASS
 - Inline frontend syntax: PASS
-- CO Log retained: PASS
-- RFI Log retained: PASS
+- CO/RFI logs retained: PASS
 
 ## Function syntax checks
 - procore-auth-callback.js: PASS
