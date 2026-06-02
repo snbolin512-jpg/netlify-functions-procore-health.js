@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PM Jarvis V0.11 — Procore Integration</title>
+  <link rel="stylesheet" href="airspace.css?v=011-frontend"/>
+</head>
+<body>
+  <aside class="rail">
+    <div class="identity"><div class="mark">J</div><div><h1>PM Jarvis</h1><p>V0.11 Procore Integration</p></div></div>
+    <div class="commandButtons">
+      <button id="btnHealth" class="primaryAction">Check Procore Health</button>
+      <button id="btnMockDrawing">Mock Drawing REV</button>
+      <button id="btnMockSchedule">Mock Schedule Update</button>
+      <button id="btnClear">Clear Inbox</button>
+    </div>
+    <nav class="navList">
+      <button class="nav active" data-view="cockpit">Cockpit</button>
+      <button class="nav" data-view="procore">Procore Integration</button>
+      <button class="nav" data-view="triage">Packet Triage</button>
+      <button class="nav" data-view="raw">Raw Event Inbox</button>
+      <button class="nav" data-view="normalized">Normalized Output</button>
+    </nav>
+  </aside>
+
+  <main class="workspace">
+    <header class="heroHeader">
+      <div>
+        <div class="eyebrow">Executive command center</div>
+        <h2 id="viewTitle">Cockpit</h2>
+        <p id="viewSubtitle">Frontend restored and wired to live Netlify Functions for Procore mock events, health checks, normalization, and packet generation.</p>
+      </div>
+      <div id="status" class="statusPill">Backend: not checked</div>
+    </header>
+
+    <section id="cockpit" class="view active">
+      <div class="northStar">
+        <div class="northCopy"><span class="eyebrow">Start here</span><h3>Procore → Jarvis Loop</h3><p>Confirm the backend is alive, simulate an incoming Procore drawing or schedule event, then watch Jarvis normalize it into a PM packet.</p></div>
+        <div class="focusCards" id="focusCards"></div>
+      </div>
+      <div class="kpiStrip">
+        <div class="kpi"><span>Raw Events</span><strong id="mRaw">0</strong></div>
+        <div class="kpi"><span>Normalized</span><strong id="mNorm">0</strong></div>
+        <div class="kpi heat"><span>Open Packets</span><strong id="mPackets">0</strong></div>
+        <div class="kpi money"><span>Drawing REVs</span><strong id="mDrawings">0</strong></div>
+        <div class="kpi"><span>Schedule Events</span><strong id="mSchedules">0</strong></div>
+      </div>
+      <div class="dashboardGrid">
+        <div class="glassCard wide"><div class="cardTitle"><h3>Backend Health</h3><span>live function</span></div><pre id="healthOutput" class="codeBox">Click “Check Procore Health”.</pre></div>
+        <div class="glassCard"><div class="cardTitle"><h3>Next Action</h3><span>operator</span></div><div id="nextAction" class="briefing">Run the health check, then simulate a Drawing REV.</div></div>
+        <div class="glassCard"><div class="cardTitle"><h3>Integration State</h3><span>local</span></div><div id="integrationState" class="briefing">No events processed yet.</div></div>
+      </div>
+    </section>
+
+    <section id="procore" class="view">
+      <div class="glassCard pageCard">
+        <div class="cardTitle"><h3>Procore Integration</h3><span>live endpoints</span></div>
+        <p class="hint">These buttons call the Netlify Functions you just deployed. No Procore secret is stored in this frontend.</p>
+        <div class="procoreGrid">
+          <div class="integrationCard"><h4>Connection Health</h4><p>Calls <code>/.netlify/functions/procore-health</code>.</p><button id="btnHealth2" class="actionBtn">Check Health</button></div>
+          <div class="integrationCard"><h4>Mock Drawing REV</h4><p>Converts a Procore-shaped drawing payload into a Jarvis packet.</p><button id="btnMockDrawing2" class="actionBtn">Run Drawing REV</button></div>
+          <div class="integrationCard"><h4>Mock Schedule Update</h4><p>Simulates a Procore schedule update and generates a schedule packet.</p><button id="btnMockSchedule2" class="actionBtn">Run Schedule Update</button></div>
+        </div>
+        <div class="endpointList" id="endpointList"></div>
+      </div>
+    </section>
+
+    <section id="triage" class="view"><div class="glassCard pageCard"><div class="cardTitle"><h3>Packet Triage</h3><span>Jarvis packets</span></div><div id="packetList" class="stack"></div></div></section>
+    <section id="raw" class="view"><div class="glassCard pageCard"><div class="cardTitle"><h3>Raw Event Inbox</h3><span>audit first</span></div><div id="rawList" class="stack"></div></div></section>
+    <section id="normalized" class="view"><div class="glassCard pageCard"><div class="cardTitle"><h3>Normalized Output</h3><span>packet-ready</span></div><div id="normalizedList" class="stack"></div></div></section>
+  </main>
+
+  <aside id="drawer" class="drawer"><button id="drawerClose" class="drawerClose">×</button><div class="eyebrow">Drilldown</div><h3 id="drawerTitle">Select an item</h3><div id="drawerBody"></div></aside>
+  <div id="backdrop" class="backdrop"></div>
+  <script src="app.js?v=011-frontend"></script>
+</body>
+</html>
