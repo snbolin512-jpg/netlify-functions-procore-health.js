@@ -1,78 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PM Jarvis V0.11 — Procore Integration</title>
-  <link rel="stylesheet" href="airspace.css?v=011-frontend"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PM Jarvis V0.11.1 — Inline Hotfix</title>
+<style>
+:root{--bg:#f4f7fb;--ink:#162235;--muted:#68758a;--line:#e3e9f2;--blue:#2563eb;--green:#0f9f6e;--amber:#d97706;--red:#e11d48;--shadow:0 18px 55px rgba(23,39,67,.10);--shadow2:0 8px 24px rgba(23,39,67,.08)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top right,rgba(37,99,235,.10),transparent 32%),linear-gradient(180deg,#f7faff,#eef3f9);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;min-height:100vh}
+.rail{width:292px;position:fixed;inset:18px auto 18px 18px;border-radius:28px;background:rgba(255,255,255,.88);backdrop-filter:blur(22px);border:1px solid #fff;box-shadow:var(--shadow);padding:18px;display:flex;flex-direction:column;gap:18px;overflow:auto}
+.identity{display:flex;gap:12px;align-items:center;padding:6px 4px 14px;border-bottom:1px solid var(--line)}.mark{width:44px;height:44px;border-radius:16px;background:linear-gradient(135deg,#2563eb,#06b6d4);color:white;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px}.identity h1{margin:0;font-size:20px}.identity p{margin:3px 0 0;color:var(--muted);font-size:12px}
+.commandButtons,.navList,.stack{display:grid;gap:8px}.commandButtons button,.nav,.actionBtn{border:1px solid transparent;border-radius:16px;padding:11px 13px;background:#f6f8fb;color:#344154;font-weight:800;cursor:pointer}.commandButtons button:hover,.nav:hover,.actionBtn:hover{background:#eef5ff;border-color:#d7e6fb}.primaryAction{background:linear-gradient(135deg,#2563eb,#06b6d4)!important;color:white!important}.nav{text-align:left;background:transparent}.nav.active{background:#eaf2ff;color:#1d4ed8;border-color:#cfe0ff}
+.workspace{margin-left:328px;width:calc(100% - 328px);padding:42px 52px 56px}.heroHeader{display:flex;justify-content:space-between;align-items:flex-start;gap:28px;margin-bottom:30px}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:900;color:#6b7b92;margin-bottom:8px}.heroHeader h2{margin:0;font-size:44px;line-height:1;letter-spacing:-.065em}.heroHeader p{margin:10px 0 0;color:var(--muted);font-size:16px;line-height:1.55;max-width:880px}.statusPill{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow2);border-radius:999px;padding:12px 16px;color:#0f766e;font-weight:900;white-space:nowrap}
+.view{display:none}.view.active{display:block}.northStar{display:grid;grid-template-columns:330px 1fr;gap:24px;margin-bottom:24px;align-items:stretch}.northCopy{background:linear-gradient(135deg,#172033,#1f3b70);color:white;border-radius:30px;padding:30px;box-shadow:var(--shadow);min-height:260px}.northCopy .eyebrow{color:#a7d8ff}.northCopy h3{font-size:32px;margin:0 0 12px}.northCopy p{line-height:1.6;color:#d5e7ff;margin:0}.focusCards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.kpiStrip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-bottom:24px}.kpi,.glassCard,.record{background:rgba(255,255,255,.94);border:1px solid #fff;border-radius:28px;box-shadow:var(--shadow2)}.kpi{padding:20px 22px;min-height:118px}.kpi span{display:block;color:var(--muted);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.kpi strong{display:block;margin-top:14px;font-size:36px;letter-spacing:-.07em;color:#162235}.kpi.heat strong{color:var(--amber)}.kpi.money strong{color:var(--green)}
+.dashboardGrid,.procoreGrid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:18px;margin-bottom:24px}.glassCard{padding:24px}.pageCard{min-height:560px}.cardTitle{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px}.cardTitle h3{margin:0;font-size:21px}.cardTitle span,.badge{border-radius:999px;background:#f1f5f9;color:#64748b;padding:7px 10px;font-size:12px;font-weight:900}
+.record{padding:18px;border-radius:22px;box-shadow:none;border-color:#edf2f7;cursor:pointer}.record:hover{border-color:#cfe0ff;background:#fbfdff}.recordTop{display:flex;justify-content:space-between;gap:16px}.record h4{margin:0 0 6px;font-size:16px}.record p{margin:0;color:var(--muted);line-height:1.5}.badges{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.badge.high{color:#c2410c;background:#fff7ed}.badge.low{color:#047857;background:#ecfdf5}.badge.mod{color:#a16207;background:#fefce8}.empty{border:1px dashed #d8e1ed;border-radius:22px;padding:24px;color:var(--muted);background:#fbfdff}.briefing,.hint{background:#f8fafc;border-left:4px solid #38bdf8;border-radius:18px;padding:16px;color:var(--muted);line-height:1.62}.codeBox{white-space:pre-wrap;background:#0f172a;color:#dbeafe;border-radius:18px;padding:16px;min-height:160px;overflow:auto}.endpoint{background:#f8fafc;border:1px solid #e5edf6;border-radius:14px;padding:10px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#334155;overflow:auto}.endpointList{display:grid;gap:8px}.integrationCard{background:#f8fafc;border:1px solid #e5edf6;border-radius:24px;padding:20px}.integrationCard h4{margin:0 0 8px}.integrationCard p{margin:0 0 14px;color:var(--muted);line-height:1.5}
+.drawer{position:fixed;top:18px;right:18px;width:min(520px,calc(100vw - 36px));height:calc(100vh - 36px);background:white;border-radius:28px;box-shadow:0 30px 90px rgba(23,39,67,.24);z-index:50;padding:24px;transform:translateX(calc(100% + 44px));transition:.2s ease;overflow:auto}.drawer.open{transform:translateX(0)}.drawerClose{float:right;border:none;background:#f1f5f9;border-radius:50%;width:38px;height:38px;font-size:24px;cursor:pointer}.backdrop{display:none;position:fixed;inset:0;background:rgba(15,23,42,.18);z-index:45}.backdrop.open{display:block}
+@media(max-width:1450px){.northStar,.dashboardGrid,.procoreGrid{grid-template-columns:1fr}.focusCards{grid-template-columns:1fr}.kpiStrip{grid-template-columns:repeat(3,1fr)}}@media(max-width:900px){.rail{position:relative;width:auto;inset:auto;margin:14px}.workspace{margin-left:0;width:100%;padding:24px 16px}.heroHeader{display:block}.kpiStrip{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-  <aside class="rail">
-    <div class="identity"><div class="mark">J</div><div><h1>PM Jarvis</h1><p>V0.11 Procore Integration</p></div></div>
-    <div class="commandButtons">
-      <button id="btnHealth" class="primaryAction">Check Procore Health</button>
-      <button id="btnMockDrawing">Mock Drawing REV</button>
-      <button id="btnMockSchedule">Mock Schedule Update</button>
-      <button id="btnClear">Clear Inbox</button>
-    </div>
-    <nav class="navList">
-      <button class="nav active" data-view="cockpit">Cockpit</button>
-      <button class="nav" data-view="procore">Procore Integration</button>
-      <button class="nav" data-view="triage">Packet Triage</button>
-      <button class="nav" data-view="raw">Raw Event Inbox</button>
-      <button class="nav" data-view="normalized">Normalized Output</button>
-    </nav>
-  </aside>
-
-  <main class="workspace">
-    <header class="heroHeader">
-      <div>
-        <div class="eyebrow">Executive command center</div>
-        <h2 id="viewTitle">Cockpit</h2>
-        <p id="viewSubtitle">Frontend restored and wired to live Netlify Functions for Procore mock events, health checks, normalization, and packet generation.</p>
-      </div>
-      <div id="status" class="statusPill">Backend: not checked</div>
-    </header>
-
-    <section id="cockpit" class="view active">
-      <div class="northStar">
-        <div class="northCopy"><span class="eyebrow">Start here</span><h3>Procore → Jarvis Loop</h3><p>Confirm the backend is alive, simulate an incoming Procore drawing or schedule event, then watch Jarvis normalize it into a PM packet.</p></div>
-        <div class="focusCards" id="focusCards"></div>
-      </div>
-      <div class="kpiStrip">
-        <div class="kpi"><span>Raw Events</span><strong id="mRaw">0</strong></div>
-        <div class="kpi"><span>Normalized</span><strong id="mNorm">0</strong></div>
-        <div class="kpi heat"><span>Open Packets</span><strong id="mPackets">0</strong></div>
-        <div class="kpi money"><span>Drawing REVs</span><strong id="mDrawings">0</strong></div>
-        <div class="kpi"><span>Schedule Events</span><strong id="mSchedules">0</strong></div>
-      </div>
-      <div class="dashboardGrid">
-        <div class="glassCard wide"><div class="cardTitle"><h3>Backend Health</h3><span>live function</span></div><pre id="healthOutput" class="codeBox">Click “Check Procore Health”.</pre></div>
-        <div class="glassCard"><div class="cardTitle"><h3>Next Action</h3><span>operator</span></div><div id="nextAction" class="briefing">Run the health check, then simulate a Drawing REV.</div></div>
-        <div class="glassCard"><div class="cardTitle"><h3>Integration State</h3><span>local</span></div><div id="integrationState" class="briefing">No events processed yet.</div></div>
-      </div>
-    </section>
-
-    <section id="procore" class="view">
-      <div class="glassCard pageCard">
-        <div class="cardTitle"><h3>Procore Integration</h3><span>live endpoints</span></div>
-        <p class="hint">These buttons call the Netlify Functions you just deployed. No Procore secret is stored in this frontend.</p>
-        <div class="procoreGrid">
-          <div class="integrationCard"><h4>Connection Health</h4><p>Calls <code>/.netlify/functions/procore-health</code>.</p><button id="btnHealth2" class="actionBtn">Check Health</button></div>
-          <div class="integrationCard"><h4>Mock Drawing REV</h4><p>Converts a Procore-shaped drawing payload into a Jarvis packet.</p><button id="btnMockDrawing2" class="actionBtn">Run Drawing REV</button></div>
-          <div class="integrationCard"><h4>Mock Schedule Update</h4><p>Simulates a Procore schedule update and generates a schedule packet.</p><button id="btnMockSchedule2" class="actionBtn">Run Schedule Update</button></div>
-        </div>
-        <div class="endpointList" id="endpointList"></div>
-      </div>
-    </section>
-
-    <section id="triage" class="view"><div class="glassCard pageCard"><div class="cardTitle"><h3>Packet Triage</h3><span>Jarvis packets</span></div><div id="packetList" class="stack"></div></div></section>
-    <section id="raw" class="view"><div class="glassCard pageCard"><div class="cardTitle"><h3>Raw Event Inbox</h3><span>audit first</span></div><div id="rawList" class="stack"></div></div></section>
-    <section id="normalized" class="view"><div class="glassCard pageCard"><div class="cardTitle"><h3>Normalized Output</h3><span>packet-ready</span></div><div id="normalizedList" class="stack"></div></div></section>
-  </main>
-
-  <aside id="drawer" class="drawer"><button id="drawerClose" class="drawerClose">×</button><div class="eyebrow">Drilldown</div><h3 id="drawerTitle">Select an item</h3><div id="drawerBody"></div></aside>
-  <div id="backdrop" class="backdrop"></div>
-  <script src="app.js?v=011-frontend"></script>
+<aside class="rail">
+  <div class="identity"><div class="mark">J</div><div><h1>PM Jarvis</h1><p>V0.11.1 Inline Hotfix</p></div></div>
+  <div class="commandButtons">
+    <button id="btnHealth" class="primaryAction" type="button">Check Procore Health</button>
+    <button id="btnMockDrawing" type="button">Mock Drawing REV</button>
+    <button id="btnMockSchedule" type="button">Mock Schedule Update</button>
+    <button id="btnClear" type="button">Clear Inbox</button>
+  </div>
+  <nav class="navList">
+    <button class="nav active" data-view="cockpit" type="button">Cockpit</button>
+    <button class="nav" data-view="procore" type="button">Procore Integration</button>
+    <button class="nav" data-view="triage" type="button">Packet Triage</button>
+    <button class="nav" data-view="raw" type="button">Raw Event Inbox</button>
+    <button class="nav" data-view="normalized" type="button">Normalized Output</button>
+  </nav>
+</aside>
+<main class="workspace">
+  <header class="heroHeader"><div><div class="eyebrow">Executive command center</div><h2 id="viewTitle">Cockpit</h2><p>Frontend hotfix with inline JavaScript, so buttons are no longer dependent on external app.js loading or browser cache.</p></div><div id="status" class="statusPill">JS: loaded</div></header>
+  <section id="cockpit" class="view active">
+    <div class="northStar"><div class="northCopy"><span class="eyebrow">Start here</span><h3>Procore → Jarvis Loop</h3><p>Check backend health, simulate a Procore drawing or schedule event, and let Jarvis create a PM packet.</p></div><div class="focusCards" id="focusCards"></div></div>
+    <div class="kpiStrip"><div class="kpi"><span>Raw Events</span><strong id="mRaw">0</strong></div><div class="kpi"><span>Normalized</span><strong id="mNorm">0</strong></div><div class="kpi heat"><span>Open Packets</span><strong id="mPackets">0</strong></div><div class="kpi money"><span>Drawing REVs</span><strong id="mDrawings">0</strong></div><div class="kpi"><span>Schedule Events</span><strong id="mSchedules">0</strong></div></div>
+    <div class="dashboardGrid"><div class="glassCard"><div class="cardTitle"><h3>Backend Health</h3><span>live function</span></div><pre id="healthOutput" class="codeBox">Click “Check Procore Health”.</pre></div><div class="glassCard"><div class="cardTitle"><h3>Next Action</h3><span>operator</span></div><div id="nextAction" class="briefing">Run the health check, then simulate a Drawing REV.</div></div><div class="glassCard"><div class="cardTitle"><h3>Integration State</h3><span>local</span></div><div id="integrationState" class="briefing">No events processed yet.</div></div></div>
+  </section>
+  <section id="procore" class="view"><div class="glassCard pageCard"><div class="cardTitle"><h3>Procore Integration</h3><span>live endpoints</span></div><p class="hint">These buttons call the Netlify Functions you deployed. No Procore secret is stored in this frontend.</p><div class="procoreGrid"><div class="integrationCard"><h4>Connection Health</h4><p>Calls the live health function.</p><button id="btnHealth2" class="actionBtn" type="button">Check Health</button></div><div class="integrationCard"><h4>Mock Drawing REV</h4><p>Converts a Procore-style drawing payload into a packet.</p><button id="btnMockDrawing2" class="actionBtn" type="button">Run Drawing REV</button></div><div class="integrationCard"><h4>Mock Schedule Update</h4><p>Generates a schedule update packet.</p><button id="btnMockSchedule2" class="actionBtn" type="button">Run Schedule Update</button></div></div><div class="endpointList" id="endpointList"></div></div></section>
+  <section id="triage" class="view"><div class="glassCard pageCard"><div class="cardTitle"><h3>Packet Triage</h3><span>Jarvis packets</span></div><div id="packetList" class="stack"></div></div></section>
+  <section id="raw" class="view"><div class="glassCard pageCard"><div class="cardTitle"><h3>Raw Event Inbox</h3><span>audit first</span></div><div id="rawList" class="stack"></div></div></section>
+  <section id="normalized" class="view"><div class="glassCard pageCard"><div class="cardTitle"><h3>Normalized Output</h3><span>packet-ready</span></div><div id="normalizedList" class="stack"></div></div></section>
+</main>
+<aside id="drawer" class="drawer"><button id="drawerClose" class="drawerClose" type="button">×</button><div class="eyebrow">Drilldown</div><h3 id="drawerTitle">Select an item</h3><div id="drawerBody"></div></aside><div id="backdrop" class="backdrop"></div>
+<script>
+(function(){
+const KEY='jarvis_v0111_inline_state';
+let state=load();
+const $=id=>document.getElementById(id);
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{rawEvents:[],normalized:[],packets:[],health:null}}catch{return{rawEvents:[],normalized:[],packets:[],health:null}}}
+function save(){localStorage.setItem(KEY,JSON.stringify(state))}
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function status(t){$('status').textContent=t}
+function rec(title,body,badges,payload){const enc=encodeURIComponent(JSON.stringify(payload||{title,body,badges}));return `<div class="record" data-payload="${enc}"><div class="recordTop"><div><h4>${esc(title)}</h4><p>${esc(body)}</p></div><div class="badges">${(badges||[]).map(b=>`<span class="badge ${esc(b.cls||'')}">${esc(b.text)}</span>`).join('')}</div></div></div>`}
+function normalize(raw){const obj=raw.object||{};const t=raw.eventType||'unknown';const detectedAt=raw.detectedAt||new Date().toISOString();if(t.includes('drawing'))return{id:`NORM-${state.normalized.length+1}`,source:'procore',eventType:'drawing_revision_detected',detectedAt,packet:{id:`PKT-${state.packets.length+1}`,type:'REV',title:`Procore Drawing REV: ${obj.drawingNumber||'Unknown'} — ${obj.title||'Drawing Revision'}`,summary:`${obj.revision||'REV'} detected from Procore. Review for scope, procurement, schedule, and CO exposure.`,score:82,detectedAt,recommendedBranches:['RFI','CO Candidate','Risk / Constraint','Coordination']}};if(t.includes('schedule'))return{id:`NORM-${state.normalized.length+1}`,source:'procore',eventType:'schedule_update_detected',detectedAt,packet:{id:`PKT-${state.packets.length+1}`,type:'SCH',title:`Procore Schedule Update: ${obj.name||obj.id||'Schedule File'}`,summary:obj.change||'Schedule update requires baseline comparison.',score:78,detectedAt,recommendedBranches:['Risk / Constraint','Coordination','Manpower Review']}};return{id:`NORM-${state.normalized.length+1}`,source:'procore',eventType:'unknown',detectedAt,packet:null}}
+async function checkHealth(){status('Checking backend...');try{const r=await fetch('/.netlify/functions/procore-health',{cache:'no-store'});const data=await r.json();state.health=data;save();status(data.ok?'Backend: live':'Backend: issue');render()}catch(e){state.health={ok:false,error:e.message};save();status('Backend: error');render()}}
+async function mock(kind){status(`Loading ${kind} event...`);try{const url=kind==='schedule'?'/.netlify/functions/procore-mock-event?kind=schedule':'/.netlify/functions/procore-mock-event';const r=await fetch(url,{cache:'no-store'});const raw=await r.json();const norm=normalize(raw);state.rawEvents.unshift({id:`RAW-${state.rawEvents.length+1}`,receivedAt:new Date().toLocaleString(),raw});state.normalized.unshift(norm);if(norm.packet)state.packets.unshift(norm.packet);save();status('Event processed');render()}catch(e){status('Mock failed');alert(e.message)}}
+function clearAll(){state={rawEvents:[],normalized:[],packets:[],health:null};save();render();status('Cleared')}
+function metrics(){$('mRaw').textContent=state.rawEvents.length;$('mNorm').textContent=state.normalized.length;$('mPackets').textContent=state.packets.length;$('mDrawings').textContent=state.rawEvents.filter(e=>(e.raw.eventType||'').includes('drawing')).length;$('mSchedules').textContent=state.rawEvents.filter(e=>(e.raw.eventType||'').includes('schedule')).length}
+function render(){metrics();$('healthOutput').textContent=state.health?JSON.stringify(state.health,null,2):'Click “Check Procore Health”.';$('integrationState').innerHTML=state.health&&state.health.ok?'Backend functions are live.':'Backend has not been checked yet.';$('nextAction').innerHTML=state.packets.length?'Open Packet Triage and drill into the generated packet.':'Run Mock Drawing REV to create the first Procore-driven packet.';$('focusCards').innerHTML=state.packets.slice(0,4).map(p=>rec(p.title,p.summary,[{text:p.type,cls:'mod'},{text:`Score ${p.score}`,cls:'high'}],p)).join('')||'<div class="empty">No open packets yet. Run Mock Drawing REV.</div>';$('packetList').innerHTML=state.packets.map(p=>rec(p.title,`${p.summary} Recommended branches: ${p.recommendedBranches.join(', ')}.`,[{text:p.type,cls:'mod'},{text:`Score ${p.score}`,cls:'high'}],p)).join('')||'<div class="empty">No packets yet.</div>';$('rawList').innerHTML=state.rawEvents.map(e=>rec(`${e.id} — ${e.raw.eventType}`,`Received ${e.receivedAt}. Source: ${e.raw.source}.`,[{text:'Raw',cls:'mod'}],e.raw)).join('')||'<div class="empty">No raw events yet.</div>';$('normalizedList').innerHTML=state.normalized.map(n=>rec(`${n.id} — ${n.eventType}`,n.packet?`${n.packet.title}. Packet generated.`:'No packet generated.',[{text:n.source,cls:'mod'}],n)).join('')||'<div class="empty">No normalized events yet.</div>';$('endpointList').innerHTML=['procore-health','procore-mock-event','procore-mock-event?kind=schedule','procore-webhook','procore-auth-start'].map(x=>`<div class="endpoint">${esc(location.origin+'/.netlify/functions/'+x)}</div>`).join('')}
+function view(v){document.querySelectorAll('.nav').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.view').forEach(s=>s.classList.remove('active'));document.querySelector(`.nav[data-view="${v}"]`)?.classList.add('active');$(v)?.classList.add('active');$('viewTitle').textContent=document.querySelector(`.nav[data-view="${v}"]`)?.textContent||'Cockpit'}
+function open(payload){$('drawerTitle').textContent=payload.title||payload.eventType||payload.id||'Item context';$('drawerBody').innerHTML=`<div class="briefing"><pre style="white-space:pre-wrap">${esc(JSON.stringify(payload,null,2))}</pre></div>`;$('drawer').classList.add('open');$('backdrop').classList.add('open')}
+function close(){$('drawer').classList.remove('open');$('backdrop').classList.remove('open')}
+function bind(){console.log('Jarvis inline JS bound');$('btnHealth').onclick=checkHealth;$('btnHealth2').onclick=checkHealth;$('btnMockDrawing').onclick=()=>mock('drawing');$('btnMockDrawing2').onclick=()=>mock('drawing');$('btnMockSchedule').onclick=()=>mock('schedule');$('btnMockSchedule2').onclick=()=>mock('schedule');$('btnClear').onclick=clearAll;$('drawerClose').onclick=close;$('backdrop').onclick=close;document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>view(b.dataset.view));document.body.addEventListener('click',e=>{const card=e.target.closest('[data-payload]');if(card)open(JSON.parse(decodeURIComponent(card.dataset.payload)))})}
+document.addEventListener('DOMContentLoaded',()=>{bind();render();status('JS: loaded')});
+})();
+</script>
 </body>
 </html>
+# Jarvis Frontend V0.11.1 Inline Hotfix
+
+Replace the ROOT `index.html` in GitHub with this file.
+
+This version puts CSS and JavaScript directly inside index.html so button bindings do not depend on external app.js or browser cache.
+
+You can leave app.js and airspace.css in the repo; this index.html does not need them.
