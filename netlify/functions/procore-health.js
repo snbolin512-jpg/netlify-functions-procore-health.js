@@ -1,15 +1,6 @@
 exports.handler = async function(event, context) {
-  const required = [
-    'PROCORE_CLIENT_ID',
-    'PROCORE_CLIENT_SECRET',
-    'PROCORE_REDIRECT_URI',
-    'PROCORE_WEBHOOK_URL'
-  ];
-
-  const env = Object.fromEntries(
-    required.map(k => [k, Boolean(process.env[k])])
-  );
-
+  const required = ['PROCORE_CLIENT_ID','PROCORE_CLIENT_SECRET','PROCORE_REDIRECT_URI','PROCORE_WEBHOOK_URL'];
+  const env = Object.fromEntries(required.map(k => [k, Boolean(process.env[k])]));
   return {
     statusCode: 200,
     headers: { 'Content-Type': 'application/json' },
