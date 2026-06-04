@@ -1,6 +1,6 @@
 {
-  "name": "omegaboy-v0161-aesthetic-refresh",
-  "version": "0.16.1",
+  "name": "omegaboy-v0162-jackson-mascot-fix",
+  "version": "0.16.2",
   "private": true,
-  "description": "\u03a9boy V0.16.1 aesthetic refresh carrying over manual compare backup, weighted scoring, guide mode, Procore integration, CO/RFI logs, schedule and manpower tools."
+  "description": "\u03a9boy V0.16.2 fixes the mascot asset so Jackson is used throughout the UI while retaining V0.16 functionality."
 }

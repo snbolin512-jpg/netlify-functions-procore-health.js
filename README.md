@@ -1,27 +1,26 @@
-# Ωboy V0.16.1 — Aesthetic Refresh
+# Ωboy V0.16.2 — Jackson Mascot Fix
 
-This build updates V0.16 to match the warmer, cleaner, more premium Ωboy UI aesthetic while preserving all V0.16 functionality.
+This build corrects the mascot issue.
 
-Carried forward:
+Fixed:
+- Replaced the existing/generic mascot asset with Jackson.
+- `assets/omegaboy-mascot.png` is now the Jackson mascot image.
+- Added cache-busted references so Netlify/browser cache should not keep showing the older mascot.
+- Added `assets/jackson-ohmboy-source.png` for traceability.
+
+Carried over:
 - Manual Compare Backup
-- Previous/current Drawing REV upload compare
-- Previous/current Schedule upload compare
+- Drawing REV compare
+- Schedule compare
 - Raw Events
 - Normalized Output
 - Packet Triage
-- Weighted Scoring Model
+- Weighted Scoring
 - Ωboy Guide Mode
-- Change Order Log
+- CO Log
 - RFI Log
 - Schedule Command
 - Manpower Loading
 - Graph View
 - Audit Log
-- Procore Integration and Netlify Functions
-
-Visual updates:
-- Warm brown/cream premium dashboard palette
-- Updated Jackson/Ωboy mascot asset
-- Mascot-forward sidebar, cockpit, and guide treatment
-- Cleaner card hierarchy, rounded cards, softer shadows
-- Warm accent colors for priority, status, and action buttons
+- Procore Integration / Netlify Functions
