@@ -1,4 +1,4 @@
-# Deploy Notes — Ωboy V0.14 Guide Mode
+# Deploy Notes — Ωboy V0.16.1 Aesthetic Refresh
 
 Upload/replace these at GitHub repo root:
 - index.html
@@ -10,12 +10,9 @@ Upload/replace these at GitHub repo root:
 - netlify/
 - assets/
 
-Test sequence:
-1. Confirm Ωboy appears in sidebar/cockpit.
-2. Click Simulate PM Day.
-3. Click Ωboy Focus Priority.
-4. Click Packet Triage.
-5. Click Ωboy Focus Priority again.
-6. Open CO Candidate and RFI branches.
-7. Confirm Change Order Log and RFI Log populate.
-8. Test Hide Ωboy and Ωboy Guide toggle.
+Important:
+- This is an aesthetic refresh of V0.16.
+- All V0.16 functionality is intended to carry over.
+- The latest mascot image is stored at assets/omegaboy-mascot.png.
+
+Test the Manual Compare Backup, Procore Health, Packet Triage, Scoring Model, CO/RFI logs, Schedule Command, Manpower Loading, Graph View, Audit Log, and Ωboy Guide Mode after deploy.

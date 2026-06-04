@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Ωboy V0.14 — Guide Mode</title>
+<title>Ωboy V0.16.1.1 — Aesthetic Refresh</title>
 <style>
 :root{
 --bg:#f5f8fc;--ink:#102033;--muted:#66758d;--line:#e3ebf5;--card:#fff;--soft:#f7f9fd;
@@ -188,7 +188,7 @@ canvas{width:100%;background:#f8fafc;border:1px solid #e5edf6;border-radius:22px
 }
 
 
-/* V0.14 Ωboy Guide Mode */
+/* V0.16.1 Ωboy Guide Mode */
 .guideDog{
   position:fixed;
   left:calc(100vw - 190px);
@@ -270,13 +270,99 @@ canvas{width:100%;background:#f8fafc;border:1px solid #e5edf6;border-radius:22px
   .guideBubble{display:none}
 }
 
+
+/* V0.16.1 weighted scoring model */
+.scoreBreakdown{margin-top:12px;background:#f8fafc;border:1px solid #e5edf6;border-radius:18px;padding:12px}
+.scoreBreakdown h5{margin:0 0 8px;font-size:13px;letter-spacing:-.02em}
+.scoreRow{display:flex;justify-content:space-between;gap:14px;padding:6px 0;border-bottom:1px solid #eaf0f7;color:#64748b;font-size:13px}
+.scoreRow:last-child{border-bottom:none}
+.scoreRow b{color:#162235}
+.scoreTotal{margin-top:8px;padding-top:8px;border-top:2px solid #dbeafe;display:flex;justify-content:space-between;color:#1d4ed8;font-weight:900}
+
+
+/* V0.16.1.1 Aesthetic Refresh Backup */
+.uploadLabel{
+  display:grid;
+  gap:8px;
+  margin:12px 0;
+  color:#64748b;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.fileInput{
+  display:block;
+  width:100%;
+  border:1px solid #dbeafe;
+  background:#fff;
+  color:#334155;
+  border-radius:14px;
+  padding:10px;
+  font-size:13px;
+  text-transform:none;
+  letter-spacing:0;
+  font-weight:700;
+}
+.diffList{
+  display:grid;
+  gap:8px;
+  margin-top:10px;
+}
+.diffItem{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  border:1px solid #e5edf6;
+  border-radius:14px;
+  padding:10px 12px;
+  background:#f8fafc;
+  color:#475569;
+  font-size:13px;
+  line-height:1.4;
+}
+.diffItem b{color:#162235}
+.diffAdded{border-color:#bbf7d0;background:#ecfdf5}
+.diffChanged{border-color:#fde68a;background:#fefce8}
+.diffRemoved{border-color:#fecdd3;background:#fff1f2}
+.diffMeta{border-color:#bfdbfe;background:#eff6ff}
+.fileMetaGrid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin-top:10px;
+}
+.fileMetaBox{
+  background:#f8fafc;
+  border:1px solid #e5edf6;
+  border-radius:16px;
+  padding:12px;
+  color:#64748b;
+  font-size:13px;
+  line-height:1.55;
+}
+.fileMetaBox b{color:#162235}
+
 @media(max-width:1550px){.kpis{grid-template-columns:repeat(3,1fr)}.north,.three,.two,.four{grid-template-columns:1fr}.focusGrid{grid-template-columns:1fr}.buttonRow{grid-template-columns:1fr 1fr}.branchGrid{grid-template-columns:1fr}}
 @media(max-width:900px){.rail{position:relative;inset:auto;width:auto;margin:14px}.workspace{margin-left:0;width:100%;padding:22px 16px}.hero{display:block}.kpis,.buttonRow{grid-template-columns:1fr}}
+
+/* Ωboy V0.16.1 Premium Warm Aesthetic Refresh */
+:root{--bg:#f7f3ee;--ink:#201713;--muted:#74675f;--line:#eadfd5;--card:#fffaf6;--soft:#fbf6f0;--blue:#8b4b25;--cyan:#b8794f;--green:#2f8a57;--amber:#c87418;--red:#b42318;--purple:#7c4d33;--brown:#7a3f1d;--brown2:#4b2a1a;--cream:#fffaf4;--shadow:0 18px 55px rgba(83,48,27,.11);--shadow2:0 10px 26px rgba(83,48,27,.08)}
+body{background:radial-gradient(circle at 82% 10%,rgba(139,75,37,.10),transparent 32%),radial-gradient(circle at 10% 90%,rgba(200,116,24,.08),transparent 30%),linear-gradient(180deg,#fbf8f4,#f1e9df)}
+.rail{background:rgba(255,250,246,.92);border:1px solid rgba(255,255,255,.85);box-shadow:0 22px 70px rgba(83,48,27,.12)}
+.identity{align-items:center;border-bottom:1px solid #eadfd5}.identity h1{color:#4b2a1a;font-size:24px;letter-spacing:-.055em}.identity p{color:#8b7a6e}.identityMascot{width:58px!important;height:58px!important;border-radius:18px!important;object-fit:cover!important;object-position:center 18%;border:2px solid #f3e5d8;background:#fff}.mark{background:linear-gradient(135deg,#8b4b25,#c87418)!important}
+.actionStack button,.nav,.actionBtn{border-radius:17px;background:#fbf6f0;color:#4b3a31}.actionStack button:hover,.nav:hover,.actionBtn:hover{background:#fff2e4;border-color:#e0c6b0}.primary{background:linear-gradient(135deg,#8b4b25,#c87418)!important;color:white!important;box-shadow:0 12px 28px rgba(139,75,37,.22)}.nav.active{background:#f3e5d8;color:#7a3f1d;border-color:#dfc2ab}
+.hero h2{color:#201713}.statusPill{color:#2f8a57;border-color:#eadfd5}.northCard{background:radial-gradient(circle at 84% 34%,rgba(255,255,255,.12),transparent 24%),linear-gradient(135deg,#4b2a1a,#7a3f1d 58%,#9b5a2e);color:#fffaf6;position:relative;overflow:hidden}.northCard:after{content:"";position:absolute;right:-36px;bottom:-50px;width:220px;height:220px;background:url('assets/omegaboy-mascot.png') center 18%/cover no-repeat;opacity:.92;border-radius:36px;filter:drop-shadow(0 18px 22px rgba(0,0,0,.18))}.northCard h3,.northCard p,.northCard .eyebrow{position:relative;z-index:2;max-width:72%}.northCard .eyebrow{color:#f6d7bd}
+.card,.kpi,.record{background:rgba(255,250,246,.95);border:1px solid rgba(255,255,255,.9);box-shadow:var(--shadow2)}.kpi{border-radius:24px}.kpi span{color:#8a786b}.kpi strong{color:#201713}.kpi.heat strong,.heat strong{color:#c87418}.kpi.money strong,.money strong,.good strong{color:#2f8a57}.cardTitle span,.tag,.badge{background:#f3e8dc;color:#7a4a2d}.badge.high{background:#fff2e4;color:#a84d0e}.badge.critical{background:#fff0ee;color:#b42318}.badge.low{background:#eaf7ef;color:#2f8a57}.badge.mod{background:#f7edda;color:#8a5a14}.badge.blue,.scoreChip{background:#f4e2d2;color:#7a3f1d}.codeBox{background:linear-gradient(145deg,#12161f,#1b2330);box-shadow:inset 0 0 0 1px rgba(255,255,255,.04)}.hint,.briefing{background:#fff7ef;border-left-color:#b8794f;color:#6e5f55}
+.packetBubble{background:linear-gradient(180deg,#fffaf6,#fbf3eb);border-color:#ead9c9;box-shadow:0 16px 42px rgba(83,48,27,.09)}.packetBubble .branchShelf{background:#fbf2e8;border-color:#ead9c9}.branchBtn{background:#fffaf6;border-color:#ead9c9;color:#5a3926}.branchBtn:hover{background:#fff0df}.logTableWrap{background:#fffaf6;border-color:#ead9c9}.logTable th{background:#fbf2e8;color:#8a786b;border-bottom-color:#ead9c9}.logTable td{border-bottom-color:#f0e5dc}.statusSelect{background:#fff2e4;color:#7a3f1d;border-color:#e0c6b0}.endpoint,.fileMetaBox,.diffItem{background:#fbf6f0;border-color:#ead9c9}.uploadLabel{color:#7a4a2d}.fileInput{background:#fffaf6;border-color:#ead9c9}
+.graph{background:#fbf2e8;border-color:#ead9c9}.node.packet{background:#8b4b25}.node.branch{background:#b8794f}.node.risk{background:#b42318}.guideDog img{object-fit:cover;object-position:center 18%;background:#fffaf6;border:2px solid #f1dfcf}.guideBubble{background:#4b2a1a}.guideBubble:after{border-color:transparent transparent transparent #4b2a1a}.guideHighlight{outline:3px solid rgba(200,116,24,.70)!important;box-shadow:0 0 0 10px rgba(200,116,24,.12),var(--shadow2)!important}.mascotHero{background:linear-gradient(135deg,#fffaf6,#fbf2e8);border-color:#ead9c9}.mascotHero img{object-fit:cover;object-position:center 18%;border:2px solid #f1dfcf}.drawer{background:#fffaf6}.drawerActions button{background:#fff2e4;border-color:#e0c6b0;color:#7a3f1d}.buttonRow .actionBtn:first-child{background:linear-gradient(135deg,#8b4b25,#c87418);color:white}::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:#d6b79c;border-radius:999px}::-webkit-scrollbar-track{background:#f7eee6}
+.mascotDutyPanel{display:flex;align-items:center;gap:10px;border:1px solid #ead9c9;background:linear-gradient(135deg,#fffaf6,#fbf2e8);border-radius:20px;padding:10px;box-shadow:var(--shadow2)}.mascotDutyPanel img{width:58px;height:58px;object-fit:cover;object-position:center 18%;border-radius:16px;background:#fff;border:1px solid #f1dfcf}.mascotDutyPanel b{display:block;color:#7a3f1d;font-size:13px}.mascotDutyPanel span{display:block;color:#74675f;font-size:11px;line-height:1.35;margin-top:3px}
+
 </style>
 </head>
 <body>
 <aside class="rail">
-  <div class="identity"><img class="identityMascot" src="assets/omegaboy-mascot.png" alt="Ωboy mascot"><div><h1>Ωboy</h1><p>V0.14 Guide Mode</p></div></div>
+  <div class="identity"><img class="identityMascot" src="assets/omegaboy-mascot.png" alt="Ωboy mascot"><div><h1>Ωboy</h1><p>V0.16.1.1 Aesthetic Refresh</p></div></div>
   <div class="actionStack">
     <button id="btnPMDay" class="primary" type="button">Simulate PM Day</button>
     <button id="btnHealth" type="button">Check Procore Health</button>
@@ -289,8 +375,12 @@ canvas{width:100%;background:#f8fafc;border:1px solid #e5edf6;border-radius:22px
     <button id="btnGuideFocus" type="button">Ωboy Focus Priority</button>
     <button id="btnGuideHide" type="button">Hide Ωboy</button>
   </div>
+  
+  <div class="mascotDutyPanel"><img src="assets/omegaboy-mascot.png" alt="Ωboy mascot"><div><b>Ωboy is on duty.</b><span>Watching packets, REVs, RFIs, COs, schedule, and manpower.</span></div></div>
+
   <nav class="navList">
     <button class="nav active" data-view="cockpit" type="button">Executive Cockpit</button>
+    <button class="nav" data-view="scoring" type="button">Scoring Model</button>
     <button class="nav" data-view="daily" type="button">Daily PM Workflow</button>
     <button class="nav" data-view="triage" type="button">Packet Triage</button>
     <button class="nav" data-view="branches" type="button">Branch Control</button>
@@ -299,6 +389,7 @@ canvas{width:100%;background:#f8fafc;border:1px solid #e5edf6;border-radius:22px
     <button class="nav" data-view="schedule" type="button">Schedule Command</button>
     <button class="nav" data-view="manpower" type="button">Manpower Loading</button>
     <button class="nav" data-view="graph" type="button">Graph View</button>
+    <button class="nav" data-view="manualCompare" type="button">Manual Compare Backup</button>
     <button class="nav" data-view="procore" type="button">Procore Integration</button>
     <button class="nav" data-view="raw" type="button">Raw Events</button>
     <button class="nav" data-view="normalized" type="button">Normalized Output</button>
@@ -311,7 +402,7 @@ canvas{width:100%;background:#f8fafc;border:1px solid #e5edf6;border-radius:22px
     <div>
       <div class="eyebrow">Senior PM operating system</div>
       <h2 id="viewTitle">Executive Cockpit</h2>
-      <p id="viewSub">Ωboy command center with Guide Mode, Procore integration, cleaner packet triage bubbles, auto-populating Change Order and RFI logs, dropdown pipeline statuses, schedule variance, manpower loading, graph view, and audit trail.</p>
+      <p id="viewSub">Ωboy command center with manual backup compare, weighted scoring, auto-focus guide mode, Procore integration, cleaner packet triage bubbles, auto-populating Change Order and RFI logs, dropdown pipeline statuses, schedule variance, manpower loading, graph view, and audit trail.</p>
     </div>
     <div id="status" class="statusPill">Ready</div>
   </header>
@@ -345,6 +436,19 @@ canvas{width:100%;background:#f8fafc;border:1px solid #e5edf6;border-radius:22px
     </div>
   </section>
 
+  
+  <section id="scoring" class="view">
+    <div class="card page">
+      <div class="cardTitle"><h3>Weighted Scoring Model</h3><span class="tag">transparent priority logic</span></div>
+      <p class="hint">Ωboy prioritizes packets using a weighted matrix. Each packet now carries a visible score breakdown so the PM can see why it is being escalated.</p>
+      <div class="grid two">
+        <div class="card"><div class="cardTitle"><h3>Severity Base</h3><span class="tag">starting point</span></div><div id="severityModel" class="stack"></div></div>
+        <div class="card"><div class="cardTitle"><h3>Weighted Adders</h3><span class="tag">impact multipliers</span></div><div id="weightModel" class="stack"></div></div>
+      </div>
+      <div class="card" style="margin-top:18px"><div class="cardTitle"><h3>Current Packet Score Breakdown</h3><span class="tag">explainable scores</span></div><div id="scoreBreakdownList" class="stack"></div></div>
+    </div>
+  </section>
+
   <section id="daily" class="view"><div class="card page"><div class="cardTitle"><h3>Daily PM Workflow</h3><span class="tag">move-on rules</span></div><p class="hint">This turns the open packet queue into an operating plan, so you do not get trapped in the weeds.</p><div id="dailyList" class="timeline"></div></div></section>
   <section id="triage" class="view"><div class="card page"><div class="cardTitle"><h3>Packet Triage</h3><span class="tag">living packets</span></div><div id="packetList" class="stack"></div></div></section>
   <section id="branches" class="view"><div class="card page"><div class="cardTitle"><h3>Branch Control</h3><span class="tag">non-mutually-exclusive</span></div><div id="branchList" class="stack"></div></div></section>
@@ -366,6 +470,37 @@ canvas{width:100%;background:#f8fafc;border:1px solid #e5edf6;border-radius:22px
   <section id="schedule" class="view"><div class="card page"><div class="cardTitle"><h3>Schedule Command</h3><span class="tag">baseline vs revised</span></div><div id="scheduleSummary" class="hint"></div><div id="scheduleList" class="stack" style="margin-top:14px"></div></div></section>
   <section id="manpower" class="view"><div class="card page"><div class="cardTitle"><h3>Manpower Loading</h3><span class="tag">click bars</span></div><canvas id="manpowerCanvas" height="360"></canvas><div id="manpowerContext" class="hint" style="margin-top:14px">Load a schedule to generate manpower context.</div><div id="manpowerDrivers" class="stack" style="margin-top:14px"></div></div></section>
   <section id="graph" class="view"><div class="card page"><div class="cardTitle"><h3>Graph View</h3><span class="tag">active packet network</span></div><div id="graphCanvas" class="graph"></div><div id="nodeInfo" class="hint" style="margin-top:14px">Click a node for context.</div></div></section>
+  
+  <section id="manualCompare" class="view">
+    <div class="card page">
+      <div class="cardTitle"><h3>Manual Compare Backup</h3><span class="tag">when hooks fail</span></div>
+      <p class="hint">Use this as a backup if Procore hooks/API pulls are not available. Upload a previous REV and current REV, or a previous schedule and current schedule. Ωboy will compare metadata, parse CSV/JSON when possible, summarize what changed, and create actionable packets.</p>
+
+      <div class="grid two">
+        <div class="card">
+          <div class="cardTitle"><h3>Drawing / Document REV Compare</h3><span class="tag">metadata + content</span></div>
+          <p class="hint">Best for drawing logs, PDFs, exported metadata, transmittals, or text/CSV drawing indexes. PDFs will compare file metadata; CSV/JSON exports can compare row-level drawing metadata.</p>
+          <label class="uploadLabel">Previous REV file<input id="prevRevFile" class="fileInput" type="file"></label>
+          <label class="uploadLabel">Current REV file<input id="currRevFile" class="fileInput" type="file"></label>
+          <div class="buttonRow"><button id="btnCompareRevFiles" class="actionBtn" type="button">Compare Drawing REVs</button></div>
+        </div>
+
+        <div class="card">
+          <div class="cardTitle"><h3>Schedule Upload Compare</h3><span class="tag">baseline vs current</span></div>
+          <p class="hint">Upload CSV/JSON schedule exports. Recommended CSV columns: id, name, start, duration, crew, critical, area. Ωboy will compare activities and rebuild manpower when enough data exists.</p>
+          <label class="uploadLabel">Previous / baseline schedule<input id="prevScheduleFile" class="fileInput" type="file" accept=".csv,.json,.txt"></label>
+          <label class="uploadLabel">Current / revised schedule<input id="currScheduleFile" class="fileInput" type="file" accept=".csv,.json,.txt"></label>
+          <div class="buttonRow"><button id="btnCompareScheduleFiles" class="actionBtn" type="button">Compare Schedule Uploads</button><button id="btnDownloadScheduleTemplate" class="actionBtn" type="button">Download CSV Template</button></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:18px">
+        <div class="cardTitle"><h3>Manual Compare Results</h3><span class="tag">what changed</span></div>
+        <div id="manualCompareResults" class="stack"></div>
+      </div>
+    </div>
+  </section>
+
   <section id="procore" class="view"><div class="card page"><div class="cardTitle"><h3>Procore Integration</h3><span class="tag">live functions</span></div><p class="hint">This uses the Netlify Functions already deployed. Mock events prove the loop before live Procore OAuth and webhooks.</p><div class="grid three"><div class="card"><h3>Health</h3><p class="hint">Checks env vars and backend function availability.</p><button id="btnHealth2" class="actionBtn" type="button">Check Health</button></div><div class="card"><h3>Drawing REV</h3><p class="hint">Creates a packet from a Procore drawing revision event.</p><button id="btnMockDrawing2" class="actionBtn" type="button">Run Drawing REV</button></div><div class="card"><h3>Schedule Event</h3><p class="hint">Creates a schedule update packet.</p><button id="btnMockSchedule2" class="actionBtn" type="button">Run Schedule Update</button></div></div><div id="endpoints" class="stack" style="margin-top:18px"></div></div></section>
   <section id="raw" class="view"><div class="card page"><div class="cardTitle"><h3>Raw Event Inbox</h3><span class="tag">audit first</span></div><div id="rawList" class="stack"></div></div></section>
   <section id="normalized" class="view"><div class="card page"><div class="cardTitle"><h3>Normalized Output</h3><span class="tag">packet-ready</span></div><div id="normalizedList" class="stack"></div></div></section>
@@ -387,7 +522,7 @@ const KEY='jarvis_v013_co_rfi_logs_state';
 let state=loadState();
 let barHit=[];
 const $=id=>document.getElementById(id);
-function empty(){return{counter:0,rawEvents:[],normalized:[],packets:[],branches:[],coLog:[],rfiLog:[],audit:[],baseline:[],schedule:[],scheduleRevs:[],baselineLoad:[],manpowerLoad:[],selectedWeek:null,health:null,guideOn:true,guideHidden:false,guideTarget:null}}
+function empty(){return{counter:0,rawEvents:[],normalized:[],packets:[],branches:[],manualDiffs:[],coLog:[],rfiLog:[],audit:[],baseline:[],schedule:[],scheduleRevs:[],baselineLoad:[],manpowerLoad:[],selectedWeek:null,health:null,guideOn:true,guideHidden:false,guideTarget:null}}
 function loadState(){try{return Object.assign(empty(),JSON.parse(localStorage.getItem(KEY))||{})}catch{return empty()}}
 function save(){localStorage.setItem(KEY,JSON.stringify(state))}
 function now(){return new Date().toLocaleString()}
@@ -395,7 +530,77 @@ function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&l
 function money(n){return '$'+Math.round(n||0).toLocaleString()}
 function status(t){$('status').textContent=t}
 function audit(action,detail){state.audit.unshift({id:'AUD-'+String(state.audit.length+1).padStart(3,'0'),time:now(),action,detail,user:'Demo PM'});save()}
-function scorePacket(base,type){let s=base;if(type==='REV')s+=7;if(type==='SCH')s+=5;return Math.min(100,s)}
+const SCORING_MODEL={
+  severity:{LOW:10,MODERATE:25,HIGH:45,CRITICAL:65},
+  weights:{
+    criticalPath:{label:'Critical path link',value:18},
+    immediateEscalation:{label:'Immediate escalation visibility',value:18},
+    pxAttention:{label:'PX / executive attention',value:10},
+    coCandidate:{label:'CO candidate / cost exposure',value:10},
+    procurement:{label:'Procurement impact',value:8},
+    manpower:{label:'Manpower compression',value:8},
+    rfiNeeded:{label:'RFI / design clarification needed',value:6},
+    ownerImpact:{label:'Owner / client impact',value:6},
+    aging:{label:'Aging / overdue pressure',value:5},
+    category:{label:'Per unique impact category',value:2}
+  }
+};
+function inferScoreInputs(p={}){
+  const text=(String(p.title||'')+' '+String(p.summary||'')+' '+String(p.type||'')).toLowerCase();
+  const branches=p.recommendedBranches||[];
+  const cats=new Set();
+  let severity=(p.severity||'MODERATE').toUpperCase();
+  if(p.type==='REV'||text.includes('rev')||text.includes('drawing')){severity=severity==='CRITICAL'?'CRITICAL':'HIGH';cats.add('Design')}
+  if(p.type==='SCH'||text.includes('schedule')||text.includes('startup')||text.includes('critical')){severity=severity==='CRITICAL'?'CRITICAL':'HIGH';cats.add('Schedule')}
+  if(text.includes('ats')||text.includes('gear')||text.includes('one-line')||text.includes('commissioning'))severity='CRITICAL';
+  if(p.moneyAtRisk||branches.some(b=>String(b).toLowerCase().includes('co'))||text.includes('cost')||text.includes('change order'))cats.add('Cost');
+  if(branches.some(b=>String(b).toLowerCase().includes('rfi'))||text.includes('clarification'))cats.add('Design');
+  if(branches.some(b=>String(b).toLowerCase().includes('risk'))||text.includes('constraint'))cats.add('Risk');
+  if(branches.some(b=>String(b).toLowerCase().includes('procurement'))||text.includes('procurement')||text.includes('lead'))cats.add('Procurement');
+  if(branches.some(b=>String(b).toLowerCase().includes('manpower'))||text.includes('crew')||text.includes('labor')||text.includes('duration'))cats.add('Labor');
+  return {
+    severity,
+    criticalPath:!!(p.criticalPath||p.critical||p.type==='SCH'||text.includes('critical')||text.includes('startup')||text.includes('commissioning')||text.includes('gear')),
+    immediateEscalation:!!(p.immediateEscalation||text.includes('immediate')),
+    pxAttention:!!(p.pxAttention||Number(p.moneyAtRisk||0)>=75000||severity==='CRITICAL'),
+    coCandidate:!!(Number(p.moneyAtRisk||0)>0||branches.some(b=>String(b).toLowerCase().includes('co'))),
+    procurement:!!(p.procurementImpact||branches.some(b=>String(b).toLowerCase().includes('procurement'))||text.includes('procurement')||text.includes('gear')),
+    manpower:!!(p.manpowerImpact||branches.some(b=>String(b).toLowerCase().includes('manpower'))||text.includes('crew')||text.includes('labor')||text.includes('duration')),
+    rfiNeeded:!!(p.rfiNeeded||branches.some(b=>String(b).toLowerCase().includes('rfi'))||text.includes('clarification')||p.type==='REV'),
+    ownerImpact:!!(p.ownerImpact||text.includes('owner')||text.includes('client')),
+    aging:!!(p.aging||p.overdue),
+    categories:[...cats]
+  };
+}
+function calculateWeightedScore(p={}){
+  const inputs=inferScoreInputs(p);
+  const rows=[];
+  let total=SCORING_MODEL.severity[inputs.severity]||25;
+  rows.push({label:`Base ${inputs.severity} severity`,value:total});
+  Object.keys(SCORING_MODEL.weights).forEach(key=>{
+    if(key==='category')return;
+    if(inputs[key]){
+      const w=SCORING_MODEL.weights[key];
+      total+=w.value;
+      rows.push({label:w.label,value:w.value});
+    }
+  });
+  const categoryPoints=(inputs.categories||[]).length*SCORING_MODEL.weights.category.value;
+  if(categoryPoints){
+    total+=categoryPoints;
+    rows.push({label:`Impact categories: ${inputs.categories.join(', ')}`,value:categoryPoints});
+  }
+  const capped=Math.min(100,total);
+  return {score:capped,rawTotal:total,rows,inputs,band:scoreBand(capped)};
+}
+function scoreBand(score){
+  if(score>=90)return 'Immediate action / executive visibility';
+  if(score>=75)return 'PM action required today';
+  if(score>=55)return 'Assign, track, and monitor';
+  if(score>=35)return 'Low-medium priority';
+  return 'Log only';
+}
+function scorePacket(base,type){return calculateWeightedScore({type,score:base}).score;}
 function rec(title,body,badges=[],payload=null,extra=''){const enc=encodeURIComponent(JSON.stringify(payload||{title,body,badges}));return `<div class="record" data-payload="${enc}"><div class="recordTop"><div><h4>${esc(title)}</h4><p>${esc(body)}</p>${extra}</div><div class="badges">${badges.map(b=>`<span class="badge ${esc(b.cls||'')}">${esc(b.text)}</span>`).join('')}</div></div></div>`}
 function sampleSchedule(rev=false){let s=[
 {id:'A100',name:'Underground Rough-In',area:'Site',start:1,duration:2,crew:4,critical:false},
@@ -409,9 +614,51 @@ function buildLoad(sched){let weeks=Array.from({length:16},(_,i)=>({week:i+1,cre
 function detectScheduleRevs(base,rev){let m=Object.fromEntries((base||[]).map(a=>[a.id,a]));let out=[];(rev||[]).forEach(r=>{let b=m[r.id];if(!b){out.push({id:r.id,name:r.name,reason:'new activity added',detectedAt:now()});return}let d=[];if(r.start!==b.start)d.push(`start ${b.start}→${r.start}`);if(r.duration!==b.duration)d.push(`duration ${b.duration}→${r.duration}`);if(r.crew!==b.crew)d.push(`crew ${b.crew}→${r.crew}`);if(d.length)out.push({id:r.id,name:r.name,reason:d.join(', '),detectedAt:now()})});return out}
 function rebuildManpower(){state.baselineLoad=buildLoad(state.baseline);state.manpowerLoad=buildLoad(state.schedule)}
 function loadBaseline(){state.baseline=sampleSchedule(false);state.schedule=sampleSchedule(false);state.scheduleRevs=[];rebuildManpower();audit('Baseline loaded','Baseline project schedule loaded');save();render();status('Baseline loaded')}
-function scheduleRev(){if(!state.baseline.length)state.baseline=sampleSchedule(false);state.schedule=sampleSchedule(TrueFalse(true));state.scheduleRevs=detectScheduleRevs(state.baseline,state.schedule);rebuildManpower();state.scheduleRevs.forEach(r=>createPacket({type:'SCH',title:`Schedule REV: ${r.id} — ${r.name}`,summary:r.reason,score:82,detectedAt:r.detectedAt,source:'schedule'},false));audit('Schedule REV simulated',`${state.scheduleRevs.length} activities changed`);save();render();status('Schedule REV detected')}
+function scheduleRev(){if(!state.baseline.length)state.baseline=sampleSchedule(false);state.schedule=sampleSchedule(TrueFalse(true));state.scheduleRevs=detectScheduleRevs(state.baseline,state.schedule);rebuildManpower();state.scheduleRevs.forEach(r=>createPacket({type:'SCH',title:`Schedule REV: ${r.id} — ${r.name}`,summary:r.reason,severity:'HIGH',criticalPath:true,manpowerImpact:true,score:0,detectedAt:r.detectedAt,source:'schedule'},false));audit('Schedule REV simulated',`${state.scheduleRevs.length} activities changed`);save();render();status('Schedule REV detected')}
 function TrueFalse(v){return v}
-function createPacket(p,doRender=true){state.counter++;let packet={id:p.id||'ΩPKT-'+String(state.counter).padStart(3,'0'),type:p.type||'REV',title:p.title,summary:p.summary,score:p.score||75,detectedAt:p.detectedAt||now(),source:p.source||'manual',status:'NEW',closed:false,moneyAtRisk:p.moneyAtRisk||0,recommendedBranches:p.recommendedBranches||['RFI','CO Candidate','Risk / Constraint','Coordination']};state.packets.unshift(packet);audit('Packet created',packet.title);if(doRender){save();render();guideAfterAction('packet',packet)}return packet}
+function createPacket(p,doRender=true){
+  state.counter++;
+  let seed={
+    id:p.id||'ΩPKT-'+String(state.counter).padStart(3,'0'),
+    type:p.type||'REV',
+    title:p.title,
+    summary:p.summary,
+    detectedAt:p.detectedAt||now(),
+    source:p.source||'manual',
+    status:'NEW',
+    closed:false,
+    moneyAtRisk:p.moneyAtRisk||0,
+    recommendedBranches:p.recommendedBranches||['RFI','CO Candidate','Risk / Constraint','Coordination'],
+    severity:p.severity,
+    criticalPath:p.criticalPath,
+    immediateEscalation:p.immediateEscalation,
+    pxAttention:p.pxAttention,
+    procurementImpact:p.procurementImpact,
+    manpowerImpact:p.manpowerImpact,
+    rfiNeeded:p.rfiNeeded,
+    ownerImpact:p.ownerImpact,
+    aging:p.aging
+  };
+  let calc=calculateWeightedScore(seed);
+  let packet={...seed,score:calc.score,scoreBreakdown:calc.rows,scoreInputs:calc.inputs,scoreBand:calc.band};
+  state.packets.unshift(packet);
+  audit('Packet created',`${packet.title} scored ${packet.score}: ${packet.scoreBand}`);
+  if(doRender){save();render();guideAfterAction('packet',packet)}
+  return packet;
+}
+function recomputeAllScores(){
+  state.packets.forEach(p=>{
+    let calc=calculateWeightedScore(p);
+    p.score=calc.score;
+    p.scoreBreakdown=calc.rows;
+    p.scoreInputs=calc.inputs;
+    p.scoreBand=calc.band;
+  });
+  state.branches.forEach(b=>{
+    let parent=state.packets.find(p=>p.id===b.packetId);
+    if(parent)b.score=parent.score;
+  });
+}
 function branch(packetId,type){
   let p=state.packets.find(x=>x.id===packetId);
   if(!p||p.closed)return;
@@ -486,25 +733,264 @@ function rfiNextAction(status){
     VOID:'No action; RFI path voided.'
   })[status] || 'Confirm next action.';
 }
-function resolveBranch(id){let b=state.branches.find(x=>x.id===id);if(!b)return;b.status='RESOLVED';b.resolved=now();audit('Branch resolved',id);let p=state.packets.find(x=>x.id===b.packetId);if(p){let bs=state.branches.filter(x=>x.packetId===p.id);p.status=bs.every(x=>x.status==='RESOLVED')?'READY TO CLOSE':'ACTIVE'}save();render()}
-function closePacket(id){let p=state.packets.find(x=>x.id===id);if(!p)return;let bs=state.branches.filter(x=>x.packetId===id);if(bs.length&&!bs.every(x=>x.status==='RESOLVED')){alert('Resolve open branches before final close.');return}p.closed=true;p.status='CLOSED';audit('Packet closed',p.title);save();render()}
-function normalizeProcore(raw){let obj=raw.object||{};let type=raw.eventType||'unknown';let detectedAt=raw.detectedAt||now();if(type.includes('drawing'))return{id:'NORM-'+String(state.normalized.length+1).padStart(3,'0'),source:'procore',eventType:'drawing_revision_detected',detectedAt,packet:{type:'REV',title:`Procore Drawing REV: ${obj.drawingNumber||'Unknown'} — ${obj.title||'Drawing Revision'}`,summary:`${obj.revision||'REV'} detected from Procore. Review for scope, procurement, schedule, and CO exposure.`,score:scorePacket(75,'REV'),detectedAt,source:'procore',moneyAtRisk:42000,recommendedBranches:['RFI','CO Candidate','Risk / Constraint','Procurement Check','Schedule Review']}};if(type.includes('schedule'))return{id:'NORM-'+String(state.normalized.length+1).padStart(3,'0'),source:'procore',eventType:'schedule_update_detected',detectedAt,packet:{type:'SCH',title:`Procore Schedule Update: ${obj.name||obj.id||'Schedule File'}`,summary:obj.change||'Schedule update requires baseline comparison.',score:78,detectedAt,source:'procore',recommendedBranches:['Risk / Constraint','Coordination','Manpower Review','CO Candidate']}};return{id:'NORM-'+String(state.normalized.length+1).padStart(3,'0'),source:'procore',eventType:'unknown',detectedAt,packet:null}}
+function resolveBranch(id){let b=state.branches.find(x=>x.id===id);if(!b)return;b.status='RESOLVED';b.resolved=now();audit('Branch resolved',id);let p=state.packets.find(x=>x.id===b.packetId);if(p){let bs=state.branches.filter(x=>x.packetId===p.id);p.status=bs.every(x=>x.status==='RESOLVED')?'READY TO CLOSE':'ACTIVE'}save();render();guideAfterAction('close')}
+function closePacket(id){let p=state.packets.find(x=>x.id===id);if(!p)return;let bs=state.branches.filter(x=>x.packetId===id);if(bs.length&&!bs.every(x=>x.status==='RESOLVED')){alert('Resolve open branches before final close.');return}p.closed=true;p.status='CLOSED';audit('Packet closed',p.title);save();render();guideAfterAction('close')}
+
+function readFileAsText(file){
+  return new Promise(resolve=>{
+    if(!file){resolve('');return}
+    const reader=new FileReader();
+    reader.onload=()=>resolve(String(reader.result||''));
+    reader.onerror=()=>resolve('');
+    reader.readAsText(file);
+  });
+}
+function fileMeta(file){
+  if(!file)return null;
+  return {
+    name:file.name,
+    size:file.size,
+    type:file.type||'unknown',
+    lastModified:file.lastModified,
+    lastModifiedText:new Date(file.lastModified).toLocaleString(),
+    extension:(file.name.split('.').pop()||'').toLowerCase(),
+    revGuess:guessRevision(file.name)
+  };
+}
+function guessRevision(name){
+  const n=String(name||'');
+  const patterns=[
+    /(?:rev|revision|r)[\\s._-]*([a-z0-9]+(?:\\.[a-z0-9]+)?)/i,
+    /(?:addendum|bulletin)[\\s._-]*([a-z0-9]+)/i,
+    /[_\\-\\s]([A-Z]{1,2}\\d{1,3})[_\\-\\s\\.]/i
+  ];
+  for(const p of patterns){
+    const m=n.match(p);
+    if(m)return m[1];
+  }
+  return 'unknown';
+}
+function simpleHash(str){
+  let h=0;
+  for(let i=0;i<str.length;i++){h=((h<<5)-h)+str.charCodeAt(i);h|=0}
+  return String(Math.abs(h));
+}
+function parseCSV(text){
+  const lines=String(text||'').split(/\\r?\\n/).filter(l=>l.trim().length);
+  if(lines.length<2)return [];
+  const split=line=>{
+    const out=[];let cur='',q=false;
+    for(let i=0;i<line.length;i++){
+      const ch=line[i];
+      if(ch==='"'&&line[i+1]==='"'){cur+='"';i++;continue}
+      if(ch==='"'){q=!q;continue}
+      if(ch===','&&!q){out.push(cur.trim());cur='';continue}
+      cur+=ch;
+    }
+    out.push(cur.trim());
+    return out;
+  };
+  const headers=split(lines[0]).map(h=>h.trim());
+  return lines.slice(1).map(line=>{
+    const vals=split(line);let o={};
+    headers.forEach((h,i)=>o[h]=vals[i]??'');
+    return o;
+  });
+}
+function parseRecords(text){
+  const raw=String(text||'').trim();
+  if(!raw)return [];
+  try{
+    const parsed=JSON.parse(raw);
+    if(Array.isArray(parsed))return parsed;
+    if(Array.isArray(parsed.activities))return parsed.activities;
+    if(Array.isArray(parsed.drawings))return parsed.drawings;
+    if(Array.isArray(parsed.items))return parsed.items;
+    if(typeof parsed==='object')return Object.entries(parsed).map(([k,v])=>typeof v==='object'?{id:k,...v}:{id:k,value:v});
+  }catch(e){}
+  if(raw.includes(','))return parseCSV(raw);
+  return [];
+}
+function normalizeKey(row,i){
+  const r=row||{};
+  return String(r.id||r.ID||r.activity_id||r.activityId||r.ActivityID||r.number||r.drawingNumber||r.DrawingNumber||r.name||r.Name||r.title||r.Title||('ROW-'+i)).trim();
+}
+function normalizeScheduleRows(rows){
+  return (rows||[]).map((r,i)=>({
+    id:String(r.id||r.ID||r.activity_id||r.activityId||r.ActivityID||normalizeKey(r,i)),
+    name:String(r.name||r.Name||r.activity||r.Activity||r.title||r.Title||'Schedule Activity'),
+    area:String(r.area||r.Area||r.location||r.Location||'Unassigned'),
+    start:Number(r.start||r.Start||r.startWeek||r.StartWeek||r.week||r.Week||0),
+    duration:Number(r.duration||r.Duration||r.dur||r.Dur||1),
+    crew:Number(r.crew||r.Crew||r.manpower||r.Manpower||0),
+    critical:String(r.critical||r.Critical||'').toLowerCase()==='true'||String(r.critical||r.Critical||'').toLowerCase()==='yes'||String(r.critical||r.Critical||'')==='1'
+  })).filter(r=>r.id&&r.start>=0);
+}
+function compareRecords(prevRows,currRows){
+  const prevMap=new Map((prevRows||[]).map((r,i)=>[normalizeKey(r,i),r]));
+  const currMap=new Map((currRows||[]).map((r,i)=>[normalizeKey(r,i),r]));
+  const diffs=[];
+  currMap.forEach((curr,key)=>{
+    const prev=prevMap.get(key);
+    if(!prev){diffs.push({type:'ADDED',key,summary:`${key} added in current file.`,prev:null,curr});return}
+    const changes=[];
+    const fields=[...new Set([...Object.keys(prev),...Object.keys(curr)])];
+    fields.forEach(f=>{
+      const a=String(prev[f]??'');
+      const b=String(curr[f]??'');
+      if(a!==b)changes.push(`${f}: "${a}" → "${b}"`);
+    });
+    if(changes.length)diffs.push({type:'CHANGED',key,summary:`${key} changed: ${changes.slice(0,5).join('; ')}${changes.length>5?'…':''}`,prev,curr,changes});
+  });
+  prevMap.forEach((prev,key)=>{
+    if(!currMap.has(key))diffs.push({type:'REMOVED',key,summary:`${key} removed from current file.`,prev,curr:null});
+  });
+  return diffs;
+}
+function compareFileMetadata(prevMeta,currMeta,prevText,currText){
+  const diffs=[];
+  if(!prevMeta||!currMeta)return diffs;
+  if(prevMeta.name!==currMeta.name)diffs.push({type:'META',key:'File name',summary:`File name changed: ${prevMeta.name} → ${currMeta.name}`});
+  if(prevMeta.extension!==currMeta.extension)diffs.push({type:'META',key:'File extension',summary:`File type changed: .${prevMeta.extension} → .${currMeta.extension}`});
+  if(prevMeta.size!==currMeta.size)diffs.push({type:'META',key:'File size',summary:`File size changed by ${currMeta.size-prevMeta.size} bytes (${prevMeta.size} → ${currMeta.size}).`});
+  if(prevMeta.revGuess!==currMeta.revGuess)diffs.push({type:'META',key:'Revision guess',summary:`Revision identifier appears to change: ${prevMeta.revGuess} → ${currMeta.revGuess}`});
+  if(prevText||currText){
+    const prevHash=simpleHash(prevText||'');
+    const currHash=simpleHash(currText||'');
+    if(prevHash!==currHash)diffs.push({type:'META',key:'Content hash',summary:`Readable content changed. Hash ${prevHash} → ${currHash}.`});
+  }
+  return diffs;
+}
+function diffClass(type){
+  return type==='ADDED'?'diffAdded':type==='REMOVED'?'diffRemoved':type==='CHANGED'?'diffChanged':'diffMeta';
+}
+function renderMetaBoxes(prevMeta,currMeta){
+  const box=m=>m?`<div class="fileMetaBox"><b>${esc(m.name)}</b><br>Size: ${m.size} bytes<br>Type: ${esc(m.type)}<br>Modified: ${esc(m.lastModifiedText)}<br>Rev guess: ${esc(m.revGuess)}</div>`:'<div class="fileMetaBox">No file selected.</div>';
+  return `<div class="fileMetaGrid">${box(prevMeta)}${box(currMeta)}</div>`;
+}
+function summarizeDiffs(diffs){
+  const added=diffs.filter(d=>d.type==='ADDED').length;
+  const changed=diffs.filter(d=>d.type==='CHANGED').length;
+  const removed=diffs.filter(d=>d.type==='REMOVED').length;
+  const meta=diffs.filter(d=>d.type==='META').length;
+  return `${added} added, ${changed} changed, ${removed} removed, ${meta} metadata/content changes`;
+}
+function manualResultHTML(result){
+  const diffs=result.diffs||[];
+  return rec(result.title,`${summarizeDiffs(diffs)}. Packet created: ${result.packetId||'none'}.`,[{text:result.kind,cls:'blue'},{text:diffs.length+' changes',cls:diffs.length?'high':'low'}],result,
+    renderMetaBoxes(result.prevMeta,result.currMeta)+
+    `<div class="diffList">${diffs.slice(0,12).map(d=>`<div class="diffItem ${diffClass(d.type)}"><span><b>${esc(d.type)}</b> — ${esc(d.summary)}</span><span>${esc(d.key||'')}</span></div>`).join('')}${diffs.length>12?`<div class="diffItem"><b>+ ${diffs.length-12} more changes</b></div>`:''}</div>`
+  );
+}
+function renderManualCompare(){
+  if(!$('manualCompareResults'))return;
+  $('manualCompareResults').innerHTML=(state.manualDiffs||[]).map(manualResultHTML).join('')||'<div class="empty">No manual compares yet. Upload previous/current files and run a compare.</div>';
+}
+async function compareManualRevFiles(){
+  const prevFile=$('prevRevFile').files[0];
+  const currFile=$('currRevFile').files[0];
+  if(!prevFile||!currFile){alert('Select both previous and current REV files.');return}
+  status('Comparing manual drawing REV files...');
+  const prevMeta=fileMeta(prevFile),currMeta=fileMeta(currFile);
+  const prevText=await readFileAsText(prevFile);
+  const currText=await readFileAsText(currFile);
+  const prevRows=parseRecords(prevText);
+  const currRows=parseRecords(currText);
+  let diffs=compareFileMetadata(prevMeta,currMeta,prevText,currText);
+  const rowDiffs=compareRecords(prevRows,currRows);
+  diffs=[...diffs,...rowDiffs];
+  const title=`Manual Drawing REV Compare: ${prevMeta.revGuess} → ${currMeta.revGuess}`;
+  const summary=`Manual upload detected ${summarizeDiffs(diffs)} between ${prevMeta.name} and ${currMeta.name}.`;
+  const raw={source:'manual_upload',eventType:'manual.drawing_rev_compare',detectedAt:new Date().toISOString(),previous:prevMeta,current:currMeta,diffCount:diffs.length};
+  state.rawEvents.unshift({id:'RAW-'+String(state.rawEvents.length+1).padStart(3,'0'),receivedAt:now(),raw});
+  const norm={id:'NORM-'+String(state.normalized.length+1).padStart(3,'0'),source:'manual_upload',eventType:'manual_drawing_rev_diff_detected',detectedAt:now(),packet:{type:'REV',title,summary,severity:diffs.length>3?'HIGH':'MODERATE',rfiNeeded:true,criticalPath:diffs.some(d=>String(d.summary).toLowerCase().includes('gear')||String(d.summary).toLowerCase().includes('one-line')),source:'manual-upload',recommendedBranches:['RFI','CO Candidate','Risk / Constraint','Coordination','Schedule Review']}};
+  state.normalized.unshift(norm);
+  const packet=createPacket(norm.packet,false);
+  const result={id:'MAN-'+String(state.manualDiffs.length+1).padStart(3,'0'),kind:'Drawing REV',title,prevMeta,currMeta,diffs,packetId:packet.id,created:now()};
+  state.manualDiffs.unshift(result);
+  audit('Manual drawing compare',`${title}: ${summarizeDiffs(diffs)}`);
+  save();render();guideAfterAction('packet',packet);status('Manual drawing compare complete');
+}
+async function compareManualScheduleFiles(){
+  const prevFile=$('prevScheduleFile').files[0];
+  const currFile=$('currScheduleFile').files[0];
+  if(!prevFile||!currFile){alert('Select both previous and current schedule files.');return}
+  status('Comparing manual schedule uploads...');
+  const prevMeta=fileMeta(prevFile),currMeta=fileMeta(currFile);
+  const prevText=await readFileAsText(prevFile);
+  const currText=await readFileAsText(currFile);
+  const prevRows=parseRecords(prevText);
+  const currRows=parseRecords(currText);
+  let diffs=compareFileMetadata(prevMeta,currMeta,prevText,currText);
+  const rowDiffs=compareRecords(prevRows,currRows);
+  diffs=[...diffs,...rowDiffs];
+  const prevSched=normalizeScheduleRows(prevRows);
+  const currSched=normalizeScheduleRows(currRows);
+  if(prevSched.length&&currSched.length){
+    state.baseline=prevSched;
+    state.schedule=currSched;
+    state.scheduleRevs=detectScheduleRevs(prevSched,currSched);
+    rebuildManpower();
+  }
+  const title=`Manual Schedule Compare: ${prevMeta.name} → ${currMeta.name}`;
+  const summary=`Manual schedule upload detected ${summarizeDiffs(diffs)}. ${prevSched.length&&currSched.length?'Baseline/revised schedule and manpower loading were rebuilt.':'Schedule rows could not be fully normalized; metadata/content packet created.'}`;
+  const raw={source:'manual_upload',eventType:'manual.schedule_compare',detectedAt:new Date().toISOString(),previous:prevMeta,current:currMeta,diffCount:diffs.length};
+  state.rawEvents.unshift({id:'RAW-'+String(state.rawEvents.length+1).padStart(3,'0'),receivedAt:now(),raw});
+  const norm={id:'NORM-'+String(state.normalized.length+1).padStart(3,'0'),source:'manual_upload',eventType:'manual_schedule_diff_detected',detectedAt:now(),packet:{type:'SCH',title,summary,severity:diffs.length>3?'HIGH':'MODERATE',criticalPath:true,manpowerImpact:true,source:'manual-upload',recommendedBranches:['Risk / Constraint','Coordination','Manpower Review','CO Candidate']}};
+  state.normalized.unshift(norm);
+  const packet=createPacket(norm.packet,false);
+  const result={id:'MAN-'+String(state.manualDiffs.length+1).padStart(3,'0'),kind:'Schedule',title,prevMeta,currMeta,diffs,packetId:packet.id,created:now()};
+  state.manualDiffs.unshift(result);
+  audit('Manual schedule compare',`${title}: ${summarizeDiffs(diffs)}`);
+  save();render();guideAfterAction('packet',packet);status('Manual schedule compare complete');
+}
+function downloadScheduleTemplate(){
+  const csv='id,name,area,start,duration,crew,critical\\nA100,Underground Rough-In,Site,1,2,4,false\\nA200,Electrical Room Rough-In,E-Room,2,3,6,true\\nA300,Corridor C Feeder Pathway,Corridor C,4,3,8,true\\nA400,Gear Set / Terminations,Main Electrical,7,2,7,true\\nA600,Startup / Commissioning,Main Electrical,10,2,5,true\\n';
+  const blob=new Blob([csv],{type:'text/csv'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='omegaboy_schedule_compare_template.csv';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function normalizeProcore(raw){let obj=raw.object||{};let type=raw.eventType||'unknown';let detectedAt=raw.detectedAt||now();if(type.includes('drawing'))return{id:'NORM-'+String(state.normalized.length+1).padStart(3,'0'),source:'procore',eventType:'drawing_revision_detected',detectedAt,packet:{type:'REV',title:`Procore Drawing REV: ${obj.drawingNumber||'Unknown'} — ${obj.title||'Drawing Revision'}`,summary:`${obj.revision||'REV'} detected from Procore. Review for scope, procurement, schedule, and CO exposure.`,severity:'HIGH',criticalPath:true,procurementImpact:true,rfiNeeded:true,score:0,detectedAt,source:'procore',moneyAtRisk:42000,recommendedBranches:['RFI','CO Candidate','Risk / Constraint','Procurement Check','Schedule Review']}};if(type.includes('schedule'))return{id:'NORM-'+String(state.normalized.length+1).padStart(3,'0'),source:'procore',eventType:'schedule_update_detected',detectedAt,packet:{type:'SCH',title:`Procore Schedule Update: ${obj.name||obj.id||'Schedule File'}`,summary:obj.change||'Schedule update requires baseline comparison.',severity:'HIGH',criticalPath:true,manpowerImpact:true,score:0,detectedAt,source:'procore',recommendedBranches:['Risk / Constraint','Coordination','Manpower Review','CO Candidate']}};return{id:'NORM-'+String(state.normalized.length+1).padStart(3,'0'),source:'procore',eventType:'unknown',detectedAt,packet:null}}
 async function health(){status('Checking Procore backend...');try{let r=await fetch('/.netlify/functions/procore-health',{cache:'no-store'});let data=await r.json();state.health=data;audit('Health checked','Procore backend health check ran');save();render();status(data.ok?'Backend live':'Backend issue')}catch(e){state.health={ok:false,error:e.message};save();render();status('Backend error')}}
 async function mock(kind){status(`Loading Procore ${kind} event...`);try{let url=kind==='schedule'?'/.netlify/functions/procore-mock-event?kind=schedule':'/.netlify/functions/procore-mock-event';let r=await fetch(url,{cache:'no-store'});let raw=await r.json();state.rawEvents.unshift({id:'RAW-'+String(state.rawEvents.length+1).padStart(3,'0'),receivedAt:now(),raw});let norm=normalizeProcore(raw);state.normalized.unshift(norm);if(norm.packet)createPacket(norm.packet,false);audit('Procore event ingested',raw.eventType);save();render();status('Procore event processed');guideAfterAction('packet')}catch(e){status('Mock event failed');alert(e.message)}}
-function pmDay(){state=empty();loadBaseline();createPacket({type:'REV',title:'Procore Drawing REV: E6.0 — One-Line / Gear Schedule',summary:'ATS note revised; potential procurement/startup impact.',score:91,source:'procore',moneyAtRisk:85000,recommendedBranches:['RFI','CO Candidate','Risk / Constraint','Procurement Check','Schedule Review']},false);createPacket({type:'REV',title:'Electrical Sheets E2.1 / E4.3',summary:'Branch circuit scope added and feeder routing shifted near Corridor C.',score:83,source:'procore',moneyAtRisk:42000,recommendedBranches:['RFI','CO Candidate','Coordination','Manpower Review']},false);branch(state.packets[0].id,'Risk / Constraint');branch(state.packets[0].id,'CO Candidate');branch(state.packets[1].id,'RFI');state.schedule=sampleSchedule(true);state.scheduleRevs=detectScheduleRevs(state.baseline,state.schedule);rebuildManpower();audit('PM day simulated','Loaded realistic executive PM scenario');save();render();status('PM Day simulated');guideAfterAction('workflow')}
+function pmDay(){state=empty();loadBaseline();createPacket({type:'REV',title:'Procore Drawing REV: E6.0 — One-Line / Gear Schedule',summary:'ATS note revised; potential procurement/startup impact.',severity:'CRITICAL',criticalPath:true,immediateEscalation:true,pxAttention:true,procurementImpact:true,rfiNeeded:true,score:0,source:'procore',moneyAtRisk:85000,recommendedBranches:['RFI','CO Candidate','Risk / Constraint','Procurement Check','Schedule Review']},false);createPacket({type:'REV',title:'Electrical Sheets E2.1 / E4.3',summary:'Branch circuit scope added and feeder routing shifted near Corridor C.',severity:'HIGH',manpowerImpact:true,rfiNeeded:true,score:0,source:'procore',moneyAtRisk:42000,recommendedBranches:['RFI','CO Candidate','Coordination','Manpower Review']},false);branch(state.packets[0].id,'Risk / Constraint');branch(state.packets[0].id,'CO Candidate');branch(state.packets[1].id,'RFI');state.schedule=sampleSchedule(true);state.scheduleRevs=detectScheduleRevs(state.baseline,state.schedule);rebuildManpower();audit('PM day simulated','Loaded realistic executive PM scenario');save();render();status('PM Day simulated');guideAfterAction('workflow')}
 function priorityItems(){let packets=state.packets.filter(p=>!p.closed).map(p=>({kind:'Packet',score:p.score,title:p.title,body:p.summary,payload:p}));let branches=state.branches.filter(b=>b.status!=='RESOLVED'&&state.packets.some(p=>p.id===b.packetId&&!p.closed)).map(b=>({kind:'Branch',score:b.score,title:b.title,body:b.summary,payload:b}));return [...packets,...branches].sort((a,b)=>b.score-a.score)}
 function workflow(){return priorityItems().slice(0,7).map((it,i)=>{let min=it.score>=90?30:it.score>=80?25:it.score>=70?20:15;let action=it.kind==='Packet'?'Confirm branch paths, assign owner, preserve entitlement, and create the next decision path.':'Advance or resolve branch. If blocked, assign owner and move on.';let move=it.score>=85?'Move on after decision path is created, even if final resolution is pending.':'Move on after owner, due date, and next action are captured.';return{order:i+1,min,title:it.title,action,move,score:it.score,payload:it.payload}})}
-function render(){metrics();renderCockpit();renderLists();renderLogs();renderSchedule();renderManpower();renderGraph();renderProcore();renderAudit()}
+function render(){recomputeAllScores();metrics();renderCockpit();renderLists();renderLogs();renderSchedule();renderManpower();renderGraph();renderProcore();renderManualCompare();renderScoringModel();renderAudit()}
 function metrics(){let active=state.packets.filter(p=>!p.closed);$('mPackets').textContent=active.length;$('mHeat').textContent=active.filter(p=>p.score>=80).length;$('mMoney').textContent=money(active.reduce((a,p)=>a+(p.moneyAtRisk||0),0));$('mBranches').textContent=state.branches.filter(b=>b.status!=='RESOLVED').length;$('mPeak').textContent=(state.manpowerLoad||[]).reduce((m,w)=>Math.max(m,w.crew||0),0);$('mRaw').textContent=state.rawEvents.length;$('healthBox').textContent=state.health?JSON.stringify(state.health,null,2):'Not checked yet.'}
-function renderCockpit(){let items=priorityItems();$('focusCards').innerHTML=items.slice(0,4).map(it=>rec(it.title,it.body,[{text:it.kind,cls:'blue'},{text:'Score '+it.score,cls:it.score>=85?'critical':'high'}],it.payload)).join('')||'<div class="empty">No priority items. Run Simulate PM Day or Procore event.</div>';$('priorityList').innerHTML=items.slice(0,8).map((it,i)=>rec(`#${i+1} — ${it.title}`,it.body,[{text:it.kind,cls:'blue'},{text:'Score '+it.score,cls:it.score>=85?'critical':'high'}],it.payload)).join('')||'<div class="empty">No priority items.</div>';let wf=workflow();$('workflowPreview').innerHTML=wf.slice(0,4).map(s=>workflowHTML(s)).join('')||'<div class="empty">No workflow yet.</div>';$('dailyList').innerHTML=wf.map(s=>workflowHTML(s)).join('')||'<div class="empty">No workflow yet.</div>'}
+function renderCockpit(){let items=priorityItems();$('focusCards').innerHTML=items.slice(0,4).map(it=>rec(it.title,it.body,[{text:it.kind,cls:'blue'},{text:'Score '+it.score,cls:scoreBadgeClass(it.score)}],it.payload)).join('')||'<div class="empty">No priority items. Run Simulate PM Day or Procore event.</div>';$('priorityList').innerHTML=items.slice(0,8).map((it,i)=>rec(`#${i+1} — ${it.title}`,it.body,[{text:it.kind,cls:'blue'},{text:'Score '+it.score,cls:scoreBadgeClass(it.score)}],it.payload)).join('')||'<div class="empty">No priority items.</div>';let wf=workflow();$('workflowPreview').innerHTML=wf.slice(0,4).map(s=>workflowHTML(s)).join('')||'<div class="empty">No workflow yet.</div>';$('dailyList').innerHTML=wf.map(s=>workflowHTML(s)).join('')||'<div class="empty">No workflow yet.</div>'}
 function workflowHTML(s){return `<div class="record timebox" data-payload="${encodeURIComponent(JSON.stringify(s.payload))}"><div class="minutes">${s.min}<small>min</small></div><div><h4>${s.order}. ${esc(s.title)}</h4><p><b>Work mode:</b> ${esc(s.action)}</p><p><b>Move-on rule:</b> ${esc(s.move)}</p></div></div>`}
+
+function scoreBadgeClass(score){
+  if(score>=90)return 'critical';
+  if(score>=75)return 'high';
+  if(score>=55)return 'mod';
+  return 'low';
+}
+function scoreBreakdownHTML(p){
+  const rows=p.scoreBreakdown||[];
+  return `<div class="scoreBreakdown"><h5>Why Ωboy scored this ${p.score}/100</h5>${rows.map(r=>`<div class="scoreRow"><span>${esc(r.label)}</span><b>+${r.value}</b></div>`).join('')}<div class="scoreTotal"><span>${esc(p.scoreBand||scoreBand(p.score||0))}</span><span>${p.score}/100</span></div></div>`;
+}
+function renderScoringModel(){
+  if($('severityModel'))$('severityModel').innerHTML=Object.entries(SCORING_MODEL.severity).map(([k,v])=>rec(k,`Base severity starts at ${v} points.`,[{text:'+'+v,cls:'blue'}],{severity:k,value:v})).join('');
+  if($('weightModel'))$('weightModel').innerHTML=Object.entries(SCORING_MODEL.weights).map(([k,w])=>rec(w.label,`Adds ${w.value} point${w.value===1?'':'s'} when present.`,[{text:'+'+w.value,cls:'blue'}],{key:k,...w})).join('');
+  if($('scoreBreakdownList')){
+    const active=state.packets.filter(p=>!p.closed).sort((a,b)=>b.score-a.score);
+    $('scoreBreakdownList').innerHTML=active.map(p=>rec(`${p.id} — ${p.title}`,`${p.scoreBand}. ${p.summary}`,[{text:p.score+'/100',cls:scoreBadgeClass(p.score)}],p,scoreBreakdownHTML(p))).join('')||'<div class="empty">No active packet score breakdowns. Run Simulate PM Day or Procore Drawing REV.</div>';
+  }
+}
+
 function packetHTML(p){
   let branches=state.branches.filter(b=>b.packetId===p.id);
   let branchExtra=`<div class="branchGrid">${['RFI','CO Candidate','Risk / Constraint','Coordination','Procurement Check','Manpower Review'].map(t=>`<button class="branchBtn" data-branch="${esc(t)}" data-packet="${esc(p.id)}" type="button">${esc(t)}</button>`).join('')}<button class="branchBtn" data-close="${esc(p.id)}" type="button">Final Close</button></div>`;
-  let bhtml=branches.length?`<div class="branchShelf">${branches.map(b=>branchHTML(b)).join('')}</div>`:'';
+  let scoreExtra=scoreBreakdownHTML(p);let bhtml=branches.length?`<div class="branchShelf">${branches.map(b=>branchHTML(b)).join('')}</div>`:'';
   return `<div class="packetBubble">
     <div class="packetBubbleHeader"><span>Packet Bubble</span><span>${esc(p.id)} • ${esc(p.status)}</span></div>
-    ${rec(`${p.id} — ${p.title}`,`${p.summary} Detected ${p.detectedAt}.`,[{text:p.type,cls:'blue'},{text:p.status,cls:'mod'},{text:'Score '+p.score,cls:p.score>=85?'critical':'high'}],p,branchExtra)}
+    ${rec(`${p.id} — ${p.title}`,`${p.summary} Detected ${p.detectedAt}.`,[{text:p.type,cls:'blue'},{text:p.status,cls:'mod'},{text:'Score '+p.score,cls:scoreBadgeClass(p.score)}],p,scoreExtra+branchExtra)}
     ${bhtml}
   </div>`;
 }
@@ -670,7 +1156,7 @@ function guideFocusPriority(){
   const p=target.payload||{};
   let reason='Start here.';
   if(p.moneyAtRisk)reason+=` This has ${money(p.moneyAtRisk)} of possible CO exposure.`;
-  if(p.score)reason+=` Priority score ${p.score}.`;
+  if(p.score)reason+=` Weighted score ${p.score}/100 — ${p.scoreBand||scoreBand(p.score)}.`;
   if(p.type==='SCH')reason+=' Schedule movement may drive manpower or critical path risk.';
   if(p.type==='REV')reason+=' Drawing revision may need RFI / CO / risk branching.';
   guideMoveToElement(target.el,reason);
@@ -692,6 +1178,10 @@ function guideAfterAction(kind,payload){
       guideFocusPriority();
     }
     if(kind==='workflow')guideFocusPriority();
+    if(kind==='close'){
+      guideMessage('Nice closeout. Moving to the next top PM priority.');
+      guideFocusPriority();
+    }
   },350);
 }
 
@@ -699,7 +1189,7 @@ function view(v){document.querySelectorAll('.nav').forEach(b=>b.classList.remove
 function open(payload){$('drawerTitle').textContent=payload.title||payload.name||payload.id||payload.eventType||'Item context';let packetActions=payload.id&&String(payload.id).startsWith('PKT-')?`<div class="drawerActions"><button data-branch="RFI" data-packet="${esc(payload.id)}">Open RFI</button><button data-branch="CO Candidate" data-packet="${esc(payload.id)}">Open CO Candidate</button><button data-branch="Risk / Constraint" data-packet="${esc(payload.id)}">Open Risk</button><button data-nav="daily">Open Daily Workflow</button></div>`:'';$('drawerBody').innerHTML=`<div class="briefing"><pre style="white-space:pre-wrap">${esc(JSON.stringify(payload,null,2))}</pre></div>${packetActions}`;$('drawer').classList.add('open');$('backdrop').classList.add('open')}
 function closeDrawer(){$('drawer').classList.remove('open');$('backdrop').classList.remove('open')}
 function reset(){if(confirm('Reset local Jarvis demo state?')){state=empty();save();render();status('Reset')}}
-function bind(){console.log('Ωboy V0.13.1 bound');$('btnPMDay').onclick=pmDay;$('btnHealth').onclick=health;$('btnHealth2').onclick=health;$('btnMockDrawing').onclick=()=>mock('drawing');$('btnMockDrawing2').onclick=()=>mock('drawing');$('btnMockSchedule').onclick=()=>mock('schedule');$('btnMockSchedule2').onclick=()=>mock('schedule');$('btnBaseline').onclick=loadBaseline;$('btnScheduleRev').onclick=scheduleRev;$('btnReset').onclick=reset;$('btnGuideToggle').onclick=guideToggle;$('btnGuideFocus').onclick=guideFocusPriority;$('btnGuideHide').onclick=()=>guideSetHidden(!state.guideHidden);$('drawerClose').onclick=closeDrawer;$('backdrop').onclick=closeDrawer;document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>view(b.dataset.view));document.body.addEventListener('change',e=>{let co=e.target.closest('[data-co-status]');if(co){updateCOStatus(co.dataset.coStatus,co.value);return}let rfi=e.target.closest('[data-rfi-status]');if(rfi){updateRFIStatus(rfi.dataset.rfiStatus,rfi.value);return}});document.body.addEventListener('click',e=>{let nav=e.target.closest('[data-nav]');if(nav){view(nav.dataset.nav);closeDrawer();return}let br=e.target.closest('[data-branch]');if(br){branch(br.dataset.packet,br.dataset.branch);return}let res=e.target.closest('[data-resolve]');if(res){resolveBranch(res.dataset.resolve);return}let cl=e.target.closest('[data-close]');if(cl){closePacket(cl.dataset.close);return}let card=e.target.closest('[data-payload]');if(card){try{open(JSON.parse(decodeURIComponent(card.dataset.payload)))}catch(err){console.error(err)}}})}
+function bind(){console.log('Ωboy V0.13.1 bound');$('btnPMDay').onclick=pmDay;$('btnHealth').onclick=health;$('btnHealth2').onclick=health;$('btnMockDrawing').onclick=()=>mock('drawing');$('btnMockDrawing2').onclick=()=>mock('drawing');$('btnMockSchedule').onclick=()=>mock('schedule');$('btnMockSchedule2').onclick=()=>mock('schedule');$('btnBaseline').onclick=loadBaseline;$('btnScheduleRev').onclick=scheduleRev;$('btnReset').onclick=reset;$('btnCompareRevFiles').onclick=compareManualRevFiles;$('btnCompareScheduleFiles').onclick=compareManualScheduleFiles;$('btnDownloadScheduleTemplate').onclick=downloadScheduleTemplate;$('btnGuideToggle').onclick=guideToggle;$('btnGuideFocus').onclick=guideFocusPriority;$('btnGuideHide').onclick=()=>guideSetHidden(!state.guideHidden);$('drawerClose').onclick=closeDrawer;$('backdrop').onclick=closeDrawer;document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>view(b.dataset.view));document.body.addEventListener('change',e=>{let co=e.target.closest('[data-co-status]');if(co){updateCOStatus(co.dataset.coStatus,co.value);return}let rfi=e.target.closest('[data-rfi-status]');if(rfi){updateRFIStatus(rfi.dataset.rfiStatus,rfi.value);return}});document.body.addEventListener('click',e=>{let nav=e.target.closest('[data-nav]');if(nav){view(nav.dataset.nav);closeDrawer();return}let br=e.target.closest('[data-branch]');if(br){branch(br.dataset.packet,br.dataset.branch);return}let res=e.target.closest('[data-resolve]');if(res){resolveBranch(res.dataset.resolve);return}let cl=e.target.closest('[data-close]');if(cl){closePacket(cl.dataset.close);return}let card=e.target.closest('[data-payload]');if(card){try{open(JSON.parse(decodeURIComponent(card.dataset.payload)))}catch(err){console.error(err)}}})}
 document.addEventListener('DOMContentLoaded',()=>{bind();render();status('Ready');$('btnGuideToggle').textContent=state.guideOn?'Ωboy Guide: On':'Ωboy Guide: Off';guideSetHidden(!!state.guideHidden);guideMoveHome();});
 })();
 </script>

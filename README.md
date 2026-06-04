@@ -1,20 +1,27 @@
-# Ωboy V0.14 — Guide Mode
+# Ωboy V0.16.1 — Aesthetic Refresh
 
-This build adds the first version of Ωboy as a workflow guide.
+This build updates V0.16 to match the warmer, cleaner, more premium Ωboy UI aesthetic while preserving all V0.16 functionality.
 
-New:
-- Floating Ωboy mascot
-- Ωboy Guide Mode toggle
-- Focus Priority button
-- Hide/Show Ωboy button
-- Ωboy moves toward the highest-priority visible packet/task
-- Ωboy speech bubble explains why that task matters
-- Highlight ring around guided target
-- Existing CO/RFI logs retained
-- Existing Procore integration retained
+Carried forward:
+- Manual Compare Backup
+- Previous/current Drawing REV upload compare
+- Previous/current Schedule upload compare
+- Raw Events
+- Normalized Output
+- Packet Triage
+- Weighted Scoring Model
+- Ωboy Guide Mode
+- Change Order Log
+- RFI Log
+- Schedule Command
+- Manpower Loading
+- Graph View
+- Audit Log
+- Procore Integration and Netlify Functions
 
-Test:
-1. Simulate PM Day.
-2. Click Ωboy Focus Priority.
-3. Confirm Ωboy moves to the highest priority visible item and explains why.
-4. Create CO Candidate / RFI branches and verify logs still populate.
+Visual updates:
+- Warm brown/cream premium dashboard palette
+- Updated Jackson/Ωboy mascot asset
+- Mascot-forward sidebar, cockpit, and guide treatment
+- Cleaner card hierarchy, rounded cards, softer shadows
+- Warm accent colors for priority, status, and action buttons

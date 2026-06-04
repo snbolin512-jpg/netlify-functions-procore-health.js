@@ -1,11 +1,14 @@
-# Build Validation Report — Ωboy V0.14 Guide Mode
+# Build Validation Report — Ωboy V0.16.1 Aesthetic Refresh
 
-- Guide Dog layer present: PASS
-- Guide Focus function present: PASS
-- Guide toggle buttons present: PASS
-- Mascot asset retained: PASS
-- Inline frontend syntax: PASS
+- Aesthetic override present: PASS
+- Mascot asset updated: PASS
+- Manual Compare tab retained: PASS
+- Drawing compare retained: PASS
+- Schedule compare retained: PASS
+- Weighted scoring retained: PASS
+- Guide Mode retained: PASS
 - CO/RFI logs retained: PASS
+- Inline frontend syntax: PASS
 
 ## Function syntax checks
 - procore-auth-callback.js: PASS
