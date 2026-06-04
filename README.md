@@ -1,12 +1,11 @@
-# Ωboy V0.16.2 — Jackson Mascot Fix
+# OhmBoy / Ωboy V0.16.3 — Embedded Jackson Fix
 
-This build corrects the mascot issue.
+This version fixes the mascot issue by embedding Jackson directly inside `index.html` as a base64 image.
 
-Fixed:
-- Replaced the existing/generic mascot asset with Jackson.
-- `assets/omegaboy-mascot.png` is now the Jackson mascot image.
-- Added cache-busted references so Netlify/browser cache should not keep showing the older mascot.
-- Added `assets/jackson-ohmboy-source.png` for traceability.
+Why this matters:
+- The UI no longer depends on `assets/omegaboy-mascot.png` being replaced correctly.
+- Browser/Netlify cache cannot keep showing the old mascot path because the image is embedded directly in the HTML.
+- The `assets/` folder still includes Jackson as a backup, but the active UI uses the embedded image.
 
 Carried over:
 - Manual Compare Backup

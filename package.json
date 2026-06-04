@@ -1,6 +1,6 @@
 {
-  "name": "omegaboy-v0162-jackson-mascot-fix",
-  "version": "0.16.2",
+  "name": "ohmboy-v0163-embedded-jackson-fix",
+  "version": "0.16.3",
   "private": true,
-  "description": "\u03a9boy V0.16.2 fixes the mascot asset so Jackson is used throughout the UI while retaining V0.16 functionality."
+  "description": "OhmBoy V0.16.3 embeds Jackson directly in index.html to eliminate old mascot caching/path issues while retaining V0.16 functionality."
 }
