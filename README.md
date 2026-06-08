@@ -1,20 +1,12 @@
-# Ωboy V2.0 — Mission Critical PM Intelligence
+# Ωboy V2.0 Continuity Build — Mission Critical Constraint Intelligence
 
-This release reframes Ωboy/Homeboy from a packet-first project management UI into a Senior PM command system for mission critical electrical projects.
+This build intentionally preserves the V0.16.3 front-end aesthetics, Jackson/Ωboy guide mode, test controls, Procore mock events, manual compare backup, packet triage, CO/RFI logs, schedule, manpower loading, graph view, and audit trail.
 
-Core model:
-
-**Constraints → Risks → Actions → Outcomes**
-
-Primary dashboards:
+The V2 work is layered in as Mission Critical Constraint Intelligence:
 - Project Health Score
-- Top 10 Threats
-- Margin Exposure
-- Schedule Risk
-- Procurement Certainty
-- Commissioning Readiness
-- Labor Productivity
-- Change Capture
-- Impact Graph
+- Schedule / Labor / Margin / Procurement / Commissioning / Change Capture axes
+- Top 10 Constraints
+- Senior PM action queue
+- Executive brief tied to the highest constraint
 
-The Procore Netlify functions from V0.16.3 are retained for future integration, but the front-end has been rebuilt around constraint intelligence.
+Use **Simulate PM Day** to load a mission-critical demo scenario. Existing test buttons still operate.
