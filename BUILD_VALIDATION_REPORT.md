@@ -1,20 +1,10 @@
-# Build Validation Report — V0.16.3 Embedded Jackson Fix
+# Ωboy V2.0 Build Validation
 
-- Prior package used: ohmboy_v0_16_2_jackson_mascot_fix.zip
-- Jackson source present: PASS
-- Jackson embedded as base64 in index.html: PASS
-- Embedded proof note present: PASS
-- Unique backup asset present: PASS
-- Manual Compare retained: PASS
-- Weighted scoring retained: PASS
-- Guide Mode retained: PASS
-- CO/RFI logs retained: PASS
-- Inline frontend syntax: PASS
+Validated package contents:
+- Static SPA front-end: `index.html`
+- Jackson/OhmBoy mascot assets retained in `/assets`
+- Netlify functions retained in `/netlify/functions`
+- Netlify config retained
+- No build step required
 
-## Function syntax checks
-- procore-auth-callback.js: PASS
-- procore-auth-start.js: PASS
-- procore-health.js: PASS
-- procore-mock-event.js: PASS
-- procore-process-event.js: PASS
-- procore-webhook.js: PASS
+Open `index.html` locally or deploy the folder/zip to Netlify.
