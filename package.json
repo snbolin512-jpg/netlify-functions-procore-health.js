@@ -1,17 +1,6 @@
-# Deploy Notes — V0.16.3 Embedded Jackson Fix
-
-Upload/replace these at GitHub repo root:
-- index.html
-- package.json
-- README.md
-- DEPLOY_NOTES.md
-- BUILD_VALIDATION_REPORT.md
-- netlify.toml
-- netlify/
-- assets/
-
-Critical:
-- This build embeds Jackson directly in index.html.
-- After deploy, the sidebar should show a small note: "Jackson embedded — No old mascot asset path."
-- If you still see the old mascot, Netlify is not serving this commit yet or your browser is showing an old cached deploy.
-- Use Netlify Deploys → latest published deploy → Open production deploy, or use an incognito window.
+{
+  "name": "ohmboy-v0163-embedded-jackson-fix",
+  "version": "0.16.3",
+  "private": true,
+  "description": "OhmBoy V0.16.3 embeds Jackson directly in index.html to eliminate old mascot caching/path issues while retaining V0.16 functionality."
+}
