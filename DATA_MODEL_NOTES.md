@@ -163,3 +163,22 @@ Fix:
 Source of truth:
 - The Triage branch record is the primary source for resolution note and resolved date/time.
 - The Audit Trail displays those lifecycle values on the related audit row.
+
+
+## V0.18.10 Resolution Ledger Fix
+
+Fix:
+- Adds an internal Branch Resolution Ledger.
+- Resolve Branch writes the note to:
+  - branch.resolutionNote
+  - branch.resolvedDateTime
+  - state.resolutionLedger
+  - linked audit row when available
+- Final Close syncs all resolved branches into the ledger before closing.
+- Audit Trail reads notes from:
+  1. Branch Resolution Ledger
+  2. Linked Triage branch
+  3. Audit row fallback
+- No separate resolution AUDIT ID is created.
+
+This fixes the failure where notes typed on Triage were not visible on Audit after Resolve Branch + Final Close.

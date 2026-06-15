@@ -1,6 +1,6 @@
 {
-  "name": "ohmboy-v0189-resolution-note-carryover-fix",
-  "version": "0.18.9",
+  "name": "ohmboy-v01810-resolution-ledger-fix",
+  "version": "0.18.10",
   "private": true,
-  "description": "OhmBoy V0.18.9 fixes resolution note carryover from Triage branches to Audit Trail lifecycle columns."
+  "description": "OhmBoy V0.18.10 fixes Triage resolution notes carrying over to Audit Trail after Resolve Branch and Final Close."
 }

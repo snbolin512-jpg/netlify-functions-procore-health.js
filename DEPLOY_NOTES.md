@@ -1,4 +1,4 @@
-# Deploy Notes — OhmBoy V0.18.9
+# Deploy Notes — OhmBoy V0.18.10
 
 Upload/replace at GitHub repo root:
 - index.html
@@ -14,13 +14,13 @@ Upload/replace at GitHub repo root:
 
 Test:
 1. Open Packet Triage.
-2. Create or select a branch.
-3. Type a Resolution Note.
-4. Resolve the branch.
-5. Open Audit Trail.
-6. Confirm the related audit row shows:
+2. Type a Resolution Note.
+3. Click Resolve Branch.
+4. Click Final Close.
+5. Go to Audit Trail.
+6. Confirm:
    - Branch Status = Resolved
-   - Resolution Note populated with the exact note
-   - Resolved Date / Time populated
-7. Confirm there is no separate Branch Resolved AUDIT ID row.
-8. Confirm no code drilldowns appear.
+   - Resolution Note shows the exact note
+   - Resolved Date / Time is populated
+   - No separate Branch Resolved AUDIT ID row appears
+7. Confirm no code drilldowns appear.

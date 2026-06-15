@@ -1,5 +1,5 @@
 {
-  "version": "0.18.9",
+  "version": "0.18.10",
   "purpose": "Rigid integrated project-control data model for OhmBoy.",
   "core_objects": {
     "Project": [
@@ -250,6 +250,17 @@
       "resolvedDateTime",
       "branchStatus",
       "sourceOfTruth"
+    ],
+    "BranchResolutionLedger": [
+      "branchId",
+      "packetId",
+      "branchTitle",
+      "branchStatus",
+      "resolutionNote",
+      "resolvedDateTime",
+      "resolvedBy",
+      "auditId",
+      "source"
     ]
   },
   "rules": [
@@ -278,6 +289,10 @@
     "Standalone legacy Branch resolved audit rows must be hidden from the Audit Trail display.",
     "Resolution note displayed in the Audit Trail must fall back to the linked Triage branch if the audit row lacks the field.",
     "Resolving a branch must enrich the existing audit row when a matching row exists.",
-    "No standalone audit row should be created for branch resolution."
+    "No standalone audit row should be created for branch resolution.",
+    "Resolution note source of truth is the Branch Resolution Ledger.",
+    "Resolve Branch must write branch status, note, resolved date/time, and ledger entry before rendering.",
+    "Final Close must sync resolved branches into the ledger before closing the packet.",
+    "Audit Trail must display notes from ledger first, then branch fallback, then audit row fallback."
   ]
 }
