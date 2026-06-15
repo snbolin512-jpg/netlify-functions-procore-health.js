@@ -1,4 +1,4 @@
-# Deploy Notes — OhmBoy V0.18 Fluid Financial Reports
+# Deploy Notes — OhmBoy V0.18.1
 
 Upload/replace at GitHub repo root:
 - index.html
@@ -13,12 +13,14 @@ Upload/replace at GitHub repo root:
 - assets/
 
 Test:
-1. Confirm OhmBoy V0.18 loads.
-2. Open Executive Cockpit and confirm Financial Source Map appears.
-3. Open Open PO Report.
-4. Confirm committed, pending, uncommitted, and risk totals populate.
-5. Open Aging Report.
-6. Confirm NET 30 / 60 / 90 / 120 buckets populate.
-7. Open Global Search and search: PO, invoice, aging, SOV-006, 6000, gear.
-8. Click Refresh Financial Reports.
-9. Confirm old features still work.
+1. Open Executive Cockpit.
+2. Confirm Financial Source Map appears.
+3. Click Sim Open PO Impact.
+4. Confirm Open PO Report, Financial Source Map, and EAC-related numbers update.
+5. Click Sim Aging Shift.
+6. Confirm Aging Report updates NET 120+ exposure.
+7. Click Sim CO Approval.
+8. Open CO Log and confirm:
+   - Open C/O Value column
+   - New Contract Value if Approved column
+9. Confirm Global Search finds PO, invoice, aging, CO, SOV, phase code terms.

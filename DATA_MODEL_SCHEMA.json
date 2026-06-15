@@ -1,5 +1,5 @@
 {
-  "version": "0.18",
+  "version": "0.18.1",
   "purpose": "Rigid integrated project-control data model for OhmBoy.",
   "core_objects": {
     "Project": [
@@ -147,6 +147,26 @@
       "riskSource",
       "eacSource",
       "colorCode"
+    ],
+    "FinancialSimulationEvent": [
+      "id",
+      "type",
+      "sourceReport",
+      "beforeValue",
+      "afterValue",
+      "eacImpact",
+      "leftToSpendImpact",
+      "linkedPacket",
+      "auditEvent"
+    ],
+    "ChangeOrderContractProjection": [
+      "coId",
+      "openCOValue",
+      "status",
+      "currentContractValue",
+      "projectedContractValueIfApproved",
+      "phaseCode",
+      "sov"
     ]
   },
   "rules": [
@@ -157,6 +177,8 @@
     "Audit log records create/update/status changes.",
     "High-level financial summary numbers must identify the report/source they came from and carry matching color-code references.",
     "Open PO remaining must flow into left-to-spend and PO forecast must be considered in EAC review.",
-    "Billed and forecast billing records must be aged by payment terms and tied back to SOV lines."
+    "Billed and forecast billing records must be aged by payment terms and tied back to SOV lines.",
+    "Financial simulations must update the same report buckets that feed the high-level overview.",
+    "Change Order log rows must show open C/O value and projected contract value if approved."
   ]
 }

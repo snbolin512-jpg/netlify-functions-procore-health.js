@@ -1,18 +1,19 @@
-# OhmBoy / Ωboy V0.18 — Fluid Financial Reports
+# OhmBoy / Ωboy V0.18.1 — Financial Simulation + CO Contract Impact
 
-V0.18 adds more fluid financial reporting.
+V0.18.1 adds simulation and testing controls for the financial reporting layer.
 
 New:
-- Open PO Report tab
-- Aging Report tab
-- Financial Source Map on Executive Cockpit
-- Open PO totals tied to Left to Spend and EAC
-- Aging buckets for NET 30 / 60 / 90 / 120+
-- Upcoming billing forecast
-- Color-coded high-level financial totals
-- Report legend tying overview colors to underlying reports
-- Open PO and Aging records included in Global Search
-- Data model expanded with OpenPO, BillingAgingItem, and FinancialSourceMap objects
+- Sim Open PO Impact button
+- Sim Aging Shift button
+- Sim CO Approval button
+- Simulator panel on the Executive Cockpit
+- Open PO simulation updates Open PO Report, EAC pressure, risk exposure, and creates a packet
+- Aging simulation updates Aging Report, NET bucket exposure, and creates a packet
+- CO approval simulation updates CO Log and current contract value
+- CO Log now includes:
+  - Open C/O Value
+  - New Contract Value if Approved
+- Stronger color matching between high-level financial totals and source reports
 
 Color logic:
 - Brown = Contract / SOV source
@@ -22,4 +23,24 @@ Color logic:
 - Red = Risk Register
 - Green = EAC Forecast
 
-Carried over: V0.17 data model, embedded Jackson, manual compare, weighted scoring, guide mode, CO/RFI logs, schedule/manpower/graph/audit, and Procore functions.
+Carried over:
+- V0.18 Fluid Financial Reports
+- Open PO Report
+- Aging Report
+- Financial Source Map
+- Data Model Foundation
+- Financial Command Center
+- Risk Register
+- Procurement Command
+- Global Search
+- Embedded Jackson mascot
+- Manual Compare Backup
+- Weighted Scoring
+- Ωboy Guide Mode
+- CO Log
+- RFI Log
+- Schedule Command
+- Manpower Loading
+- Graph View
+- Audit Log
+- Procore Functions

@@ -41,3 +41,25 @@ Financial source-map logic:
 
 Purpose:
 High-level totals should not be mystery numbers. Each high-level financial value should visually correspond to the report that feeds it.
+
+
+## V0.18.1 Simulation + CO Projection Additions
+
+Added simulation controls:
+- Simulate New Open PO
+- Simulate Aging Shift
+- Simulate Pending CO Approval
+
+Added CO contract projection:
+- Open C/O Value
+- New Contract Value if Approved
+
+Color behavior:
+- Open PO report remains blue.
+- Aging report remains purple.
+- Change Order report remains amber.
+- Contract/SOV value remains brown.
+- Risk remains red.
+- EAC remains green.
+
+The high-level overview should visually match the report source that created each total.

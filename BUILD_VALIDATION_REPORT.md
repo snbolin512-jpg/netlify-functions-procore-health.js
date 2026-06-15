@@ -1,18 +1,18 @@
-# Build Validation Report — OhmBoy V0.18 Fluid Financial Reports
+# Build Validation Report — OhmBoy V0.18.1 Financial Simulation + CO Contract Impact
 
-- Base package used: ohmboy_v0_17_data_model_foundation.zip
-- Open PO Report tab present: PASS
-- Aging Report tab present: PASS
-- Financial Source Map present: PASS
-- Open PO report renderer present: PASS
-- Aging report renderer present: PASS
-- OpenPO schema added: PASS
-- BillingAgingItem schema added: PASS
+- Base package used: ohmboy_v0_18_fluid_financial_reports.zip
+- Simulation buttons present: PASS
+- Simulator panel present: PASS
+- Open PO simulation function present: PASS
+- Aging simulation function present: PASS
+- CO approval simulation function present: PASS
+- Enhanced CO log renderer present: PASS
+- Open C/O Value text present: PASS
+- New Contract Value if Approved text present: PASS
+- Open PO Report retained: PASS
+- Aging Report retained: PASS
+- Financial Source Map retained: PASS
 - Data Model retained: PASS
-- Manual Compare retained: PASS
-- Weighted scoring retained: PASS
-- Guide Mode retained: PASS
-- CO/RFI logs retained: PASS
 - Inline frontend syntax: PASS
 
 ## Function syntax checks

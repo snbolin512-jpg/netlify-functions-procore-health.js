@@ -1,6 +1,6 @@
 {
-  "name": "ohmboy-v018-fluid-financial-reports",
-  "version": "0.18.0",
+  "name": "ohmboy-v0181-financial-simulation-co-contract-impact",
+  "version": "0.18.1",
   "private": true,
-  "description": "OhmBoy V0.18 adds Open PO reports, Aging reports, financial source maps, and color-coded high-level financial references."
+  "description": "OhmBoy V0.18.1 adds Open PO/Aging simulations, consistent financial bucket colors, and CO contract value projection."
 }
