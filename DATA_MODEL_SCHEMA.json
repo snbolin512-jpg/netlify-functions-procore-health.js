@@ -1,5 +1,5 @@
 {
-  "version": "0.18.4",
+  "version": "0.18.5",
   "purpose": "Rigid integrated project-control data model for OhmBoy.",
   "core_objects": {
     "Project": [
@@ -200,6 +200,17 @@
       "targetView",
       "keyboardShortcut",
       "visibleMode"
+    ],
+    "BranchResolution": [
+      "branchId",
+      "packetId",
+      "branchTitle",
+      "resolutionNote",
+      "resolvedAt",
+      "resolvedBy",
+      "auditId",
+      "statusBefore",
+      "statusAfter"
     ]
   },
   "rules": [
@@ -216,6 +227,8 @@
     "Simulation buttons must use delegated click binding and direct global handlers so visible buttons cannot fail due to late DOM binding.",
     "The Executive Cockpit is the primary navigation surface; sidebar view tabs are hidden but retained for routing.",
     "Sidebar visibility is a UI shell preference and must not affect cockpit module routing or report state.",
-    "Back to Cockpit must be globally available and route to the cockpit view without depending on sidebar visibility."
+    "Back to Cockpit must be globally available and route to the cockpit view without depending on sidebar visibility.",
+    "Branch resolution requires a note before the branch can be marked resolved.",
+    "Resolution notes must be stored on the branch and surfaced in the Audit Trail as a searchable/auditable column."
   ]
 }

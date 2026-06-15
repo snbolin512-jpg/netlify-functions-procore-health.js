@@ -1,19 +1,25 @@
-# OhmBoy / Ωboy V0.18.4 — Compact Sidebar + Back to Cockpit
+# OhmBoy / Ωboy V0.18.5 — Branch Resolution Notes + Audit Trail
 
-V0.18.4 tightens up the sidebar toggle UI and adds a global home button.
+V0.18.5 adds context before branch closeout.
 
 New:
-- Smaller floating `☰ Sidebar` button
-- Global `⌂ Cockpit` button
-- Ctrl+H / Cmd+H shortcut to return to cockpit
-- Back to Cockpit works even when sidebar is hidden
+- Required Resolution Note field before Resolve Branch
+- Branch cannot be resolved without a note
+- Resolution note is stored on the branch
+- Resolution note is added to the audit record
+- Audit Trail now displays a Resolution Note column
+- Audit Trail includes linked Branch ID and Packet ID for branch resolutions
+- Resolved branch cards display their saved resolution note
 
-Retained from V0.18.3:
-- Hide Sidebar / Show Sidebar behavior
-- Full-width cockpit/workspace mode
-- Sidebar state persistence
-- Cockpit module navigation cards with icons
-- Financial simulation hard fix
+Why:
+Final closeout needs context. A Senior PM needs to know what led to closing the branch, what was verified, what changed, who approved it, or why it was safe to close.
+
+Retained from V0.18.4:
+- Compact Sidebar button
+- Back to Cockpit button
+- Sidebar hide/show
+- Cockpit module navigation
+- Financial simulation fixes
 - Open PO Report
 - Aging Report
 - CO Log with Open C/O Value

@@ -1,6 +1,6 @@
 {
-  "name": "ohmboy-v0184-compact-sidebar-back-to-cockpit",
-  "version": "0.18.4",
+  "name": "ohmboy-v0185-branch-resolution-notes",
+  "version": "0.18.5",
   "private": true,
-  "description": "OhmBoy V0.18.4 makes the Show Sidebar button smaller and adds a global Back to Cockpit button."
+  "description": "OhmBoy V0.18.5 adds required branch resolution notes and audit trail resolution-note columns."
 }

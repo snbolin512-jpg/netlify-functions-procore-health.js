@@ -100,3 +100,16 @@ Color alignment:
 - Added global `⌂ Cockpit` button.
 - Added Ctrl+H / Cmd+H shortcut to return to cockpit.
 - Back to Cockpit works whether sidebar is visible or hidden.
+
+
+## V0.18.5 Branch Resolution Notes
+
+Closeout logic:
+- Resolve Branch now requires a Resolution Note.
+- The note captures why the branch is safe to resolve before final packet close.
+- The note is stored directly on the branch record.
+- The most recent branch resolution note is also tied to the packet.
+- Audit Trail now displays a Resolution Note column with linked branch / packet references.
+
+Purpose:
+A Senior PM needs the closeout record to show not just that a branch was closed, but what verification, decision, approval, or context led to closing it.

@@ -1,4 +1,4 @@
-# Deploy Notes — OhmBoy V0.18.4
+# Deploy Notes — OhmBoy V0.18.5
 
 Upload/replace at GitHub repo root:
 - index.html
@@ -13,11 +13,16 @@ Upload/replace at GitHub repo root:
 - assets/
 
 Test:
-1. Hide the sidebar.
-2. Confirm the floating button is smaller and reads `☰ Sidebar`.
-3. Click `☰ Sidebar` and confirm the sidebar returns.
-4. Navigate to any module/report.
-5. Click `⌂ Cockpit`.
-6. Confirm you return to the Executive Cockpit.
-7. Try Ctrl+H or Cmd+H.
-8. Confirm simulation buttons still work.
+1. Open Packet Triage.
+2. Create a branch from a packet.
+3. Try Resolve Branch without a note.
+4. Confirm the app requires a resolution note.
+5. Add a note explaining what led to closeout.
+6. Click Resolve Branch.
+7. Confirm the branch shows Resolved and displays the note.
+8. Open Audit Trail.
+9. Confirm the row has:
+   - linked Branch ID
+   - linked Packet ID
+   - Resolution Note column populated
+10. Confirm Final Close still requires all branches to be resolved.

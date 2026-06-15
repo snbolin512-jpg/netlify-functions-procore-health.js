@@ -1,12 +1,16 @@
-# Build Validation Report — OhmBoy V0.18.4 Compact Sidebar + Back to Cockpit
+# Build Validation Report — OhmBoy V0.18.5 Branch Resolution Notes + Audit Trail
 
-- Base package used: ohmboy_v0_18_3_sidebar_toggle.zip
-- Compact sidebar label present: PASS
-- Back to Cockpit button present: PASS
-- Back to Cockpit JS present: PASS
-- Ctrl/Cmd+H shortcut present: PASS
-- Sidebar toggle retained: PASS
-- Cockpit launcher retained: PASS
+- Base package used: ohmboy_v0_18_4_compact_sidebar_back_to_cockpit.zip
+- Branch HTML patched: PASS
+- Resolve Branch logic patched: PASS
+- Audit Trail renderer patched: PASS
+- Resolution note input present: PASS
+- Required-note alert present: PASS
+- Branch stores resolutionNote: PASS
+- Audit stores resolutionNote: PASS
+- Audit Resolution Note column present: PASS
+- BranchResolution schema present: PASS
+- Sidebar/back cockpit retained: PASS
 - Financial sim hard fix retained: PASS
 - Inline frontend syntax: PASS
 
