@@ -1,6 +1,6 @@
 {
-  "name": "ohmboy-v0163-embedded-jackson-fix",
-  "version": "0.16.3",
+  "name": "ohmboy-v017-data-model-foundation",
+  "version": "0.17.0",
   "private": true,
-  "description": "OhmBoy V0.16.3 embeds Jackson directly in index.html to eliminate old mascot caching/path issues while retaining V0.16 functionality."
+  "description": "OhmBoy V0.17 adds a rigid integrated data model foundation for financials, SOV, phase codes, procurement, risk, search, and Senior PM command structure."
 }

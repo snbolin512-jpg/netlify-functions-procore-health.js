@@ -1,10 +1,14 @@
-# Build Validation Report — V0.16.3 Embedded Jackson Fix
+# Build Validation Report — OhmBoy V0.17 Data Model Foundation
 
-- Prior package used: ohmboy_v0_16_2_jackson_mascot_fix.zip
-- Jackson source present: PASS
-- Jackson embedded as base64 in index.html: PASS
-- Embedded proof note present: PASS
-- Unique backup asset present: PASS
+- Base files used from /mnt/data uploads
+- Netlify functions copied from: ohmboy_v0_16_3_embedded_jackson_fix.zip
+- Data Model tab present: PASS
+- Financial Command tab present: PASS
+- Risk Register tab present: PASS
+- Procurement tab present: PASS
+- Global Search tab present: PASS
+- Data model seed function present: PASS
+- Senior PM briefing function present: PASS
 - Manual Compare retained: PASS
 - Weighted scoring retained: PASS
 - Guide Mode retained: PASS

@@ -1,13 +1,26 @@
-# OhmBoy / Ωboy V0.16.3 — Embedded Jackson Fix
+# OhmBoy / Ωboy V0.17 — Data Model Foundation
 
-This version fixes the mascot issue by embedding Jackson directly inside `index.html` as a base64 image.
+V0.17 adds the rigid structure layer for Senior PM project control.
 
-Why this matters:
-- The UI no longer depends on `assets/omegaboy-mascot.png` being replaced correctly.
-- Browser/Netlify cache cannot keep showing the old mascot path because the image is embedded directly in the HTML.
-- The `assets/` folder still includes Jackson as a backup, but the active UI uses the embedded image.
+New:
+- Data Model tab
+- Financial Command Center tab
+- Risk / Threat Register tab
+- Procurement Command tab
+- Global Search tab
+- Phase Code buckets
+- SOV line structure
+- Financial snapshot model
+- Procurement register model
+- Risk register model
+- Linked item mapping
+- Senior PM Daily Briefing button
+- Seed Data Model button
+- DATA_MODEL_SCHEMA.json
+- DATA_MODEL_NOTES.md
 
 Carried over:
+- Embedded Jackson mascot
 - Manual Compare Backup
 - Drawing REV compare
 - Schedule compare

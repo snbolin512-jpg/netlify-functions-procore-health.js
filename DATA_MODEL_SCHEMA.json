@@ -1,0 +1,121 @@
+{
+  "version": "0.17",
+  "purpose": "Rigid integrated project-control data model for OhmBoy.",
+  "core_objects": {
+    "Project": [
+      "id",
+      "name",
+      "originalContractValue",
+      "approvedCOValue",
+      "pendingCOValue",
+      "costToDate",
+      "forecastCostToComplete",
+      "contingencyRemaining"
+    ],
+    "SOVLine": [
+      "id",
+      "description",
+      "contractValue",
+      "billedToDate",
+      "percentComplete",
+      "phaseCodes",
+      "linkedPackets",
+      "linkedCOs",
+      "linkedRisks"
+    ],
+    "PhaseCode": [
+      "id",
+      "name",
+      "budget",
+      "costToDate",
+      "forecast",
+      "sov",
+      "linkedScheduleActivities",
+      "linkedProcurement"
+    ],
+    "Packet": [
+      "id",
+      "type",
+      "title",
+      "status",
+      "score",
+      "scoreBreakdown",
+      "phaseCode",
+      "sovLine",
+      "linkedBranches",
+      "linkedFinancials"
+    ],
+    "RFI": [
+      "id",
+      "status",
+      "ballInCourt",
+      "daysOpen",
+      "responseDue",
+      "linkedPacket",
+      "linkedCO",
+      "phaseCode",
+      "sovLine",
+      "costImpact",
+      "scheduleImpact"
+    ],
+    "ChangeOrder": [
+      "id",
+      "status",
+      "romValue",
+      "submittedValue",
+      "approvedValue",
+      "phaseCode",
+      "sovLine",
+      "linkedPacket",
+      "linkedRFI",
+      "linkedRisk"
+    ],
+    "ProcurementItem": [
+      "id",
+      "item",
+      "vendor",
+      "specSection",
+      "releaseDate",
+      "requiredOnSite",
+      "eta",
+      "floatDays",
+      "phaseCode",
+      "sovLine",
+      "linkedScheduleActivity",
+      "linkedRisk"
+    ],
+    "Risk": [
+      "id",
+      "title",
+      "category",
+      "probability",
+      "impact",
+      "score",
+      "owner",
+      "watchDate",
+      "triggerDate",
+      "mitigation",
+      "financialExposure",
+      "scheduleExposureDays",
+      "linkedItems"
+    ],
+    "FinancialSnapshot": [
+      "id",
+      "date",
+      "contractValue",
+      "costToDate",
+      "forecastToComplete",
+      "eac",
+      "leftToSpend",
+      "projectedGainFade",
+      "riskAdjustedEAC"
+    ]
+  },
+  "rules": [
+    "Every financial record must map to a phase code and SOV line.",
+    "Every risk must include probability, impact, owner, mitigation, watch date, trigger date, and linked items.",
+    "Every packet must be linkable to the objects it affects.",
+    "All objects must be searchable by ID, status, owner, phase code, SOV line, vendor, schedule activity, and keyword.",
+    "Audit log records create/update/status changes."
+  ]
+}
