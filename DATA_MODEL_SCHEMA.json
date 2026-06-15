@@ -1,5 +1,5 @@
 {
-  "version": "0.18.8",
+  "version": "0.18.9",
   "purpose": "Rigid integrated project-control data model for OhmBoy.",
   "core_objects": {
     "Project": [
@@ -241,6 +241,15 @@
       "resolutionNote",
       "resolvedDateTime",
       "user"
+    ],
+    "AuditResolutionCarryover": [
+      "branchId",
+      "packetId",
+      "auditId",
+      "resolutionNote",
+      "resolvedDateTime",
+      "branchStatus",
+      "sourceOfTruth"
     ]
   },
   "rules": [
@@ -266,6 +275,9 @@
     "Audit Trail branch status must reflect the current Triage Packet branch status when a branch is linked.",
     "Branch resolution must not create a standalone audit row or new AUDIT ID.",
     "Resolution notes and resolved date/time are lifecycle columns on the related audit row.",
-    "Standalone legacy Branch resolved audit rows must be hidden from the Audit Trail display."
+    "Standalone legacy Branch resolved audit rows must be hidden from the Audit Trail display.",
+    "Resolution note displayed in the Audit Trail must fall back to the linked Triage branch if the audit row lacks the field.",
+    "Resolving a branch must enrich the existing audit row when a matching row exists.",
+    "No standalone audit row should be created for branch resolution."
   ]
 }

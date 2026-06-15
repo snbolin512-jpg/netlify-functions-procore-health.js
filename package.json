@@ -1,6 +1,6 @@
 {
-  "name": "ohmboy-v0188-audit-resolution-columns",
-  "version": "0.18.8",
+  "name": "ohmboy-v0189-resolution-note-carryover-fix",
+  "version": "0.18.9",
   "private": true,
-  "description": "OhmBoy V0.18.8 makes branch resolution notes and resolved date/time lifecycle columns instead of standalone audit rows."
+  "description": "OhmBoy V0.18.9 fixes resolution note carryover from Triage branches to Audit Trail lifecycle columns."
 }

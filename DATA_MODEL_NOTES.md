@@ -149,3 +149,17 @@ Audit Trail correction:
 
 Purpose:
 The Audit Trail should show the lifecycle of an existing item, not create a separate record every time a branch is resolved.
+
+
+## V0.18.9 Resolution Note Carryover Fix
+
+Fix:
+- Resolution notes saved on the Triage Packet branch now carry over to the Audit Trail display.
+- Audit Trail pulls notes directly from the linked branch if the audit row does not already have the note.
+- Resolved Date / Time also falls back to the linked branch resolved timestamp.
+- Existing audit rows are enriched with branchId, packetId, resolutionNote, and resolvedDateTime when possible.
+- Resolving a branch still does not create a new standalone AUDIT ID.
+
+Source of truth:
+- The Triage branch record is the primary source for resolution note and resolved date/time.
+- The Audit Trail displays those lifecycle values on the related audit row.

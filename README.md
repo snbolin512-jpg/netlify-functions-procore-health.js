@@ -1,15 +1,15 @@
-# OhmBoy / Ωboy V0.18.8 — Audit Resolution Columns
+# OhmBoy / Ωboy V0.18.9 — Resolution Note Carryover Fix
 
-V0.18.8 corrects the Audit Trail behavior.
+V0.18.9 fixes the missing Resolution Note carryover.
 
-Changed:
-- Branch resolution no longer creates a separate AUDIT ID.
-- Standalone `Branch resolved` rows are hidden from the Audit Trail.
-- Resolution Note is now a column on the related audit row.
-- Resolved Date / Time is now a column on the related audit row.
-- Branch Status remains a column and is based on the linked Triage Packet branch.
+Fixed:
+- Resolution notes entered on the Triage Packet page now carry over to the Audit Trail.
+- Audit Trail pulls the Resolution Note directly from the linked Triage branch when needed.
+- Resolved Date / Time also pulls from the linked branch.
+- Existing audit rows are enriched with branch linkage when possible.
+- Resolving a branch still does not create a new standalone AUDIT ID.
 
-Audit columns now:
+Audit columns:
 - Audit ID
 - Time
 - Action
@@ -21,7 +21,6 @@ Audit columns now:
 - User
 
 Retained:
-- Audit Trail cleanup
 - No Code Drilldowns
 - Branch Resolution Notes
 - Compact Sidebar button

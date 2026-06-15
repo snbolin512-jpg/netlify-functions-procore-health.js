@@ -1,14 +1,12 @@
-# Build Validation Report — OhmBoy V0.18.8 Audit Resolution Columns
+# Build Validation Report — OhmBoy V0.18.9 Resolution Note Carryover Fix
 
-- Base package used: ohmboy_v0_18_7_audit_trail_cleanup.zip
-- ResolveBranch patched directly: PASS
-- No standalone audit row in resolveBranch: PASS
-- Legacy Branch resolved rows hidden: PASS
-- Resolution Note column present: PASS
-- Resolved Date / Time column present: PASS
-- Branch Status column present: PASS
-- Resolution note lifecycle field present: PASS
-- Resolved date/time lifecycle field present: PASS
+- Base package used: ohmboy_v0_18_8_audit_resolution_columns.zip
+- resolveBranch hard override present: PASS
+- Audit row enrichment present: PASS
+- Audit branch fallback present: PASS
+- Resolved date fallback present: PASS
+- Existing audit rows linked to branches: PASS
+- No standalone branch resolved row retained: PASS
 - No code drilldown retained: PASS
 - Inline frontend syntax: PASS
 
