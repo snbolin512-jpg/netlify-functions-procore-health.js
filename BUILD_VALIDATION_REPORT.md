@@ -1,18 +1,17 @@
-# Build Validation Report — OhmBoy V0.18.1 Financial Simulation + CO Contract Impact
+# Build Validation Report — OhmBoy V0.18.2 Cockpit Navigation + Financial Simulation Fix
 
-- Base package used: ohmboy_v0_18_fluid_financial_reports.zip
-- Simulation buttons present: PASS
-- Simulator panel present: PASS
-- Open PO simulation function present: PASS
-- Aging simulation function present: PASS
-- CO approval simulation function present: PASS
-- Enhanced CO log renderer present: PASS
-- Open C/O Value text present: PASS
-- New Contract Value if Approved text present: PASS
-- Open PO Report retained: PASS
-- Aging Report retained: PASS
-- Financial Source Map retained: PASS
-- Data Model retained: PASS
+- Base package used: ohmboy_v0_18_1_financial_simulation_co_contract_impact.zip
+- Old side nav hidden: PASS
+- Cockpit launcher present: PASS
+- Module cards with icons present: PASS
+- Delegated simulation binding present: PASS
+- Global Open PO sim function present: PASS
+- Global Aging sim function present: PASS
+- Global CO sim function present: PASS
+- Open C/O Value column retained: PASS
+- New Contract Value if Approved column retained: PASS
+- Open PO color bucket CSS present: PASS
+- Aging color bucket CSS present: PASS
 - Inline frontend syntax: PASS
 
 ## Function syntax checks

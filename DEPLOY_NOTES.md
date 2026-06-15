@@ -1,4 +1,4 @@
-# Deploy Notes — OhmBoy V0.18.1
+# Deploy Notes — OhmBoy V0.18.2
 
 Upload/replace at GitHub repo root:
 - index.html
@@ -14,13 +14,17 @@ Upload/replace at GitHub repo root:
 
 Test:
 1. Open Executive Cockpit.
-2. Confirm Financial Source Map appears.
-3. Click Sim Open PO Impact.
-4. Confirm Open PO Report, Financial Source Map, and EAC-related numbers update.
-5. Click Sim Aging Shift.
-6. Confirm Aging Report updates NET 120+ exposure.
-7. Click Sim CO Approval.
-8. Open CO Log and confirm:
-   - Open C/O Value column
-   - New Contract Value if Approved column
-9. Confirm Global Search finds PO, invoice, aging, CO, SOV, phase code terms.
+2. Confirm the old side tab navigation list is hidden.
+3. Confirm Command Modules appear with icons.
+4. Click Open PO Report module.
+5. Click Aging Report module.
+6. Return to Executive Cockpit.
+7. Click Simulate New Open PO.
+8. Confirm Open PO totals change.
+9. Click Simulate Aging Shift.
+10. Confirm Aging Report buckets change.
+11. Click Simulate Pending CO Approval.
+12. Open Change Order Log and confirm:
+    - Open C/O Value column
+    - New Contract Value if Approved column
+13. Confirm bucket colors match the source report colors.

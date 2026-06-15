@@ -1,6 +1,6 @@
 {
-  "name": "ohmboy-v0181-financial-simulation-co-contract-impact",
-  "version": "0.18.1",
+  "name": "ohmboy-v0182-cockpit-nav-financial-sim-fix",
+  "version": "0.18.2",
   "private": true,
-  "description": "OhmBoy V0.18.1 adds Open PO/Aging simulations, consistent financial bucket colors, and CO contract value projection."
+  "description": "OhmBoy V0.18.2 hard-fixes financial simulation buttons and changes navigation to cockpit module cards with icons."
 }

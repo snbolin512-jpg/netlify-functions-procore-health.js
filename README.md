@@ -1,35 +1,36 @@
-# OhmBoy / Ωboy V0.18.1 — Financial Simulation + CO Contract Impact
+# OhmBoy / Ωboy V0.18.2 — Cockpit Navigation + Financial Simulation Fix
 
-V0.18.1 adds simulation and testing controls for the financial reporting layer.
+V0.18.2 fixes the simulation button behavior and changes navigation style.
 
-New:
-- Sim Open PO Impact button
-- Sim Aging Shift button
-- Sim CO Approval button
-- Simulator panel on the Executive Cockpit
-- Open PO simulation updates Open PO Report, EAC pressure, risk exposure, and creates a packet
-- Aging simulation updates Aging Report, NET bucket exposure, and creates a packet
-- CO approval simulation updates CO Log and current contract value
-- CO Log now includes:
-  - Open C/O Value
-  - New Contract Value if Approved
-- Stronger color matching between high-level financial totals and source reports
+Fixed:
+- Sim Open PO Impact
+- Sim Aging Shift
+- Sim CO Approval
+- Refresh Financial Reports
 
-Color logic:
-- Brown = Contract / SOV source
-- Blue = Open PO Report
-- Purple = Aging Report
+Navigation change:
+- Left-side tab list is hidden.
+- Executive Cockpit now includes clean segregated module cards with icons.
+- Clicking a module card navigates to that report/view.
+
+Color alignment:
+- Blue = Open PO Report buckets
+- Purple = Aging Report buckets
 - Amber = Change Orders
+- Brown = Contract / SOV projection
 - Red = Risk Register
 - Green = EAC Forecast
 
+CO Log:
+- Open C/O Value column retained
+- New Contract Value if Approved column retained
+
 Carried over:
-- V0.18 Fluid Financial Reports
+- V0.18.1 financial simulation model
 - Open PO Report
 - Aging Report
 - Financial Source Map
 - Data Model Foundation
-- Financial Command Center
 - Risk Register
 - Procurement Command
 - Global Search

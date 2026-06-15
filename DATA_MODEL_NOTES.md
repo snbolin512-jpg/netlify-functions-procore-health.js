@@ -63,3 +63,22 @@ Color behavior:
 - EAC remains green.
 
 The high-level overview should visually match the report source that created each total.
+
+## V0.18.2 Cockpit Navigation + Simulation Hard Fix
+
+Navigation:
+- Left-side tab list is hidden.
+- Executive Cockpit now includes segmented module cards with icons.
+- Module cards route to the same underlying views.
+
+Simulation:
+- Buttons now use delegated click handling.
+- Simulation functions are exposed globally.
+- Buttons update report DOM directly after mutating the data model.
+
+Color alignment:
+- Open PO bucket cards use the Open PO blue source color.
+- Aging bucket cards use the Aging Report purple source color.
+- Change Order values use amber.
+- Contract projection uses brown.
+- EAC uses green.
