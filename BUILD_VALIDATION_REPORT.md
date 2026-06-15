@@ -1,14 +1,14 @@
-# Build Validation Report — OhmBoy V0.17 Data Model Foundation
+# Build Validation Report — OhmBoy V0.18 Fluid Financial Reports
 
-- Base files used from /mnt/data uploads
-- Netlify functions copied from: ohmboy_v0_16_3_embedded_jackson_fix.zip
-- Data Model tab present: PASS
-- Financial Command tab present: PASS
-- Risk Register tab present: PASS
-- Procurement tab present: PASS
-- Global Search tab present: PASS
-- Data model seed function present: PASS
-- Senior PM briefing function present: PASS
+- Base package used: ohmboy_v0_17_data_model_foundation.zip
+- Open PO Report tab present: PASS
+- Aging Report tab present: PASS
+- Financial Source Map present: PASS
+- Open PO report renderer present: PASS
+- Aging report renderer present: PASS
+- OpenPO schema added: PASS
+- BillingAgingItem schema added: PASS
+- Data Model retained: PASS
 - Manual Compare retained: PASS
 - Weighted scoring retained: PASS
 - Guide Mode retained: PASS

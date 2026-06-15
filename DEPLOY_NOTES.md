@@ -1,4 +1,4 @@
-# Deploy Notes — OhmBoy V0.17 Data Model Foundation
+# Deploy Notes — OhmBoy V0.18 Fluid Financial Reports
 
 Upload/replace at GitHub repo root:
 - index.html
@@ -13,13 +13,12 @@ Upload/replace at GitHub repo root:
 - assets/
 
 Test:
-1. Confirm OhmBoy V0.17 loads.
-2. Click Seed Data Model.
-3. Open Data Model tab.
-4. Open Financial Command tab.
-5. Open Risk Register tab.
-6. Open Procurement tab.
-7. Open Global Search and search: gear, 6000, SOV-006, RFI, CO, startup.
-8. Click Senior PM Briefing.
-9. Confirm a briefing packet is created and prioritized.
-10. Confirm old features still work: Manual Compare, Packet Triage, CO Log, RFI Log, Procore Health, Guide Mode.
+1. Confirm OhmBoy V0.18 loads.
+2. Open Executive Cockpit and confirm Financial Source Map appears.
+3. Open Open PO Report.
+4. Confirm committed, pending, uncommitted, and risk totals populate.
+5. Open Aging Report.
+6. Confirm NET 30 / 60 / 90 / 120 buckets populate.
+7. Open Global Search and search: PO, invoice, aging, SOV-006, 6000, gear.
+8. Click Refresh Financial Reports.
+9. Confirm old features still work.

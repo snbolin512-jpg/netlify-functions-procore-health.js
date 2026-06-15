@@ -22,3 +22,22 @@ Objects introduced:
 
 Next likely build:
 V0.18 should add editable forms and persistence-ready CRUD structure for phase codes, SOV lines, risks, procurement items, and financial snapshots.
+
+
+## V0.18 Financial Report Additions
+
+New financial source objects:
+- Open PO
+- Billing Aging Item
+- Financial Source Map
+
+Financial source-map logic:
+- Contract / SOV = brown
+- Open PO Report = blue
+- Aging Report = purple
+- Change Orders = amber
+- Risk Register = red
+- EAC Forecast = green
+
+Purpose:
+High-level totals should not be mystery numbers. Each high-level financial value should visually correspond to the report that feeds it.

@@ -1,5 +1,5 @@
 {
-  "version": "0.17",
+  "version": "0.18",
   "purpose": "Rigid integrated project-control data model for OhmBoy.",
   "core_objects": {
     "Project": [
@@ -109,6 +109,44 @@
       "leftToSpend",
       "projectedGainFade",
       "riskAdjustedEAC"
+    ],
+    "OpenPO": [
+      "id",
+      "vendor",
+      "description",
+      "status",
+      "phaseCode",
+      "sov",
+      "committed",
+      "invoiced",
+      "remaining",
+      "forecastAtCompletion",
+      "riskExposure",
+      "requiredOnSite",
+      "eta",
+      "linked"
+    ],
+    "BillingAgingItem": [
+      "id",
+      "type",
+      "sov",
+      "description",
+      "amount",
+      "billedDate",
+      "termDays",
+      "dueDate",
+      "agingBucket",
+      "paid",
+      "status"
+    ],
+    "FinancialSourceMap": [
+      "contractSource",
+      "openPOSource",
+      "agingSource",
+      "changeOrderSource",
+      "riskSource",
+      "eacSource",
+      "colorCode"
     ]
   },
   "rules": [
@@ -116,6 +154,9 @@
     "Every risk must include probability, impact, owner, mitigation, watch date, trigger date, and linked items.",
     "Every packet must be linkable to the objects it affects.",
     "All objects must be searchable by ID, status, owner, phase code, SOV line, vendor, schedule activity, and keyword.",
-    "Audit log records create/update/status changes."
+    "Audit log records create/update/status changes.",
+    "High-level financial summary numbers must identify the report/source they came from and carry matching color-code references.",
+    "Open PO remaining must flow into left-to-spend and PO forecast must be considered in EAC review.",
+    "Billed and forecast billing records must be aged by payment terms and tied back to SOV lines."
   ]
 }

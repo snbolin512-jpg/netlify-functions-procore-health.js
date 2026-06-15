@@ -1,6 +1,6 @@
 {
-  "name": "ohmboy-v017-data-model-foundation",
-  "version": "0.17.0",
+  "name": "ohmboy-v018-fluid-financial-reports",
+  "version": "0.18.0",
   "private": true,
-  "description": "OhmBoy V0.17 adds a rigid integrated data model foundation for financials, SOV, phase codes, procurement, risk, search, and Senior PM command structure."
+  "description": "OhmBoy V0.18 adds Open PO reports, Aging reports, financial source maps, and color-coded high-level financial references."
 }

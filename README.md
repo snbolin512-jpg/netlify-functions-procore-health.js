@@ -1,38 +1,25 @@
-# OhmBoy / Ωboy V0.17 — Data Model Foundation
+# OhmBoy / Ωboy V0.18 — Fluid Financial Reports
 
-V0.17 adds the rigid structure layer for Senior PM project control.
+V0.18 adds more fluid financial reporting.
 
 New:
-- Data Model tab
-- Financial Command Center tab
-- Risk / Threat Register tab
-- Procurement Command tab
-- Global Search tab
-- Phase Code buckets
-- SOV line structure
-- Financial snapshot model
-- Procurement register model
-- Risk register model
-- Linked item mapping
-- Senior PM Daily Briefing button
-- Seed Data Model button
-- DATA_MODEL_SCHEMA.json
-- DATA_MODEL_NOTES.md
+- Open PO Report tab
+- Aging Report tab
+- Financial Source Map on Executive Cockpit
+- Open PO totals tied to Left to Spend and EAC
+- Aging buckets for NET 30 / 60 / 90 / 120+
+- Upcoming billing forecast
+- Color-coded high-level financial totals
+- Report legend tying overview colors to underlying reports
+- Open PO and Aging records included in Global Search
+- Data model expanded with OpenPO, BillingAgingItem, and FinancialSourceMap objects
 
-Carried over:
-- Embedded Jackson mascot
-- Manual Compare Backup
-- Drawing REV compare
-- Schedule compare
-- Raw Events
-- Normalized Output
-- Packet Triage
-- Weighted Scoring
-- Ωboy Guide Mode
-- CO Log
-- RFI Log
-- Schedule Command
-- Manpower Loading
-- Graph View
-- Audit Log
-- Procore Integration / Netlify Functions
+Color logic:
+- Brown = Contract / SOV source
+- Blue = Open PO Report
+- Purple = Aging Report
+- Amber = Change Orders
+- Red = Risk Register
+- Green = EAC Forecast
+
+Carried over: V0.17 data model, embedded Jackson, manual compare, weighted scoring, guide mode, CO/RFI logs, schedule/manpower/graph/audit, and Procore functions.
