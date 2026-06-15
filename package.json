@@ -1,6 +1,6 @@
 {
-  "name": "ohmboy-v0183-sidebar-toggle",
-  "version": "0.18.3",
+  "name": "ohmboy-v0184-compact-sidebar-back-to-cockpit",
+  "version": "0.18.4",
   "private": true,
-  "description": "OhmBoy V0.18.3 adds a hide/show sidebar toggle while retaining cockpit module navigation and financial simulation fixes."
+  "description": "OhmBoy V0.18.4 makes the Show Sidebar button smaller and adds a global Back to Cockpit button."
 }

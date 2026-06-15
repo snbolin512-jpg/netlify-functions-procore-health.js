@@ -1,20 +1,21 @@
-# OhmBoy / Ωboy V0.18.3 — Sidebar Toggle + Cockpit Navigation
+# OhmBoy / Ωboy V0.18.4 — Compact Sidebar + Back to Cockpit
 
-V0.18.3 adds the ability to hide the left sidebar for full-width cockpit review.
+V0.18.4 tightens up the sidebar toggle UI and adds a global home button.
 
 New:
-- Hide Sidebar button inside the left rail
-- Floating Show Sidebar button when hidden
-- Ctrl+B / Cmd+B shortcut to toggle
-- Sidebar collapsed state persists through localStorage
-- Full-width workspace mode when sidebar is hidden
+- Smaller floating `☰ Sidebar` button
+- Global `⌂ Cockpit` button
+- Ctrl+H / Cmd+H shortcut to return to cockpit
+- Back to Cockpit works even when sidebar is hidden
 
-Retained from V0.18.2:
+Retained from V0.18.3:
+- Hide Sidebar / Show Sidebar behavior
+- Full-width cockpit/workspace mode
+- Sidebar state persistence
 - Cockpit module navigation cards with icons
-- Hard-fixed financial simulation buttons
+- Financial simulation hard fix
 - Open PO Report
 - Aging Report
-- Financial Source Map
 - CO Log with Open C/O Value
 - New Contract Value if Approved
 - Matching report/source color buckets

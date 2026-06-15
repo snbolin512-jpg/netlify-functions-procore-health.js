@@ -1,4 +1,4 @@
-# Deploy Notes — OhmBoy V0.18.3
+# Deploy Notes — OhmBoy V0.18.4
 
 Upload/replace at GitHub repo root:
 - index.html
@@ -13,14 +13,11 @@ Upload/replace at GitHub repo root:
 - assets/
 
 Test:
-1. Open Executive Cockpit.
-2. Confirm Command Modules are visible.
-3. Click Hide Sidebar.
-4. Confirm the whole left rail disappears.
-5. Confirm the workspace expands full width.
-6. Click Show Sidebar.
-7. Confirm the sidebar returns.
-8. Try Ctrl+B or Cmd+B to toggle.
-9. Reload the page and confirm the sidebar state persists.
-10. Confirm cockpit module cards still navigate.
-11. Confirm simulation buttons still work.
+1. Hide the sidebar.
+2. Confirm the floating button is smaller and reads `☰ Sidebar`.
+3. Click `☰ Sidebar` and confirm the sidebar returns.
+4. Navigate to any module/report.
+5. Click `⌂ Cockpit`.
+6. Confirm you return to the Executive Cockpit.
+7. Try Ctrl+H or Cmd+H.
+8. Confirm simulation buttons still work.

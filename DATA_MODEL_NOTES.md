@@ -91,3 +91,12 @@ Color alignment:
 - Ctrl+B / Cmd+B keyboard shortcut.
 - Sidebar collapsed state persists in localStorage.
 - Cockpit module navigation remains the primary navigation surface.
+
+
+## V0.18.4 Compact Sidebar + Back to Cockpit
+
+- Reduced floating Show Sidebar button size.
+- Changed label to `☰ Sidebar`.
+- Added global `⌂ Cockpit` button.
+- Added Ctrl+H / Cmd+H shortcut to return to cockpit.
+- Back to Cockpit works whether sidebar is visible or hidden.

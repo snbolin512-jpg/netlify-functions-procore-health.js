@@ -1,13 +1,11 @@
-# Build Validation Report — OhmBoy V0.18.3 Sidebar Toggle + Cockpit Navigation
+# Build Validation Report — OhmBoy V0.18.4 Compact Sidebar + Back to Cockpit
 
-- Base package used: ohmboy_v0_18_2_cockpit_nav_financial_sim_fix.zip
-- Hide Sidebar button present: PASS
-- Show Sidebar floating button present: PASS
-- Sidebar collapsed CSS present: PASS
-- Full-width workspace CSS present: PASS
-- Sidebar toggle JS present: PASS
-- LocalStorage persistence present: PASS
-- Keyboard shortcut present: PASS
+- Base package used: ohmboy_v0_18_3_sidebar_toggle.zip
+- Compact sidebar label present: PASS
+- Back to Cockpit button present: PASS
+- Back to Cockpit JS present: PASS
+- Ctrl/Cmd+H shortcut present: PASS
+- Sidebar toggle retained: PASS
 - Cockpit launcher retained: PASS
 - Financial sim hard fix retained: PASS
 - Inline frontend syntax: PASS
