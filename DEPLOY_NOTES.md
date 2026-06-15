@@ -1,4 +1,4 @@
-# Deploy Notes — OhmBoy V0.18.7
+# Deploy Notes — OhmBoy V0.18.8
 
 Upload/replace at GitHub repo root:
 - index.html
@@ -17,15 +17,10 @@ Test:
 2. Create a branch.
 3. Add a Resolution Note and resolve the branch.
 4. Open Audit Trail.
-5. Confirm columns are:
-   - Audit ID
-   - Time
-   - Action
-   - Detail
-   - Linked Item
-   - Branch Status
-   - Resolution Note
-   - User
-6. Confirm Detail and Resolution Note are not mixed together.
-7. Confirm Branch Status says Resolved for resolved branches.
+5. Confirm there is no separate `Branch resolved` AUDIT ID row.
+6. Confirm the related row shows:
+   - Branch Status = Resolved
+   - Resolution Note populated
+   - Resolved Date / Time populated
+7. Confirm Detail remains separate from Resolution Note.
 8. Confirm records do not open code drilldowns.

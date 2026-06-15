@@ -1,5 +1,5 @@
 {
-  "version": "0.18.7",
+  "version": "0.18.8",
   "purpose": "Rigid integrated project-control data model for OhmBoy.",
   "core_objects": {
     "Project": [
@@ -229,6 +229,18 @@
       "branchStatus",
       "resolutionNote",
       "user"
+    ],
+    "AuditTrailLifecycleRow": [
+      "auditId",
+      "time",
+      "action",
+      "detail",
+      "linkedBranchId",
+      "linkedPacketId",
+      "branchStatus",
+      "resolutionNote",
+      "resolvedDateTime",
+      "user"
     ]
   },
   "rules": [
@@ -251,6 +263,9 @@
     "Raw code, JSON payloads, and drilldown developer drawers must not be visible in the user-facing UI.",
     "Record clicks must not open developer payload popups; actionable controls remain functional.",
     "Audit Trail must keep Detail and Resolution Note in separate columns.",
-    "Audit Trail branch status must reflect the current Triage Packet branch status when a branch is linked."
+    "Audit Trail branch status must reflect the current Triage Packet branch status when a branch is linked.",
+    "Branch resolution must not create a standalone audit row or new AUDIT ID.",
+    "Resolution notes and resolved date/time are lifecycle columns on the related audit row.",
+    "Standalone legacy Branch resolved audit rows must be hidden from the Audit Trail display."
   ]
 }

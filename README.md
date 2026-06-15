@@ -1,21 +1,27 @@
-# OhmBoy / Ωboy V0.18.7 — Audit Trail Cleanup
+# OhmBoy / Ωboy V0.18.8 — Audit Resolution Columns
 
-V0.18.7 cleans up the Audit Trail layout.
+V0.18.8 corrects the Audit Trail behavior.
 
-New:
-- DETAIL is its own column
-- Resolution Note is its own column
-- Branch Status is its own column
-- Branch Status is derived from linked Triage Packet branch state
-- Future resolved-branch audit entries store notes separately instead of stuffing them into Detail
+Changed:
+- Branch resolution no longer creates a separate AUDIT ID.
+- Standalone `Branch resolved` rows are hidden from the Audit Trail.
+- Resolution Note is now a column on the related audit row.
+- Resolved Date / Time is now a column on the related audit row.
+- Branch Status remains a column and is based on the linked Triage Packet branch.
 
-Branch Status values:
-- Resolved
-- Active
-- Open
-- N/A
+Audit columns now:
+- Audit ID
+- Time
+- Action
+- Detail
+- Linked Item
+- Branch Status
+- Resolution Note
+- Resolved Date / Time
+- User
 
 Retained:
+- Audit Trail cleanup
 - No Code Drilldowns
 - Branch Resolution Notes
 - Compact Sidebar button

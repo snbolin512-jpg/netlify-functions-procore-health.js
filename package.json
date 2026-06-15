@@ -1,6 +1,6 @@
 {
-  "name": "ohmboy-v0187-audit-trail-cleanup",
-  "version": "0.18.7",
+  "name": "ohmboy-v0188-audit-resolution-columns",
+  "version": "0.18.8",
   "private": true,
-  "description": "OhmBoy V0.18.7 cleans the Audit Trail into separate Detail, Branch Status, and Resolution Note columns."
+  "description": "OhmBoy V0.18.8 makes branch resolution notes and resolved date/time lifecycle columns instead of standalone audit rows."
 }

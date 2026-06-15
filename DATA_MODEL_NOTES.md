@@ -135,3 +135,17 @@ The user-facing interface should show structured PM information, not internal co
 - Added Branch Status column.
 - Branch Status is derived from the linked Triage Packet branch when available.
 - Future Branch Resolved audit entries store detail and resolution notes separately.
+
+
+## V0.18.8 Audit Resolution Columns
+
+Audit Trail correction:
+- Resolving a branch no longer creates a standalone audit row.
+- No separate AUDIT ID is created for branch resolution.
+- Resolution Note is a lifecycle column on the related audit row.
+- Resolved Date / Time is a lifecycle column on the related audit row.
+- Legacy standalone `Branch resolved` rows are hidden from the Audit Trail display.
+- Branch Status still reflects the current Triage Packet branch status.
+
+Purpose:
+The Audit Trail should show the lifecycle of an existing item, not create a separate record every time a branch is resolved.
