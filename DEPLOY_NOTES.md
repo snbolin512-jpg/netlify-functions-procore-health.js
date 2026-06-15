@@ -1,4 +1,4 @@
-# Deploy Notes — OhmBoy V0.18.6
+# Deploy Notes — OhmBoy V0.18.7
 
 Upload/replace at GitHub repo root:
 - index.html
@@ -13,11 +13,19 @@ Upload/replace at GitHub repo root:
 - assets/
 
 Test:
-1. Open Executive Cockpit.
-2. Click several cards/records.
-3. Confirm no code/JSON drilldown drawer appears.
-4. Confirm module cards still navigate.
-5. Confirm simulation buttons still work.
-6. Confirm Resolve Branch still requires a Resolution Note.
-7. Confirm Audit Trail still shows Resolution Note column.
-8. Confirm Back to Cockpit and Sidebar toggle still work.
+1. Open Packet Triage.
+2. Create a branch.
+3. Add a Resolution Note and resolve the branch.
+4. Open Audit Trail.
+5. Confirm columns are:
+   - Audit ID
+   - Time
+   - Action
+   - Detail
+   - Linked Item
+   - Branch Status
+   - Resolution Note
+   - User
+6. Confirm Detail and Resolution Note are not mixed together.
+7. Confirm Branch Status says Resolved for resolved branches.
+8. Confirm records do not open code drilldowns.

@@ -1,6 +1,6 @@
 {
-  "name": "ohmboy-v0186-no-code-drilldowns",
-  "version": "0.18.6",
+  "name": "ohmboy-v0187-audit-trail-cleanup",
+  "version": "0.18.7",
   "private": true,
-  "description": "OhmBoy V0.18.6 removes user-facing code/JSON drilldown popups while retaining all PM controls and reporting features."
+  "description": "OhmBoy V0.18.7 cleans the Audit Trail into separate Detail, Branch Status, and Resolution Note columns."
 }

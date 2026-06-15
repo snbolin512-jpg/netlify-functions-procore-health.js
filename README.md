@@ -1,17 +1,23 @@
-# OhmBoy / Ωboy V0.18.6 — No Code Drilldowns
+# OhmBoy / Ωboy V0.18.7 — Audit Trail Cleanup
 
-V0.18.6 removes user-facing code / JSON drilldown popups.
+V0.18.7 cleans up the Audit Trail layout.
 
-Fixed:
-- Raw code payload drawers are disabled.
-- JSON/detail developer drawer is hidden.
-- Record clicks no longer open payload popups.
-- Drawer/backdrop/codeBox elements are suppressed.
-- User-facing UI remains clean and PM-focused.
+New:
+- DETAIL is its own column
+- Resolution Note is its own column
+- Branch Status is its own column
+- Branch Status is derived from linked Triage Packet branch state
+- Future resolved-branch audit entries store notes separately instead of stuffing them into Detail
+
+Branch Status values:
+- Resolved
+- Active
+- Open
+- N/A
 
 Retained:
+- No Code Drilldowns
 - Branch Resolution Notes
-- Audit Trail Resolution Note column
 - Compact Sidebar button
 - Back to Cockpit button
 - Sidebar hide/show
@@ -34,5 +40,4 @@ Retained:
 - Schedule Command
 - Manpower Loading
 - Graph View
-- Audit Log
 - Procore Functions

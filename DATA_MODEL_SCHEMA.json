@@ -1,5 +1,5 @@
 {
-  "version": "0.18.6",
+  "version": "0.18.7",
   "purpose": "Rigid integrated project-control data model for OhmBoy.",
   "core_objects": {
     "Project": [
@@ -218,6 +218,17 @@
       "disabledHandlers",
       "userFacingMode",
       "rawPayloadVisible"
+    ],
+    "AuditTrailCleanRow": [
+      "auditId",
+      "time",
+      "action",
+      "detail",
+      "linkedBranchId",
+      "linkedPacketId",
+      "branchStatus",
+      "resolutionNote",
+      "user"
     ]
   },
   "rules": [
@@ -238,6 +249,8 @@
     "Branch resolution requires a note before the branch can be marked resolved.",
     "Resolution notes must be stored on the branch and surfaced in the Audit Trail as a searchable/auditable column.",
     "Raw code, JSON payloads, and drilldown developer drawers must not be visible in the user-facing UI.",
-    "Record clicks must not open developer payload popups; actionable controls remain functional."
+    "Record clicks must not open developer payload popups; actionable controls remain functional.",
+    "Audit Trail must keep Detail and Resolution Note in separate columns.",
+    "Audit Trail branch status must reflect the current Triage Packet branch status when a branch is linked."
   ]
 }

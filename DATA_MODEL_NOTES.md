@@ -126,3 +126,12 @@ Clean UI correction:
 
 Purpose:
 The user-facing interface should show structured PM information, not internal code or raw payloads.
+
+
+## V0.18.7 Audit Trail Cleanup
+
+- Detail is its own clean column.
+- Resolution Note is its own clean column.
+- Added Branch Status column.
+- Branch Status is derived from the linked Triage Packet branch when available.
+- Future Branch Resolved audit entries store detail and resolution notes separately.
