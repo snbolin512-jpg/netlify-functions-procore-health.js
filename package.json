@@ -1,6 +1,6 @@
 {
-  "name": "ohmboy-v01810-resolution-ledger-fix",
-  "version": "0.18.10",
+  "name": "ohmboy-v01811-internal-resolution-audit-fix",
+  "version": "0.18.11",
   "private": true,
-  "description": "OhmBoy V0.18.10 fixes Triage resolution notes carrying over to Audit Trail after Resolve Branch and Final Close."
+  "description": "OhmBoy V0.18.11 patches the original internal branch/audit functions so resolution notes carry from Triage to Audit after Final Close."
 }

@@ -182,3 +182,18 @@ Fix:
 - No separate resolution AUDIT ID is created.
 
 This fixes the failure where notes typed on Triage were not visible on Audit after Resolve Branch + Final Close.
+
+
+## V0.18.11 Internal Resolution Audit Fix
+
+Root cause fixed:
+- Previous fixes appended outside overrides.
+- The real UI click handler calls the original internal `resolveBranch()` function.
+- The real page render calls the original internal `renderAudit()` function.
+- V0.18.11 rewrites those original internal functions directly.
+
+Now:
+- Branch creation links the audit row to the branch immediately.
+- Resolve Branch writes to the branch and the internal resolution ledger.
+- Final Close syncs the ledger.
+- Audit Trail reads from the ledger inside the actual internal renderer.

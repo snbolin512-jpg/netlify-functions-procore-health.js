@@ -1,5 +1,5 @@
 {
-  "version": "0.18.10",
+  "version": "0.18.11",
   "purpose": "Rigid integrated project-control data model for OhmBoy.",
   "core_objects": {
     "Project": [
@@ -261,6 +261,14 @@
       "resolvedBy",
       "auditId",
       "source"
+    ],
+    "InternalResolutionAuditFlow": [
+      "branch.auditId",
+      "audit.branchId",
+      "resolutionLedger.branchId",
+      "resolutionLedger.resolutionNote",
+      "resolutionLedger.resolvedDateTime",
+      "renderAudit.ledgerFirst"
     ]
   },
   "rules": [
@@ -293,6 +301,10 @@
     "Resolution note source of truth is the Branch Resolution Ledger.",
     "Resolve Branch must write branch status, note, resolved date/time, and ledger entry before rendering.",
     "Final Close must sync resolved branches into the ledger before closing the packet.",
-    "Audit Trail must display notes from ledger first, then branch fallback, then audit row fallback."
+    "Audit Trail must display notes from ledger first, then branch fallback, then audit row fallback.",
+    "The internal resolveBranch function called by the original click handler must write the resolution ledger.",
+    "The internal renderAudit function called by render() must read the resolution ledger.",
+    "The branch-created audit row must receive branchId and packetId immediately.",
+    "Final Close must sync the resolution ledger before and after packet close."
   ]
 }

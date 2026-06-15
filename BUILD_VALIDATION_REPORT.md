@@ -1,14 +1,15 @@
-# Build Validation Report — OhmBoy V0.18.10 Resolution Ledger Fix
+# Build Validation Report — OhmBoy V0.18.11 Internal Resolution Audit Fix
 
-- Base package used: ohmboy_v0_18_9_resolution_note_carryover_fix.zip
-- Branch Resolution Ledger present: PASS
-- Resolve Branch writes ledger: PASS
+- Base package used: ohmboy_v0_18_10_resolution_ledger_fix.zip
+- Internal branch() patched: PASS
+- Internal resolveBranch() patched: PASS
+- Internal closePacket() patched: PASS
+- Internal renderAudit() patched: PASS
+- Branch-created audit row linked immediately: PASS
+- Resolution ledger helper inserted: PASS
+- Resolve writes ledger: PASS
 - Final Close syncs ledger: PASS
-- Audit reads ledger first: PASS
-- Branch fallback retained: PASS
-- No standalone Branch Resolved AUDIT ID: PASS
-- Resolution Note column present: PASS
-- Resolved Date / Time column present: PASS
+- Audit reads ledger internally: PASS
 - No code drilldown retained: PASS
 - Inline frontend syntax: PASS
 
