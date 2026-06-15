@@ -1,5 +1,5 @@
 {
-  "version": "0.18.5",
+  "version": "0.18.6",
   "purpose": "Rigid integrated project-control data model for OhmBoy.",
   "core_objects": {
     "Project": [
@@ -211,6 +211,13 @@
       "auditId",
       "statusBefore",
       "statusAfter"
+    ],
+    "CleanUIControl": [
+      "id",
+      "hiddenElementTypes",
+      "disabledHandlers",
+      "userFacingMode",
+      "rawPayloadVisible"
     ]
   },
   "rules": [
@@ -229,6 +236,8 @@
     "Sidebar visibility is a UI shell preference and must not affect cockpit module routing or report state.",
     "Back to Cockpit must be globally available and route to the cockpit view without depending on sidebar visibility.",
     "Branch resolution requires a note before the branch can be marked resolved.",
-    "Resolution notes must be stored on the branch and surfaced in the Audit Trail as a searchable/auditable column."
+    "Resolution notes must be stored on the branch and surfaced in the Audit Trail as a searchable/auditable column.",
+    "Raw code, JSON payloads, and drilldown developer drawers must not be visible in the user-facing UI.",
+    "Record clicks must not open developer payload popups; actionable controls remain functional."
   ]
 }

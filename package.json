@@ -1,6 +1,6 @@
 {
-  "name": "ohmboy-v0185-branch-resolution-notes",
-  "version": "0.18.5",
+  "name": "ohmboy-v0186-no-code-drilldowns",
+  "version": "0.18.6",
   "private": true,
-  "description": "OhmBoy V0.18.5 adds required branch resolution notes and audit trail resolution-note columns."
+  "description": "OhmBoy V0.18.6 removes user-facing code/JSON drilldown popups while retaining all PM controls and reporting features."
 }

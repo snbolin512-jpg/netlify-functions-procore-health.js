@@ -1,20 +1,17 @@
-# OhmBoy / Ωboy V0.18.5 — Branch Resolution Notes + Audit Trail
+# OhmBoy / Ωboy V0.18.6 — No Code Drilldowns
 
-V0.18.5 adds context before branch closeout.
+V0.18.6 removes user-facing code / JSON drilldown popups.
 
-New:
-- Required Resolution Note field before Resolve Branch
-- Branch cannot be resolved without a note
-- Resolution note is stored on the branch
-- Resolution note is added to the audit record
-- Audit Trail now displays a Resolution Note column
-- Audit Trail includes linked Branch ID and Packet ID for branch resolutions
-- Resolved branch cards display their saved resolution note
+Fixed:
+- Raw code payload drawers are disabled.
+- JSON/detail developer drawer is hidden.
+- Record clicks no longer open payload popups.
+- Drawer/backdrop/codeBox elements are suppressed.
+- User-facing UI remains clean and PM-focused.
 
-Why:
-Final closeout needs context. A Senior PM needs to know what led to closing the branch, what was verified, what changed, who approved it, or why it was safe to close.
-
-Retained from V0.18.4:
+Retained:
+- Branch Resolution Notes
+- Audit Trail Resolution Note column
 - Compact Sidebar button
 - Back to Cockpit button
 - Sidebar hide/show

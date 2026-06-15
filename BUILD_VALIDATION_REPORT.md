@@ -1,16 +1,14 @@
-# Build Validation Report — OhmBoy V0.18.5 Branch Resolution Notes + Audit Trail
+# Build Validation Report — OhmBoy V0.18.6 No Code Drilldowns
 
-- Base package used: ohmboy_v0_18_4_compact_sidebar_back_to_cockpit.zip
-- Branch HTML patched: PASS
-- Resolve Branch logic patched: PASS
-- Audit Trail renderer patched: PASS
-- Resolution note input present: PASS
-- Required-note alert present: PASS
-- Branch stores resolutionNote: PASS
-- Audit stores resolutionNote: PASS
-- Audit Resolution Note column present: PASS
-- BranchResolution schema present: PASS
-- Sidebar/back cockpit retained: PASS
+- Base package used: ohmboy_v0_18_5_branch_resolution_notes.zip
+- Drawer CSS suppression present: PASS
+- CodeBox CSS suppression present: PASS
+- openDrawer disabled: PASS
+- Record click suppression present: PASS
+- Actionable controls protected: PASS
+- Branch Resolution Notes retained: PASS
+- Audit Resolution Note column retained: PASS
+- Sidebar/Back Cockpit retained: PASS
 - Financial sim hard fix retained: PASS
 - Inline frontend syntax: PASS
 

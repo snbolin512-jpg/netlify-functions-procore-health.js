@@ -113,3 +113,16 @@ Closeout logic:
 
 Purpose:
 A Senior PM needs the closeout record to show not just that a branch was closed, but what verification, decision, approval, or context led to closing it.
+
+
+## V0.18.6 No Code Drilldowns
+
+Clean UI correction:
+- Raw JSON/code drilldown drawers are hidden.
+- `openDrawer()` is disabled.
+- Drawer/backdrop/codeBox elements are suppressed with CSS.
+- Record clicks no longer open developer payload popups.
+- Buttons, inputs, selects, module navigation, simulation buttons, and branch resolution controls remain functional.
+
+Purpose:
+The user-facing interface should show structured PM information, not internal code or raw payloads.
