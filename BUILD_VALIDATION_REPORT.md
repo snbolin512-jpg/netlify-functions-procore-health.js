@@ -1,17 +1,15 @@
-# Build Validation Report — OhmBoy V0.18.2 Cockpit Navigation + Financial Simulation Fix
+# Build Validation Report — OhmBoy V0.18.3 Sidebar Toggle + Cockpit Navigation
 
-- Base package used: ohmboy_v0_18_1_financial_simulation_co_contract_impact.zip
-- Old side nav hidden: PASS
-- Cockpit launcher present: PASS
-- Module cards with icons present: PASS
-- Delegated simulation binding present: PASS
-- Global Open PO sim function present: PASS
-- Global Aging sim function present: PASS
-- Global CO sim function present: PASS
-- Open C/O Value column retained: PASS
-- New Contract Value if Approved column retained: PASS
-- Open PO color bucket CSS present: PASS
-- Aging color bucket CSS present: PASS
+- Base package used: ohmboy_v0_18_2_cockpit_nav_financial_sim_fix.zip
+- Hide Sidebar button present: PASS
+- Show Sidebar floating button present: PASS
+- Sidebar collapsed CSS present: PASS
+- Full-width workspace CSS present: PASS
+- Sidebar toggle JS present: PASS
+- LocalStorage persistence present: PASS
+- Keyboard shortcut present: PASS
+- Cockpit launcher retained: PASS
+- Financial sim hard fix retained: PASS
 - Inline frontend syntax: PASS
 
 ## Function syntax checks

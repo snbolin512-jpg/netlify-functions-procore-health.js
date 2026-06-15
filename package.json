@@ -1,6 +1,6 @@
 {
-  "name": "ohmboy-v0182-cockpit-nav-financial-sim-fix",
-  "version": "0.18.2",
+  "name": "ohmboy-v0183-sidebar-toggle",
+  "version": "0.18.3",
   "private": true,
-  "description": "OhmBoy V0.18.2 hard-fixes financial simulation buttons and changes navigation to cockpit module cards with icons."
+  "description": "OhmBoy V0.18.3 adds a hide/show sidebar toggle while retaining cockpit module navigation and financial simulation fixes."
 }

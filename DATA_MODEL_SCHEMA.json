@@ -1,5 +1,5 @@
 {
-  "version": "0.18.2",
+  "version": "0.18.3",
   "purpose": "Rigid integrated project-control data model for OhmBoy.",
   "core_objects": {
     "Project": [
@@ -184,6 +184,14 @@
       "domTarget",
       "auditEvent",
       "packetCreated"
+    ],
+    "UIShellPreference": [
+      "id",
+      "sidebarCollapsed",
+      "storedIn",
+      "toggleControl",
+      "keyboardShortcut",
+      "workspaceMode"
     ]
   },
   "rules": [
@@ -198,6 +206,7 @@
     "Financial simulations must update the same report buckets that feed the high-level overview.",
     "Change Order log rows must show open C/O value and projected contract value if approved.",
     "Simulation buttons must use delegated click binding and direct global handlers so visible buttons cannot fail due to late DOM binding.",
-    "The Executive Cockpit is the primary navigation surface; sidebar view tabs are hidden but retained for routing."
+    "The Executive Cockpit is the primary navigation surface; sidebar view tabs are hidden but retained for routing.",
+    "Sidebar visibility is a UI shell preference and must not affect cockpit module routing or report state."
   ]
 }

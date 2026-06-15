@@ -82,3 +82,12 @@ Color alignment:
 - Change Order values use amber.
 - Contract projection uses brown.
 - EAC uses green.
+
+
+## V0.18.3 Sidebar Toggle
+
+- Hide Sidebar button inside the left rail.
+- Floating Show Sidebar button when collapsed.
+- Ctrl+B / Cmd+B keyboard shortcut.
+- Sidebar collapsed state persists in localStorage.
+- Cockpit module navigation remains the primary navigation surface.

@@ -1,4 +1,4 @@
-# Deploy Notes — OhmBoy V0.18.2
+# Deploy Notes — OhmBoy V0.18.3
 
 Upload/replace at GitHub repo root:
 - index.html
@@ -14,17 +14,13 @@ Upload/replace at GitHub repo root:
 
 Test:
 1. Open Executive Cockpit.
-2. Confirm the old side tab navigation list is hidden.
-3. Confirm Command Modules appear with icons.
-4. Click Open PO Report module.
-5. Click Aging Report module.
-6. Return to Executive Cockpit.
-7. Click Simulate New Open PO.
-8. Confirm Open PO totals change.
-9. Click Simulate Aging Shift.
-10. Confirm Aging Report buckets change.
-11. Click Simulate Pending CO Approval.
-12. Open Change Order Log and confirm:
-    - Open C/O Value column
-    - New Contract Value if Approved column
-13. Confirm bucket colors match the source report colors.
+2. Confirm Command Modules are visible.
+3. Click Hide Sidebar.
+4. Confirm the whole left rail disappears.
+5. Confirm the workspace expands full width.
+6. Click Show Sidebar.
+7. Confirm the sidebar returns.
+8. Try Ctrl+B or Cmd+B to toggle.
+9. Reload the page and confirm the sidebar state persists.
+10. Confirm cockpit module cards still navigate.
+11. Confirm simulation buttons still work.
