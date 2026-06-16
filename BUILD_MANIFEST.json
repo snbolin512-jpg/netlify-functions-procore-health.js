@@ -1,0 +1,27 @@
+{
+  "name": "\u03a9boy V0.20 Full Restore \u2014 Clean Storage",
+  "baseRestoredFrom": "ohmboy_v0_18_11_internal_resolution_audit_fix.zip",
+  "version": "0.20.0",
+  "type": "full-feature-restore-not-diagnostic-shell",
+  "preserved": [
+    "Jackson mascot/assets",
+    "Executive cockpit",
+    "Packet triage",
+    "Branch/resolution workflow",
+    "Internal resolution audit",
+    "CO/RFI logs",
+    "Schedule compare",
+    "Manpower loading",
+    "Graph mode",
+    "Guide mode",
+    "Financial sim",
+    "Procore mock controls"
+  ],
+  "storage": {
+    "helper": "netlify/functions/_lib/store.js",
+    "backend": "Netlify Blobs",
+    "store": "ohmboy-v020-full-restore",
+    "consistency": "strong"
+  },
+  "firstTest": "/.netlify/functions/procore-health"
+}
