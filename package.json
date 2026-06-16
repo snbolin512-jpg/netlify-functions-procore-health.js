@@ -1,9 +1,0 @@
-{
-  "name": "ohmboy-v0196-dynamic-import-blobs",
-  "version": "0.19.6",
-  "private": true,
-  "description": "OhmBoy V0.19.6 fixes storage by using dynamic import of @netlify/blobs in deployed .js functions.",
-  "dependencies": {
-    "@netlify/blobs": "^8.1.0"
-  }
-}
