@@ -1,8 +1,8 @@
 {
-  "name": "ohmboy-v0191-function-deploy-diagnostics",
-  "version": "0.19.1",
+  "name": "ohmboy-v0192-api-route-compatibility",
+  "version": "0.19.2",
   "private": true,
-  "description": "OhmBoy V0.19.1 adds Netlify function deploy diagnostics and hardens API simulation responses.",
+  "description": "OhmBoy V0.19.2 adds API route aliases and frontend endpoint matrix diagnostics for Netlify Functions.",
   "dependencies": {
     "@netlify/blobs": "^8.1.0"
   }

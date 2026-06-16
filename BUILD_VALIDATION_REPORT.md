@@ -1,16 +1,14 @@
-# Build Validation Report — OhmBoy V0.19.1 Function Deploy Diagnostics
+# Build Validation Report — OhmBoy V0.19.2 API Route Compatibility
 
-- Base package used: ohmboy_v0_19_api_intake_backend_readiness.zip
-- Health check button present: PASS
-- Diagnostic box present: PASS
-- Netlify 404 diagnosis present: PASS
-- API health function present: PASS
-- API events function present: PASS
-- API intake function present: PASS
-- API promote packet function present: PASS
-- Backend helper present: PASS
-- Deploy checklist present: PASS
-- Netlify config present: PASS
+- Base package used: ohmboy_v0_19_1_function_deploy_diagnostics.zip
+- Endpoint matrix present: PASS
+- Compatible route list present: PASS
+- Health alias redirect present: PASS
+- Intake alias redirect present: PASS
+- Events alias redirect present: PASS
+- Promote alias redirect present: PASS
+- Functions config present: PASS
+- Required functions present: PASS
 - Inline frontend syntax: PASS
 
 ## Function syntax checks

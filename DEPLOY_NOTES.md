@@ -38,3 +38,20 @@ Before using the simulation buttons, open:
 `/.netlify/functions/ohmboy-api-health`
 
 If this returns Netlify Page Not Found HTML, then the backend functions are not deployed. Fix the deploy before testing simulations.
+
+
+## V0.19.2 Route Alias Test
+
+After deployment, test these directly:
+
+1. `/.netlify/functions/ohmboy-api-health`
+2. `/api/health`
+
+Both should return JSON.
+
+If both return 404, inspect:
+- Netlify deploy branch
+- Base directory
+- Publish directory
+- Whether `netlify/functions` exists in the deployed branch
+- Deploy log for function bundling

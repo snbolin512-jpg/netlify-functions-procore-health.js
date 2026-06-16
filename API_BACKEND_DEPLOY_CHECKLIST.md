@@ -39,3 +39,36 @@ Open this directly in the browser:
 Expected result: JSON with `"ok": true`.
 
 If you still get Page Not Found, the functions are still not deployed.
+
+
+## V0.19.2 Route Compatibility Check
+
+The frontend now tests these routes:
+
+Health:
+- `/.netlify/functions/ohmboy-api-health`
+- `/api/ohmboy-api-health`
+- `/api/health`
+
+Events:
+- `/.netlify/functions/ohmboy-api-events`
+- `/api/ohmboy-api-events`
+- `/api/events`
+
+Intake:
+- `/.netlify/functions/ohmboy-api-intake`
+- `/api/ohmboy-api-intake`
+- `/api/intake`
+
+If all routes return 404, the functions are not deployed.
+
+Most likely causes:
+1. Netlify is deploying from the wrong base directory.
+2. The repo root on Netlify does not contain `netlify.toml`.
+3. The deployed branch does not contain `netlify/functions`.
+4. A drag-and-drop/static deploy was used instead of a function-capable deploy.
+5. Netlify publish directory points to a folder that excludes the function config/deploy context.
+
+Netlify deploy log should show function bundling. Look for lines like:
+- Packaging Functions from netlify/functions directory
+- Functions bundling complete

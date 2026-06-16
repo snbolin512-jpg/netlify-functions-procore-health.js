@@ -6,3 +6,43 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
   included_files = ["netlify/functions/_lib/**"]
+
+[[redirects]]
+  from = "/api/ohmboy-api-health"
+  to = "/.netlify/functions/ohmboy-api-health"
+  status = 200
+
+[[redirects]]
+  from = "/api/health"
+  to = "/.netlify/functions/ohmboy-api-health"
+  status = 200
+
+[[redirects]]
+  from = "/api/ohmboy-api-events"
+  to = "/.netlify/functions/ohmboy-api-events"
+  status = 200
+
+[[redirects]]
+  from = "/api/events"
+  to = "/.netlify/functions/ohmboy-api-events"
+  status = 200
+
+[[redirects]]
+  from = "/api/ohmboy-api-intake"
+  to = "/.netlify/functions/ohmboy-api-intake"
+  status = 200
+
+[[redirects]]
+  from = "/api/intake"
+  to = "/.netlify/functions/ohmboy-api-intake"
+  status = 200
+
+[[redirects]]
+  from = "/api/ohmboy-api-promote-packet"
+  to = "/.netlify/functions/ohmboy-api-promote-packet"
+  status = 200
+
+[[redirects]]
+  from = "/api/promote-packet"
+  to = "/.netlify/functions/ohmboy-api-promote-packet"
+  status = 200
