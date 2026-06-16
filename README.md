@@ -122,3 +122,20 @@ Fix:
   - `/.netlify/functions/ohmboy-api-events-v2`
   - `/.netlify/functions/ohmboy-api-intake-v2`
 - Diagnostic output clearly lists missing V2 files if route is 404.
+
+
+## V0.19.6 Dynamic Blobs Storage Fix
+
+This version abandons the `.mjs` V2 route path and fixes the deployed `.js` functions instead.
+
+Reason:
+- Existing `.js` API functions are deployed and reachable.
+- V2 `.mjs` routes were returning 404.
+- The old `.js` helper used `require("@netlify/blobs")`, which can fail with ESM packages and force memory fallback.
+- V0.19.6 uses `await import("@netlify/blobs")` from the existing `.js` helper.
+
+Expected Health response:
+- `runtime: "lambda-js-dynamic-import-blobs"`
+- `storage.backend: "netlify-blobs-dynamic"`
+
+If it still says memory-fallback, the response will include `storageDiagnostic.error` showing the actual import/runtime failure.

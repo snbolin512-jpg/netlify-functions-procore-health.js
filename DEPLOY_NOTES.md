@@ -106,3 +106,27 @@ Direct test:
 ```text
 /.netlify/functions/ohmboy-api-health-v2
 ```
+
+
+## V0.19.6 Deploy Requirements
+
+Upload/replace:
+```text
+index.html
+package.json
+netlify/functions/ohmboy-api-health.js
+netlify/functions/ohmboy-api-events.js
+netlify/functions/ohmboy-api-intake.js
+netlify/functions/_lib/ohmboy-backend-store.js
+```
+
+Direct health test:
+```text
+/.netlify/functions/ohmboy-api-health
+```
+
+Expected:
+```text
+runtime: lambda-js-dynamic-import-blobs
+storage.backend: netlify-blobs-dynamic
+```
