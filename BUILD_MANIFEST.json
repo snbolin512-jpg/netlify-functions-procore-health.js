@@ -1,0 +1,35 @@
+{
+  "name": "\u03a9boy V0.20.1 Cockpit Recovery + Clean Storage",
+  "baseRestoredFrom": "ohmboy_v0_18_11_internal_resolution_audit_fix.zip",
+  "version": "0.20.1",
+  "type": "full-feature-restore-not-diagnostic-shell",
+  "preserved": [
+    "Jackson mascot/assets",
+    "Executive cockpit",
+    "Packet triage",
+    "Branch/resolution workflow",
+    "Internal resolution audit",
+    "CO/RFI logs",
+    "Schedule compare",
+    "Manpower loading",
+    "Graph mode",
+    "Guide mode",
+    "Financial sim",
+    "Procore mock controls"
+  ],
+  "storage": {
+    "helper": "netlify/functions/_lib/store.js",
+    "backend": "Netlify Blobs",
+    "store": "ohmboy-v020-full-restore",
+    "consistency": "strong"
+  },
+  "firstTest": "/.netlify/functions/procore-health",
+  "changes": [
+    "Button recovery layer added",
+    "Jackson daily highlights moved to cockpit top",
+    "Financial Source Map moved to cockpit middle",
+    "Command Modules moved to cockpit bottom",
+    "Hover/focus math tooltips added to financial source bubbles",
+    "White/copper/red/teal UI palette added"
+  ]
+}
