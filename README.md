@@ -68,3 +68,38 @@ The app now tries:
 - short `/api/*` aliases
 
 If every route returns 404, the active deploy does not include Netlify Functions.
+
+
+## V0.19.3 Storage Persistence Diagnostics
+
+This version separates two problems:
+
+1. API intake route works
+2. Durable backend storage works
+
+If simulations show in the session mirror but the backend event count is 0, then intake is working but durable storage is not active.
+
+Check the Health response:
+- `storageMode: "netlify-blobs"` = durable storage active
+- `storageMode: "memory-fallback"` = events disappear between function calls
+
+If memory fallback is active, Netlify likely did not install/use `@netlify/blobs` or the deployed environment does not support Netlify Blobs.
+
+
+## V0.19.4 Modern Blobs Functions
+
+This version adds modern Netlify Functions v2-style `.mjs` endpoints to avoid Lambda compatibility issues with Netlify Blobs.
+
+New endpoints:
+- `/.netlify/functions/ohmboy-api-health-v2`
+- `/.netlify/functions/ohmboy-api-events-v2`
+- `/.netlify/functions/ohmboy-api-intake-v2`
+- `/.netlify/functions/ohmboy-api-promote-packet-v2`
+
+Aliases:
+- `/api/v2/health`
+- `/api/v2/events`
+- `/api/v2/intake`
+- `/api/v2/promote-packet`
+
+The frontend tries the v2 routes first, then falls back to the older Lambda-style routes.

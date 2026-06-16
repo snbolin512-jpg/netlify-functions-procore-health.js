@@ -1,8 +1,8 @@
 {
-  "name": "ohmboy-v0192-api-route-compatibility",
-  "version": "0.19.2",
+  "name": "ohmboy-v0194-modern-blobs-functions",
+  "version": "0.19.4",
   "private": true,
-  "description": "OhmBoy V0.19.2 adds API route aliases and frontend endpoint matrix diagnostics for Netlify Functions.",
+  "description": "OhmBoy V0.19.4 moves API intake storage to modern Netlify Functions using Request/Response syntax for Netlify Blobs.",
   "dependencies": {
     "@netlify/blobs": "^8.1.0"
   }

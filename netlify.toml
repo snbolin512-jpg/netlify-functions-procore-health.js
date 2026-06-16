@@ -46,3 +46,24 @@
   from = "/api/promote-packet"
   to = "/.netlify/functions/ohmboy-api-promote-packet"
   status = 200
+
+
+[[redirects]]
+  from = "/api/v2/health"
+  to = "/.netlify/functions/ohmboy-api-health-v2"
+  status = 200
+
+[[redirects]]
+  from = "/api/v2/events"
+  to = "/.netlify/functions/ohmboy-api-events-v2"
+  status = 200
+
+[[redirects]]
+  from = "/api/v2/intake"
+  to = "/.netlify/functions/ohmboy-api-intake-v2"
+  status = 200
+
+[[redirects]]
+  from = "/api/v2/promote-packet"
+  to = "/.netlify/functions/ohmboy-api-promote-packet-v2"
+  status = 200

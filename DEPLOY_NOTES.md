@@ -55,3 +55,29 @@ If both return 404, inspect:
 - Publish directory
 - Whether `netlify/functions` exists in the deployed branch
 - Deploy log for function bundling
+
+
+## V0.19.3 Storage Test
+
+After redeploy:
+1. Run Backend Health Check.
+2. Look for storageMode.
+3. If storageMode is `memory-fallback`, simulation events will not persist in backend list.
+4. If storageMode is `netlify-blobs`, events should persist and Loaded count should increase.
+
+
+## V0.19.4 Modern Blobs Function Test
+
+After deploy, test directly:
+
+`/.netlify/functions/ohmboy-api-health-v2`
+
+Expected:
+- `ok: true`
+- `runtime: "modern-netlify-functions"`
+- `storage.backend: "netlify-blobs-modern"`
+
+Then test:
+- Sim Drawing Revision Event
+- Sim Schedule Revision Event
+- Refresh Intake Events
