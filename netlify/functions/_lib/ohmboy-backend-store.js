@@ -3,17 +3,31 @@ const crypto = require("crypto");
 
 const STORE_NAME = "ohmboy-api-events";
 const GLOBAL_KEY = "__ohmboy_local_event_store__";
+let blobImportError = null;
 
 function nowIso() { return new Date().toISOString(); }
 function id(prefix = "EVT") { return `${prefix}-${Date.now()}-${crypto.randomBytes(4).toString("hex")}`; }
 
 async function getBlobStore() {
   try {
-    const { getStore } = require("@netlify/blobs");
-    return getStore(STORE_NAME);
+    const mod = await import("@netlify/blobs");
+    return mod.getStore(STORE_NAME);
   } catch (err) {
+    blobImportError = {
+      name: err.name,
+      message: err.message,
+      code: err.code || null,
+      stack: err.stack
+    };
     return null;
   }
+}
+
+async function storageMode() {
+  const store = await getBlobStore();
+  return store
+    ? { backend: "netlify-blobs-dynamic", durable: true, store: STORE_NAME }
+    : { backend: "memory-fallback", durable: false, error: blobImportError };
 }
 
 function localStore() {
@@ -25,16 +39,22 @@ async function putJson(key, value) {
   const store = await getBlobStore();
   if (store) {
     await store.setJSON(key, value);
-    return { backend: "netlify-blobs" };
+    return { backend: "netlify-blobs-dynamic", durable: true, store: STORE_NAME };
   }
   localStore()[key] = value;
-  return { backend: "memory-fallback" };
+  return {
+    backend: "memory-fallback",
+    durable: false,
+    warning: "Memory fallback does not persist across independent Netlify function calls.",
+    error: blobImportError
+  };
 }
 
 async function getJson(key) {
   const store = await getBlobStore();
   if (store) {
-    try { return await store.get(key, { type: "json" }); } catch (err) { return null; }
+    try { return await store.get(key, { type: "json" }); }
+    catch (err) { return null; }
   }
   return localStore()[key] || null;
 }
@@ -164,4 +184,7 @@ function response(statusCode, body) {
   };
 }
 
-module.exports = { nowIso, id, putJson, getJson, listEvents, clearEvents, normalizeEvent, parseBody, verifySignatureIfConfigured, response };
+module.exports = {
+  nowIso, id, putJson, getJson, listEvents, clearEvents,
+  normalizeEvent, parseBody, verifySignatureIfConfigured, response, storageMode
+};
