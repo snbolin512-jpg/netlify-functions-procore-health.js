@@ -29,3 +29,12 @@ Frontend test:
 8. Confirm events persist if Netlify Blobs is active.
 
 Manual webhook test: POST JSON to `/.netlify/functions/ohmboy-api-intake`.
+
+
+## V0.19.1 Critical API Deploy Test
+
+Before using the simulation buttons, open:
+
+`/.netlify/functions/ohmboy-api-health`
+
+If this returns Netlify Page Not Found HTML, then the backend functions are not deployed. Fix the deploy before testing simulations.

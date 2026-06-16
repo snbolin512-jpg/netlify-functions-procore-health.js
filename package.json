@@ -1,8 +1,8 @@
 {
-  "name": "ohmboy-v019-api-intake-backend",
-  "version": "0.19.0",
+  "name": "ohmboy-v0191-function-deploy-diagnostics",
+  "version": "0.19.1",
   "private": true,
-  "description": "OhmBoy V0.19 adds backend API intake, event storage, normalization, and webhook readiness.",
+  "description": "OhmBoy V0.19.1 adds Netlify function deploy diagnostics and hardens API simulation responses.",
   "dependencies": {
     "@netlify/blobs": "^8.1.0"
   }

@@ -1,21 +1,19 @@
-# Build Validation Report — OhmBoy V0.19 API Intake Backend Readiness
+# Build Validation Report — OhmBoy V0.19.1 Function Deploy Diagnostics
 
-- Base package used: ohmboy_v0_18_11_internal_resolution_audit_fix.zip
-- API Intake Monitor section added: PASS
-- API Intake frontend JS added: PASS
-- Drawing simulation button added: PASS
-- Schedule simulation button added: PASS
-- API intake endpoint present: PASS
-- API events endpoint present: PASS
-- API promote packet endpoint present: PASS
-- API health endpoint present: PASS
-- Backend store helper present: PASS
-- Netlify Blobs dependency present: PASS
-- Webhook signature support present: PASS
+- Base package used: ohmboy_v0_19_api_intake_backend_readiness.zip
+- Health check button present: PASS
+- Diagnostic box present: PASS
+- Netlify 404 diagnosis present: PASS
+- API health function present: PASS
+- API events function present: PASS
+- API intake function present: PASS
+- API promote packet function present: PASS
+- Backend helper present: PASS
+- Deploy checklist present: PASS
+- Netlify config present: PASS
 - Inline frontend syntax: PASS
 
 ## Function syntax checks
-- netlify/functions/_lib/ohmboy-backend-store.js: PASS
 - netlify/functions/ohmboy-api-events.js: PASS
 - netlify/functions/ohmboy-api-health.js: PASS
 - netlify/functions/ohmboy-api-intake.js: PASS
