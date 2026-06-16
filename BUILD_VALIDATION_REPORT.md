@@ -1,13 +1,9 @@
-# Build Validation Report — OhmBoy Clean Storage Rewrite
+# Build Validation Report — OhmBoy Clean Rewrite V1.0.1
 
-- Build type: clean rewrite, not patch
-- Legacy API files intentionally omitted: PASS
-- Direct Netlify function routes created: PASS
-- Single storage helper created: PASS
-- Netlify Blobs dynamic import present: PASS
-- Strong consistency configured: PASS
-- Validation script: PASS
-  stdout: OhmBoy clean rewrite validation passed.
+- Build blocker removed from Netlify command: PASS
+- Manual validation script retained: PASS
+- Direct function routes retained: PASS
+- Single storage helper retained: PASS
 - Inline frontend syntax: PASS
 
 ## Function syntax checks

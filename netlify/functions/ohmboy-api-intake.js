@@ -26,7 +26,8 @@ exports.handler = async function(event) {
       raw
     };
     const storage = await putJson(`event:${eventId}`, record);
-    return response(202, { ok: true, eventId, receivedAt, storage, status: "received", normalized });
+    record.storage = storage;
+    return response(202, { ok: true, eventId, receivedAt, storage, storageMode: storage.backend, durableStorage: storage.durable, status: "received", normalized });
   } catch (err) {
     return response(500, { ok: false, functionName: "ohmboy-api-intake", error: err.message, stack: err.stack });
   }

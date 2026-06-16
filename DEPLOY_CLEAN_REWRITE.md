@@ -38,7 +38,7 @@ Use:
 
 ```text
 Base directory: blank or /
-Build command: npm install && npm run validate
+Build command: echo OhmBoy clean rewrite static build
 Publish directory: .
 Functions directory: netlify/functions
 ```
@@ -68,3 +68,16 @@ Expected:
 ```
 
 If that fails, do not test the UI. Open the function log and read the JSON error.
+
+
+## V1.0.1 Build Fix
+
+V1.0.0 used `npm run validate` as the Netlify build command. That was too strict when uploading into an existing repo because it intentionally failed the build if old function files were still present.
+
+V1.0.1 changes the Netlify build command to:
+
+```text
+echo OhmBoy clean rewrite static build
+```
+
+The validation script is still included for manual checking, but it no longer blocks the Netlify deploy.

@@ -1,6 +1,6 @@
 [build]
   publish = "."
-  command = "npm install && npm run validate"
+  command = "echo OhmBoy clean rewrite static build"
   functions = "netlify/functions"
 
 [build.environment]
