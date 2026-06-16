@@ -1,69 +1,41 @@
 [build]
   publish = "."
+  command = "npm install && npm run validate"
   functions = "netlify/functions"
 
-[functions]
-  directory = "netlify/functions"
-  node_bundler = "esbuild"
-  included_files = ["netlify/functions/_lib/**"]
+[build.environment]
+  NODE_VERSION = "20"
 
-[[redirects]]
-  from = "/api/ohmboy-api-health"
-  to = "/.netlify/functions/ohmboy-api-health"
-  status = 200
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["@netlify/blobs"]
 
 [[redirects]]
   from = "/api/health"
-  to = "/.netlify/functions/ohmboy-api-health"
-  status = 200
-
-[[redirects]]
-  from = "/api/ohmboy-api-events"
-  to = "/.netlify/functions/ohmboy-api-events"
+  to = "/.netlify/functions/ohmboy-health"
   status = 200
 
 [[redirects]]
   from = "/api/events"
-  to = "/.netlify/functions/ohmboy-api-events"
-  status = 200
-
-[[redirects]]
-  from = "/api/ohmboy-api-intake"
-  to = "/.netlify/functions/ohmboy-api-intake"
+  to = "/.netlify/functions/ohmboy-events"
   status = 200
 
 [[redirects]]
   from = "/api/intake"
-  to = "/.netlify/functions/ohmboy-api-intake"
+  to = "/.netlify/functions/ohmboy-intake"
   status = 200
 
 [[redirects]]
-  from = "/api/ohmboy-api-promote-packet"
-  to = "/.netlify/functions/ohmboy-api-promote-packet"
+  from = "/api/clear"
+  to = "/.netlify/functions/ohmboy-clear"
   status = 200
 
 [[redirects]]
-  from = "/api/promote-packet"
-  to = "/.netlify/functions/ohmboy-api-promote-packet"
-  status = 200
-
-
-[[redirects]]
-  from = "/api/v2/health"
-  to = "/.netlify/functions/ohmboy-api-health-v2"
+  from = "/api/promote"
+  to = "/.netlify/functions/ohmboy-promote"
   status = 200
 
 [[redirects]]
-  from = "/api/v2/events"
-  to = "/.netlify/functions/ohmboy-api-events-v2"
-  status = 200
-
-[[redirects]]
-  from = "/api/v2/intake"
-  to = "/.netlify/functions/ohmboy-api-intake-v2"
-  status = 200
-
-[[redirects]]
-  from = "/api/v2/promote-packet"
-  to = "/.netlify/functions/ohmboy-api-promote-packet-v2"
+  from = "/api/packet-ledger"
+  to = "/.netlify/functions/ohmboy-packet-ledger"
   status = 200

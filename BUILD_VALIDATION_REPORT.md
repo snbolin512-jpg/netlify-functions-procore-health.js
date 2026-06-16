@@ -1,14 +1,21 @@
-# Build Validation Report — OhmBoy V0.19.6 Dynamic Blobs Storage Fix
+# Build Validation Report — OhmBoy Clean Storage Rewrite
 
-- Base package used: ohmboy_v0_19_5_clean_v2_api_controls.zip
-- Stable controls present: PASS
-- Dynamic import helper present: PASS
-- Health exposes runtime marker: PASS
-- No package type module forced: PASS
+- Build type: clean rewrite, not patch
+- Legacy API files intentionally omitted: PASS
+- Direct Netlify function routes created: PASS
+- Single storage helper created: PASS
+- Netlify Blobs dynamic import present: PASS
+- Strong consistency configured: PASS
+- Validation script: PASS
+  stdout: OhmBoy clean rewrite validation passed.
 - Inline frontend syntax: PASS
 
 ## Function syntax checks
-- netlify/functions/ohmboy-api-health.js: PASS
-- netlify/functions/ohmboy-api-events.js: PASS
-- netlify/functions/ohmboy-api-intake.js: PASS
-- netlify/functions/_lib/ohmboy-backend-store.js: PASS
+- netlify/functions/ohmboy-clear.js: PASS
+- netlify/functions/ohmboy-events.js: PASS
+- netlify/functions/ohmboy-health.js: PASS
+- netlify/functions/ohmboy-intake.js: PASS
+- netlify/functions/ohmboy-packet-ledger.js: PASS
+- netlify/functions/ohmboy-promote.js: PASS
+- netlify/functions/_lib/store.js: PASS
+- scripts/validate-build.js: PASS
