@@ -1,5 +1,5 @@
 {
-  "version": "0.18.11",
+  "version": "0.19.0",
   "purpose": "Rigid integrated project-control data model for OhmBoy.",
   "core_objects": {
     "Project": [
@@ -269,6 +269,44 @@
       "resolutionLedger.resolutionNote",
       "resolutionLedger.resolvedDateTime",
       "renderAudit.ledgerFirst"
+    ],
+    "ApiIntakeEvent": [
+      "eventId",
+      "receivedAt",
+      "status",
+      "signatureMode",
+      "projectId",
+      "companyId",
+      "source",
+      "eventType",
+      "normalized",
+      "raw"
+    ],
+    "NormalizedRevisionEvent": [
+      "normalizedAt",
+      "source",
+      "eventType",
+      "projectId",
+      "companyId",
+      "title",
+      "summary",
+      "discipline",
+      "revision",
+      "impacts",
+      "riskScore",
+      "recommendedAction"
+    ],
+    "ApiPacketCandidate": [
+      "packetCandidateId",
+      "createdAt",
+      "eventId",
+      "status",
+      "source",
+      "title",
+      "summary",
+      "score",
+      "impacts",
+      "recommendedAction"
     ]
   },
   "rules": [
@@ -305,6 +343,11 @@
     "The internal resolveBranch function called by the original click handler must write the resolution ledger.",
     "The internal renderAudit function called by render() must read the resolution ledger.",
     "The branch-created audit row must receive branchId and packetId immediately.",
-    "Final Close must sync the resolution ledger before and after packet close."
+    "Final Close must sync the resolution ledger before and after packet close.",
+    "API intake remains read-only until explicitly promoted.",
+    "Raw webhook payloads and normalized events must be stored outside browser state.",
+    "Drawing and schedule revision events must be normalized before packet promotion.",
+    "No writeback to Procore is performed in V0.19.",
+    "Webhook signature verification is enforced when OHMBOY_WEBHOOK_SECRET is configured."
   ]
 }

@@ -1,57 +1,40 @@
-# OhmBoy / Ωboy V0.18.11 — Internal Resolution Audit Fix
+# OhmBoy / Ωboy V0.19 — API Intake Backend Readiness
 
-V0.18.11 fixes the real carryover failure.
+V0.19 is the serious backend readiness build for testing real-world API/webhook intake.
 
-Root cause:
-- The UI click handler calls the original internal `resolveBranch()` function.
-- The Audit page is rendered by the original internal `renderAudit()` function.
-- Prior versions added external overrides, but those were not the functions actually being used by the original app flow.
+Added:
+- Backend event intake endpoint
+- Event-store abstraction with Netlify Blobs support
+- Raw event storage
+- Normalized event storage
+- Drawing revision normalization
+- Schedule revision normalization
+- API Intake Monitor page
+- Drawing and schedule simulation buttons
+- Event listing API
+- Packet candidate promotion endpoint
+- Backend health endpoint
 
-Corrected:
-- Original internal `branch()` now links the branch-created audit row immediately.
-- Original internal `resolveBranch()` now saves:
-  - branch status
-  - resolution note
-  - resolved date/time
-  - internal resolution ledger
-  - related audit row fields
-- Original internal `closePacket()` syncs the resolution ledger before Final Close.
-- Original internal `renderAudit()` reads from the resolution ledger and displays the note on the related audit row.
+New backend endpoints:
+- `POST /.netlify/functions/ohmboy-api-intake`
+- `GET /.netlify/functions/ohmboy-api-events`
+- `DELETE /.netlify/functions/ohmboy-api-events`
+- `POST /.netlify/functions/ohmboy-api-promote-packet`
+- `GET /.netlify/functions/ohmboy-api-health`
 
-Audit columns:
-- Audit ID
-- Time
-- Action
-- Detail
-- Linked Item
-- Branch Status
-- Resolution Note
-- Resolved Date / Time
-- User
+Safety:
+- Read-only intake only.
+- No Procore writeback.
+- No automatic RFI creation.
+- No automatic CO creation.
+- No automatic project mutation until reviewed/promoted.
+
+Environment variable:
+- `OHMBOY_WEBHOOK_SECRET` optional for simulation. When configured, intake requires an HMAC SHA-256 signature.
 
 Retained:
+- V0.18.11 internal resolution audit fix
 - No Code Drilldowns
 - Branch Resolution Notes
-- Compact Sidebar button
-- Back to Cockpit button
-- Sidebar hide/show
-- Cockpit module navigation
-- Financial simulation fixes
-- Open PO Report
-- Aging Report
-- CO Log with Open C/O Value
-- New Contract Value if Approved
-- Matching report/source color buckets
-- Data Model Foundation
-- Risk Register
-- Procurement Command
-- Global Search
-- Embedded Jackson mascot
-- Manual Compare Backup
-- Weighted Scoring
-- Ωboy Guide Mode
-- RFI Log
-- Schedule Command
-- Manpower Loading
-- Graph View
-- Procore Functions
+- Audit Trail resolution columns
+- Existing cockpit/reporting/financial/Procore skeleton features

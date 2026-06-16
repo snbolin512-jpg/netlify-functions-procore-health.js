@@ -1,22 +1,28 @@
-# Build Validation Report — OhmBoy V0.18.11 Internal Resolution Audit Fix
+# Build Validation Report — OhmBoy V0.19 API Intake Backend Readiness
 
-- Base package used: ohmboy_v0_18_10_resolution_ledger_fix.zip
-- Internal branch() patched: PASS
-- Internal resolveBranch() patched: PASS
-- Internal closePacket() patched: PASS
-- Internal renderAudit() patched: PASS
-- Branch-created audit row linked immediately: PASS
-- Resolution ledger helper inserted: PASS
-- Resolve writes ledger: PASS
-- Final Close syncs ledger: PASS
-- Audit reads ledger internally: PASS
-- No code drilldown retained: PASS
+- Base package used: ohmboy_v0_18_11_internal_resolution_audit_fix.zip
+- API Intake Monitor section added: PASS
+- API Intake frontend JS added: PASS
+- Drawing simulation button added: PASS
+- Schedule simulation button added: PASS
+- API intake endpoint present: PASS
+- API events endpoint present: PASS
+- API promote packet endpoint present: PASS
+- API health endpoint present: PASS
+- Backend store helper present: PASS
+- Netlify Blobs dependency present: PASS
+- Webhook signature support present: PASS
 - Inline frontend syntax: PASS
 
 ## Function syntax checks
-- procore-auth-callback.js: PASS
-- procore-auth-start.js: PASS
-- procore-health.js: PASS
-- procore-mock-event.js: PASS
-- procore-process-event.js: PASS
-- procore-webhook.js: PASS
+- netlify/functions/_lib/ohmboy-backend-store.js: PASS
+- netlify/functions/ohmboy-api-events.js: PASS
+- netlify/functions/ohmboy-api-health.js: PASS
+- netlify/functions/ohmboy-api-intake.js: PASS
+- netlify/functions/ohmboy-api-promote-packet.js: PASS
+- netlify/functions/procore-auth-callback.js: PASS
+- netlify/functions/procore-auth-start.js: PASS
+- netlify/functions/procore-health.js: PASS
+- netlify/functions/procore-mock-event.js: PASS
+- netlify/functions/procore-process-event.js: PASS
+- netlify/functions/procore-webhook.js: PASS

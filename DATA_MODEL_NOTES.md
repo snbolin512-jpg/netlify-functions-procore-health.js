@@ -197,3 +197,24 @@ Now:
 - Resolve Branch writes to the branch and the internal resolution ledger.
 - Final Close syncs the ledger.
 - Audit Trail reads from the ledger inside the actual internal renderer.
+
+
+## V0.19 API Intake Backend Readiness
+
+Backend added:
+- `/.netlify/functions/ohmboy-api-intake`
+- `/.netlify/functions/ohmboy-api-events`
+- `/.netlify/functions/ohmboy-api-promote-packet`
+- `/.netlify/functions/ohmboy-api-health`
+- Shared backend helper: `netlify/functions/_lib/ohmboy-backend-store.js`
+
+Storage:
+- Uses Netlify Blobs through `@netlify/blobs` when available.
+- Falls back to memory during local/function runtime testing.
+- Stores raw event payload and normalized event in a single event record.
+
+Safe mode:
+- Read-only intake.
+- No Procore writeback.
+- No automatic RFI/CO creation.
+- Events become reviewable candidates first.

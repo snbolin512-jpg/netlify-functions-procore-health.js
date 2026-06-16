@@ -1,6 +1,9 @@
 {
-  "name": "ohmboy-v01811-internal-resolution-audit-fix",
-  "version": "0.18.11",
+  "name": "ohmboy-v019-api-intake-backend",
+  "version": "0.19.0",
   "private": true,
-  "description": "OhmBoy V0.18.11 patches the original internal branch/audit functions so resolution notes carry from Triage to Audit after Final Close."
+  "description": "OhmBoy V0.19 adds backend API intake, event storage, normalization, and webhook readiness.",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
 }
