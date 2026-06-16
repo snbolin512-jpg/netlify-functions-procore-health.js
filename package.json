@@ -1,8 +1,8 @@
 {
-  "name": "ohmboy-v0194-modern-blobs-functions",
-  "version": "0.19.4",
+  "name": "ohmboy-v0195-clean-v2-api-controls",
+  "version": "0.19.5",
   "private": true,
-  "description": "OhmBoy V0.19.4 moves API intake storage to modern Netlify Functions using Request/Response syntax for Netlify Blobs.",
+  "description": "OhmBoy V0.19.5 removes old API button handler collisions and uses clean V2-only controls for modern Netlify Blobs testing.",
   "dependencies": {
     "@netlify/blobs": "^8.1.0"
   }

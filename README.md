@@ -103,3 +103,22 @@ Aliases:
 - `/api/v2/promote-packet`
 
 The frontend tries the v2 routes first, then falls back to the older Lambda-style routes.
+
+
+## V0.19.5 Clean V2 API Controls
+
+This version fixes mixed frontend handler behavior.
+
+Problem seen:
+- UI labels were V2.
+- Old API click handlers were still handling button clicks.
+- Health could report the old Lambda/memory-fallback route while simulations tried V2.
+
+Fix:
+- Replaced API Monitor buttons with new V2-only IDs.
+- Old handlers ignore the V2-only IDs.
+- New clean handler calls only:
+  - `/.netlify/functions/ohmboy-api-health-v2`
+  - `/.netlify/functions/ohmboy-api-events-v2`
+  - `/.netlify/functions/ohmboy-api-intake-v2`
+- Diagnostic output clearly lists missing V2 files if route is 404.

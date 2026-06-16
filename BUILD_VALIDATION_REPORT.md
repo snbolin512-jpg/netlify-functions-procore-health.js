@@ -1,13 +1,13 @@
-# Build Validation Report — OhmBoy V0.19.4 Modern Blobs Functions
+# Build Validation Report — OhmBoy V0.19.5 Clean V2 API Controls
 
-- Base package used: ohmboy_v0_19_3_storage_persistence_diagnostics.zip
-- Modern health function present: PASS
-- Modern events function present: PASS
-- Modern intake function present: PASS
-- Modern promote function present: PASS
-- ESM Blobs helper present: PASS
-- Frontend v2 route priority present: PASS
-- v2 redirects present: PASS
+- Base package used: ohmboy_v0_19_4_modern_blobs_functions.zip
+- API buttons replaced with V2 IDs: FAIL
+- Clean V2 handler present: PASS
+- Modern V2 health function present: PASS
+- Modern V2 events function present: PASS
+- Modern V2 intake function present: PASS
+- Modern V2 blob helper present: PASS
+- Root patch includes index/netlify/package: PASS
 - Inline frontend syntax: PASS
 
 ## Function syntax checks

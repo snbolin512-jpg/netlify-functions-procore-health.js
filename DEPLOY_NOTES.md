@@ -81,3 +81,28 @@ Then test:
 - Sim Drawing Revision Event
 - Sim Schedule Revision Event
 - Refresh Intake Events
+
+
+## V0.19.5 Deploy Requirements
+
+Upload/confirm these V2 files in GitHub:
+
+```text
+netlify/functions/ohmboy-api-health-v2.mjs
+netlify/functions/ohmboy-api-events-v2.mjs
+netlify/functions/ohmboy-api-intake-v2.mjs
+netlify/functions/ohmboy-api-promote-packet-v2.mjs
+netlify/functions/_lib/ohmboy-blob-store-v2.mjs
+```
+
+Also replace root:
+```text
+index.html
+netlify.toml
+package.json
+```
+
+Direct test:
+```text
+/.netlify/functions/ohmboy-api-health-v2
+```
