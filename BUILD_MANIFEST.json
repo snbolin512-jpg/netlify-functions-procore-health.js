@@ -1,0 +1,39 @@
+{
+  "name": "\u03a9boy V0.20.2 Financial Explainability + Ivory Palette",
+  "baseRestoredFrom": "ohmboy_v0_18_11_internal_resolution_audit_fix.zip",
+  "version": "0.20.2",
+  "type": "full-feature-restore-not-diagnostic-shell",
+  "preserved": [
+    "Jackson mascot/assets",
+    "Executive cockpit",
+    "Packet triage",
+    "Branch/resolution workflow",
+    "Internal resolution audit",
+    "CO/RFI logs",
+    "Schedule compare",
+    "Manpower loading",
+    "Graph mode",
+    "Guide mode",
+    "Financial sim",
+    "Procore mock controls"
+  ],
+  "storage": {
+    "helper": "netlify/functions/_lib/store.js",
+    "backend": "Netlify Blobs",
+    "store": "ohmboy-v020-full-restore",
+    "consistency": "strong"
+  },
+  "firstTest": "/.netlify/functions/procore-health",
+  "changes": [
+    "Button recovery layer added",
+    "Jackson daily highlights moved to cockpit top",
+    "Financial Source Map moved to cockpit middle",
+    "Command Modules moved to cockpit bottom",
+    "Hover/focus math tooltips added to financial source bubbles",
+    "White/copper/red/teal UI palette added",
+    "Added roll-up explanations to money-bearing bubbles/cards/cells",
+    "Expanded explainability to Financial Command, Open PO Report, Aging Report, Risk Register, Procurement, CO roll-ups",
+    "Added equation paths for contract, PO, aging, CO, risk, EAC, margin, retainage, labor, and cost-to-date",
+    "Changed background to ivory/white palette and reduced tan-heavy styling"
+  ]
+}
