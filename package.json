@@ -1,0 +1,16 @@
+{
+  "name": "ohmboy-v020-full-restore-clean-storage",
+  "version": "0.20.4",
+  "private": true,
+  "description": "Full OhmBoy UI restore with ivory/gold palette, Avenir font stack, PM Daily Update at top, high-level roll-up explainability, and clean storage.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "echo OhmBoy V0.20 full restore static build",
+    "validate": "node ./scripts/validate-build.js"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}
