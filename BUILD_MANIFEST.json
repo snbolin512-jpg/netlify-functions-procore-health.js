@@ -1,0 +1,19 @@
+{
+  "name": "\u03a9boy V0.21.3 Clean Luxe UI Shell",
+  "version": "0.21.3",
+  "purpose": "Replace stacked legacy front-end with one clean stable UI shell while preserving backend functions/assets.",
+  "fixes": [
+    "Blank page after 2 seconds",
+    "Full-width legacy Cockpit bar",
+    "Stacked old cockpit DOM",
+    "Overlapping legacy patch scripts"
+  ],
+  "preserves": [
+    "Netlify functions",
+    "Procore health/mock/webhook endpoints",
+    "Jackson asset",
+    "Financial source map",
+    "Command modules",
+    "REV simulation flow"
+  ]
+}
