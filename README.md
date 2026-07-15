@@ -1,18 +1,16 @@
-# Ωboy V0.21.4 Ops Restore + Drawing Takeoff
-
-This build keeps the clean luxe UI shell and restores the operational controls that were missing.
-
-Restored:
-- Jackson/mascot
-- Simulate PM Day
-- Sim Drawing REV
-- Sim Schedule REV
-- Procore Health
-- RFI Log
-- Change Order Log
-
-Added:
-- Drawing Takeoff page
-- Drawing Takeoff command module
-- Route length, total conduit/path, sweeps/stub-ups, and backfill CY calculations
-- Saved takeoff rows with audit trail entries
+{
+  "name": "ohmboy-v020-full-restore-clean-storage",
+  "version": "0.21.5",
+  "private": true,
+  "description": "Clean OhmBoy luxe UI with teal-collar Jackson, packet treatment pipelines, packet detail pages, and XLSX takeoff export.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "echo OhmBoy V0.20 full restore static build",
+    "validate": "node ./scripts/validate-build.js"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}

@@ -1,27 +1,34 @@
-const { json, drawingMock, scheduleMock, put, RAW_PREFIX, normalizeProcoreLike, EVENT_PREFIX, uid, nowIso, storageStatus } = require("./_lib/store");
+const { json, roundTrip, list, EVENT_PREFIX, PACKET_PREFIX, STORE_NAME } = require("./_lib/store");
 
 exports.handler = async function(event) {
   try {
     if (event.httpMethod === "OPTIONS") return json(200, { ok: true });
-
-    const kind = event.queryStringParameters?.kind === "schedule" ? "schedule" : "drawing";
-    const raw = kind === "schedule" ? scheduleMock() : drawingMock();
-
-    const rawId = uid("OHM-RAW");
-    const norm = normalizeProcoreLike(raw);
-    await put(`${RAW_PREFIX}${rawId}`, { rawId, receivedAt: nowIso(), raw });
-    await put(`${EVENT_PREFIX}${norm.id}`, { eventId: norm.id, receivedAt: nowIso(), status: "mock-received", raw, normalized: norm });
-
-    const storage = await storageStatus();
+    const round = await roundTrip();
+    const events = await list(EVENT_PREFIX, 5);
+    const packets = await list(PACKET_PREFIX, 5);
 
     return json(200, {
-      ...raw,
-      backendStored: true,
-      rawId,
-      normalizedId: norm.id,
-      storage
+      ok: round.ok,
+      service: "ohmboy-v020-full-restore",
+      version: "v0.20-full-restore-clean-storage",
+      restoredFrom: "v0.18.11-full-feature-ui",
+      checkedAt: new Date().toISOString(),
+      store: STORE_NAME,
+      storage: round.storage,
+      roundTrip: round,
+      counts: {
+        recentEvents: events.length,
+        recentPackets: packets.length
+      },
+      note: round.ok ? "Full UI restored. Durable storage passed." : "Full UI restored, but durable storage did not pass."
     });
   } catch (err) {
-    return json(500, { ok: false, functionName: "procore-mock-event", error: err.message, stack: err.stack });
+    return json(500, {
+      ok: false,
+      service: "ohmboy-v020-full-restore",
+      functionName: "procore-health",
+      error: err.message,
+      stack: err.stack
+    });
   }
 };
