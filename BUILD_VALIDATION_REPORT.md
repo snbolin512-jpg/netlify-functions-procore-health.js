@@ -1,0 +1,1 @@
+const store=require("./_lib/store.js");exports.handler=async function(){const cleared=await store.clearPrefix("event:");return{statusCode:200,headers:{"content-type":"application/json","access-control-allow-origin":"*"},body:JSON.stringify({ok:true,cleared},null,2)}};
