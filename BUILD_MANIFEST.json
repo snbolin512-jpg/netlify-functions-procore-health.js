@@ -1,0 +1,40 @@
+{
+  "name": "Ωboy V0.23.0 — Schedule of Values / WBS",
+  "version": "0.23.0",
+  "base": "V0.21.6b Netlify Initialization Safe",
+  "punch_list_completed": {
+    "1_jackson": "Inlined as a base64 WebP data URI. No longer depends on assets/ reaching Netlify.",
+    "2_takeoff_delete": "Per-row Delete plus Delete All, both confirmed. Deletions written to Audit Trail.",
+    "3_packet_closeout": "Close Out panel on Packet Detail with disposition, closed-by, cost/schedule impact, and required resolution notes. Reopen supported. New Closed Packets register.",
+    "4_report_intake": "Open PO and AR Aging upload (.xlsx/.csv). Feeds the Open PO Report, Aging Report, and Financial Source Map.",
+    "5_manual_co_rfi": "Change Order Log and RFI Log are now PM manual-entry registers. Packet triage no longer writes to them; it flags exposure only. Optional source-packet link on each entry.",
+    "6_schedule_intake": "Schedule upload (.xlsx/.csv). Re-upload diffs activity dates against the prior file and raises a packet for slipped activities.",
+    "7_manpower_loading": "Bell-curve labor plan normalised to the estimate, with earned/actual overlay, cumulative S-curve, PF/CPI, peak crew, and forecast at complete. Timesheet import supported.",
+    "8_drawing_intel": "PDF metadata + title-block/revision-block extraction. Raises a drawing packet flagged for PM review.",
+    "9_procore_link": "Working OAuth2 start/callback/refresh, whoami, idempotent webhook hook+trigger registration, delivery log, and a hardened receiver."
+  },
+  "bugs_fixed": {
+    "xlsx_export_corrupt": "Three separate defects made every exported .xlsx unopenable: double-escaped ZIP signatures (literal \\x03 text instead of byte 0x03), one extra u16 field in both the local file header and the central directory record, and charCodeAt&255 byte conversion that mangled non-ASCII. ZIP writer rewritten against APPNOTE using DataView + TextEncoder. Verified to open in a real spreadsheet reader.",
+    "netlify_functions_500": "procore-auth-start, procore-auth-callback and procore-process-event imported json/parseJsonBody/normalizeProcoreLike/put/EVENT_PREFIX/uid/nowIso/storageStatus from _lib/store.js, which exported none of them. Every invocation threw. store.js rewritten to export them.",
+    "xlsx_columns_past_z": "String.fromCharCode(65+c) produced invalid refs beyond column Z. Replaced with a base-26 column reference.",
+    "xlsx_numbers_as_text": "All cells were written as inlineStr, so Excel could not sum or sort quantities. Numeric values now emit as numbers."
+  },
+  "dependencies": "None. XLSX reading uses the native DecompressionStream API; PDF reading is hand-rolled. No CDN, no npm install, no build step.",
+  "browser_requirements": "DecompressionStream (Chrome/Edge 80+, Safari 16.4+, Firefox 113+). Required only for .xlsx and PDF uploads; the rest works everywhere.",
+  "v0_22_1_fixes": {
+    "phantom_text_financial_map": "CSS grid collision: .b-margin and .c-po were both placed at grid-column:4 / grid-row:3, so the Open PO Exposure callout rendered underneath the Margin bubble and its text showed through. Callout moved to column 2 / row 2, next to the Open PO bubble it explains.",
+    "dead_alert_badge": "metrics() returned bell: Math.max(1, high), so the badge read 1 forever even with nothing wrong, and the bell span had no click handler. Now counts real alerts, hides at zero, and opens a keyboard-accessible panel where every row navigates to the relevant module.",
+    "triage_page_hopping": "Packet Triage rebuilt as a split view: filterable queue on the left, full packet review on the right, updating in place. J/K keyboard navigation. Close-out inline and namespaced so its element ids do not collide with the Packet Detail copy. Closing advances to the next packet. treatPacket no longer jumps pages.",
+    "procore_project_link": "New Procore Link page: load projects from the connected account, link one, and register project-scoped webhooks against it. Registration and delivery endpoints now accept project_id and scope hook + triggers together."
+  },
+  "v0_23_0": {
+    "schedule_of_values": "New SOV/WBS module, now the source of truth for contract values. Contract, EAC, cost-to-date and margin previously came from five hardcoded numbers in seedState (24,750,000 / 1,325,000 / 0 / 11,842,000 / 26,480,000) with nothing behind them. finance() now rolls up from cost-loaded SOV lines and falls back to the manual figures only when no SOV is loaded.",
+    "structure": "AIA G703 continuation-sheet shape (scheduled value, % complete, previously billed, this period, materials stored, completed and stored, balance to finish, retainage) extended with the cost side: budget cost, budget hours, cost to date.",
+    "line_forecast": "forecastCost = costToDate / pctComplete once a line is at least 2% complete, otherwise budget is held. This is the line-level EAC and is where fade appears before the job total moves. Below 2% the divisor is meaningless, so the budget stands.",
+    "wbs_rollup": "Group by WBS segment depth 1-4, area, cost code, or base-vs-CO. Same lines, four reports, no re-entry.",
+    "co_integration": "Approved change orders push from the CO Log onto the SOV as billable lines (idempotent). Pending COs are carried as exposure in pendingCO and deliberately kept out of contract value.",
+    "billing_periods": "Close Billing Period locks current percentages as previously-billed so the this-period column is a real delta. Import sets previousPct = pctComplete, so an SOV imported mid-job starts at zero this-period rather than reporting the whole job as one bill.",
+    "import_guard": "Totals and subtotal rows are detected and skipped on import — a TOTAL row would otherwise double the contract value.",
+    "export": "Full SOV export to .xlsx including derived columns and a totals row, via the rewritten ZIP writer."
+  }
+}
