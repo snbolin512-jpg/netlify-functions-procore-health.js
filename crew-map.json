@@ -1,0 +1,22 @@
+{
+  "_comment": "Edit this file to match your real crew/area assignments. No code changes needed — notifyMap.js re-reads it on every packet, so changes take effect immediately.",
+
+  "byArea": {
+    "Data Hall 3": "Crew A — Feeders",
+    "Level 2 Switchgear Rm": "Crew D — Terminations",
+    "Generator Yard": "Startup & Commissioning",
+    "MEP Corridor B": "Crew C — Grounding",
+    "Battery Room 1": "Crew D — Terminations"
+  },
+
+  "byDiscipline": {
+    "Fire Alarm": "Low Voltage Team",
+    "Low Voltage": "Low Voltage Team",
+    "Grounding": "Crew C — Grounding",
+    "UPS/Switchgear": "Startup & Commissioning"
+  },
+
+  "scheduleDefault": "Superintendent",
+
+  "default": "Project Engineer"
+}

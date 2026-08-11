@@ -1,0 +1,10 @@
+{
+  "name": "ohmboy-netlify-static-functions",
+  "version": "0.21.8",
+  "private": true,
+  "description": "OhmBoy static deploy with Netlify Functions routing fix.",
+  "type": "commonjs",
+  "scripts": {
+    "build": "node -e \"console.log('OhmBoy static build: functions enabled, no frontend build step')\""
+  }
+}
