@@ -1,0 +1,17 @@
+{
+  "name": "\u03a9boy V0.21.8 Function Deployment Fix",
+  "version": "0.21.8",
+  "purpose": "Fix Netlify 404 for procore-health and stop backend JSON calls from receiving index.html.",
+  "required_root_files": [
+    "index.html",
+    "netlify.toml",
+    "package.json",
+    "_redirects",
+    "netlify/functions/procore-health.js"
+  ],
+  "test_urls": [
+    "https://zesty-cucurucho-18064f.netlify.app/function-test.html",
+    "https://zesty-cucurucho-18064f.netlify.app/.netlify/functions/procore-health",
+    "https://zesty-cucurucho-18064f.netlify.app/api/health"
+  ]
+}

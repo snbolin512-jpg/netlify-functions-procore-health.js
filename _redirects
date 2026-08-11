@@ -1,0 +1,6 @@
+/api/health             /.netlify/functions/procore-health         200
+/api/packets            /.netlify/functions/api-packets            200
+/api/projects           /.netlify/functions/procore-projects       200
+/auth/procore/login     /.netlify/functions/procore-auth-start     200
+/auth/procore/callback  /.netlify/functions/procore-auth-callback  200
+/webhooks/procore       /.netlify/functions/procore-webhook        200

@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>OhmBoy Function Test</title>
+<style>body{font-family:Arial,sans-serif;margin:32px;background:#fffff6;color:#111}button{padding:10px 14px;margin:6px;border-radius:999px;border:1px solid #b87333;background:white;font-weight:700}pre{background:#111;color:#fff;padding:16px;border-radius:12px;white-space:pre-wrap}</style></head>
+<body>
+<h1>OhmBoy Netlify Function Test</h1>
+<p>If these return JSON, Netlify functions are deployed.</p>
+<button onclick="test('/.netlify/functions/procore-health')">procore-health</button>
+<button onclick="test('/api/health')">/api/health redirect</button>
+<button onclick="test('/.netlify/functions/procore-mock-event')">mock drawing</button>
+<button onclick="test('/.netlify/functions/procore-mock-event?kind=schedule')">mock schedule</button>
+<button onclick="test('/.netlify/functions/procore-projects')">projects</button>
+<button onclick="test('/.netlify/functions/ohmboy-events')">events</button>
+<pre id="out">Ready.</pre>
+<script>
+async function test(url){
+  const out=document.getElementById('out');
+  out.textContent='Fetching '+url+' ...';
+  try{
+    const r=await fetch(url);
+    const text=await r.text();
+    out.textContent='HTTP '+r.status+'\n'+text;
+  }catch(e){out.textContent=String(e.stack||e)}
+}
+</script>
+</body></html>
