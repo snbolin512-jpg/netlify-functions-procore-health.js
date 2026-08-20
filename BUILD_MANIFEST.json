@@ -1,0 +1,133 @@
+{
+  "name": "Ωboy V0.28.0 — Sequencing Analysis",
+  "version": "0.28.0",
+  "base": "V0.21.6b Netlify Initialization Safe",
+  "punch_list_completed": {
+    "1_jackson": "Inlined as a base64 WebP data URI. No longer depends on assets/ reaching Netlify.",
+    "2_takeoff_delete": "Per-row Delete plus Delete All, both confirmed. Deletions written to Audit Trail.",
+    "3_packet_closeout": "Close Out panel on Packet Detail with disposition, closed-by, cost/schedule impact, and required resolution notes. Reopen supported. New Closed Packets register.",
+    "4_report_intake": "Open PO and AR Aging upload (.xlsx/.csv). Feeds the Open PO Report, Aging Report, and Financial Source Map.",
+    "5_manual_co_rfi": "Change Order Log and RFI Log are now PM manual-entry registers. Packet triage no longer writes to them; it flags exposure only. Optional source-packet link on each entry.",
+    "6_schedule_intake": "Schedule upload (.xlsx/.csv). Re-upload diffs activity dates against the prior file and raises a packet for slipped activities.",
+    "7_manpower_loading": "Bell-curve labor plan normalised to the estimate, with earned/actual overlay, cumulative S-curve, PF/CPI, peak crew, and forecast at complete. Timesheet import supported.",
+    "8_drawing_intel": "PDF metadata + title-block/revision-block extraction. Raises a drawing packet flagged for PM review.",
+    "9_procore_link": "Working OAuth2 start/callback/refresh, whoami, idempotent webhook hook+trigger registration, delivery log, and a hardened receiver."
+  },
+  "bugs_fixed": {
+    "xlsx_export_corrupt": "Three separate defects made every exported .xlsx unopenable: double-escaped ZIP signatures (literal \\x03 text instead of byte 0x03), one extra u16 field in both the local file header and the central directory record, and charCodeAt&255 byte conversion that mangled non-ASCII. ZIP writer rewritten against APPNOTE using DataView + TextEncoder. Verified to open in a real spreadsheet reader.",
+    "netlify_functions_500": "procore-auth-start, procore-auth-callback and procore-process-event imported json/parseJsonBody/normalizeProcoreLike/put/EVENT_PREFIX/uid/nowIso/storageStatus from _lib/store.js, which exported none of them. Every invocation threw. store.js rewritten to export them.",
+    "xlsx_columns_past_z": "String.fromCharCode(65+c) produced invalid refs beyond column Z. Replaced with a base-26 column reference.",
+    "xlsx_numbers_as_text": "All cells were written as inlineStr, so Excel could not sum or sort quantities. Numeric values now emit as numbers."
+  },
+  "dependencies": "None. XLSX reading uses the native DecompressionStream API; PDF reading is hand-rolled. No CDN, no npm install, no build step.",
+  "browser_requirements": "DecompressionStream (Chrome/Edge 80+, Safari 16.4+, Firefox 113+). Required only for .xlsx and PDF uploads; the rest works everywhere.",
+  "v0_22_1_fixes": {
+    "phantom_text_financial_map": "CSS grid collision: .b-margin and .c-po were both placed at grid-column:4 / grid-row:3, so the Open PO Exposure callout rendered underneath the Margin bubble and its text showed through. Callout moved to column 2 / row 2, next to the Open PO bubble it explains.",
+    "dead_alert_badge": "metrics() returned bell: Math.max(1, high), so the badge read 1 forever even with nothing wrong, and the bell span had no click handler. Now counts real alerts, hides at zero, and opens a keyboard-accessible panel where every row navigates to the relevant module.",
+    "triage_page_hopping": "Packet Triage rebuilt as a split view: filterable queue on the left, full packet review on the right, updating in place. J/K keyboard navigation. Close-out inline and namespaced so its element ids do not collide with the Packet Detail copy. Closing advances to the next packet. treatPacket no longer jumps pages.",
+    "procore_project_link": "New Procore Link page: load projects from the connected account, link one, and register project-scoped webhooks against it. Registration and delivery endpoints now accept project_id and scope hook + triggers together."
+  },
+  "v0_23_0": {
+    "schedule_of_values": "New SOV/WBS module, now the source of truth for contract values. Contract, EAC, cost-to-date and margin previously came from five hardcoded numbers in seedState (24,750,000 / 1,325,000 / 0 / 11,842,000 / 26,480,000) with nothing behind them. finance() now rolls up from cost-loaded SOV lines and falls back to the manual figures only when no SOV is loaded.",
+    "structure": "AIA G703 continuation-sheet shape (scheduled value, % complete, previously billed, this period, materials stored, completed and stored, balance to finish, retainage) extended with the cost side: budget cost, budget hours, cost to date.",
+    "line_forecast": "forecastCost = costToDate / pctComplete once a line is at least 2% complete, otherwise budget is held. This is the line-level EAC and is where fade appears before the job total moves. Below 2% the divisor is meaningless, so the budget stands.",
+    "wbs_rollup": "Group by WBS segment depth 1-4, area, cost code, or base-vs-CO. Same lines, four reports, no re-entry.",
+    "co_integration": "Approved change orders push from the CO Log onto the SOV as billable lines (idempotent). Pending COs are carried as exposure in pendingCO and deliberately kept out of contract value.",
+    "billing_periods": "Close Billing Period locks current percentages as previously-billed so the this-period column is a real delta. Import sets previousPct = pctComplete, so an SOV imported mid-job starts at zero this-period rather than reporting the whole job as one bill.",
+    "import_guard": "Totals and subtotal rows are detected and skipped on import — a TOTAL row would otherwise double the contract value.",
+    "export": "Full SOV export to .xlsx including derived columns and a totals row, via the rewritten ZIP writer."
+  },
+  "v0_23_1": {
+    "procore_setup_ux": "The Procore Link page listed four steps with no context and three buttons that surfaced raw errors when their prerequisites were not met. Replaced with a live checklist driven by the health endpoint: each step shows done / outstanding / blocked, explains what it is and why, and names the exact environment variables still missing.",
+    "redirect_uri_helper": "The page now computes the exact Redirect URI from window.location.origin and offers a Copy button. A character mismatch here is the most common setup failure and previously the value was never shown anywhere.",
+    "buttons_explain": "openProcoreAuth, loadProcoreProjects, linkProcoreProject and registerProcoreHooks each check their own prerequisite and name the outstanding step instead of throwing. Blocked buttons are visually faded with a tooltip.",
+    "distinct_diagnoses": "Separate messages for: backend unreachable (usually opening index.html as a local file), credentials missing, not yet authorised, company id wrong, and connected-but-zero-projects.",
+    "sandbox_flagging": "The panel states whether OhmBoy is pointed at the sandbox or production, since crossing the login-sandbox.procore.com and sandbox.procore.com hosts produces a 401 that resembles a bad password.",
+    "auto_check": "Opening the Procore Link page runs a quiet health check so the checklist is accurate without the PM pressing anything.",
+    "docs": "Added PROCORE_SETUP.md — a plain-English walkthrough covering what OAuth is doing and why, the sandbox/production split, the two required redeploys, and a symptom-to-cause troubleshooting table."
+  },
+  "v0_24_0_parser_bugs_fixed": {
+    "csv_date_serials": "Excel writes dates as serial numbers in CSV (46083). The old code passed that to new Date(), which read it as 46083 MILLISECONDS after 1970, producing dates like '+046083-01'. XLSX was unaffected because the style table flags date cells; CSV has no style table. Serials in the 2000-2050 range are now detected by shape and converted.",
+    "missing_activity_id": "MS Project's default export has no Activity ID column, so every row got actId '' and slip detection collided unrelated rows. Now falls back to name matching and warns the user that renaming a task will read as a new activity.",
+    "missing_float_column": "Critical-path detection depended entirely on a float column. An MS Project export has none, so nothing was ever flagged critical and the risk engine was silently dead on the most common export format. Now warns explicitly and tells the user to add Total Slack before exporting.",
+    "summary_rows": "Parent/rollup rows were counted as real activities, double-counting work and inflating slip counts. Detected via MS Project's leading-space indentation, with a date-span containment fallback for exports that lose it.",
+    "date_formats": "Added dd-MMM-yy (P6 default) and US m/d/yy parsing. Float parsing handles '8d', '12h', '2w' unit suffixes.",
+    "sheet_selection": "Picks the sheet with the most parseable activity rows rather than always sheet 1, since P6 and MS Project both export cover and legend sheets ahead of the data."
+  },
+  "v0_24_0_schedule_risk": {
+    "delay_attribution": "Every detected slip opens a delay record for attribution against nine responsible parties (us, GC, owner, vendor, sub, engineer, other trade, weather, unassigned).",
+    "entitlement_framework": "Each party carries excusable and compensable flags. Vendor and weather delays are excusable but not compensable (time, not money). Our own and our sub's delays carry no entitlement. GC, owner, engineer and other-trade delays are both.",
+    "notice_clock": "Compensable delays start a 7-day notice countdown from detection, with overdue flagging. Missing the notice window turns a defensible claim into an unrecoverable one.",
+    "pull_ins": "Negative movement is tracked and displayed but does not open a delay record.",
+    "near_critical": "Activities with 10 days of float or less are surfaced separately, since they become critical-path problems quietly."
+  },
+  "v0_24_0_env_validation": {
+    "placeholder_detection": "A Netlify variable holding template text used to report as configured and fail later with an opaque Procore error. The health check now rejects values containing the variable name (whole .env line pasted into the value box), CHANGE-ME text, placeholder hostnames, spaces in ids/secrets, implausibly short credentials, and mismatched sandbox/production host pairs."
+  },
+  "v0_25_0": {
+    "constraints": "Manual entry for vendor lead times, prefab/shop time, submittal cycles, permits, utility coordination, weather windows, and site access. Each constraint links to the schedule activity it feeds, by Activity ID or by keyword. OhmBoy walks backwards from that activity's start by the lead time to produce a must-release-by date and compares it to today. Statuses: overdue, urgent (within 14 days), on track, released, late-ship, unlinked.",
+    "late_ship_detection": "A released PO is not automatically safe. If the vendor's confirmed ship date lands after the need-by date, the constraint is flagged even though it is released.",
+    "keyword_linking": "Constraints can bind to activities by keyword instead of Activity ID, because schedule renumbering breaks IDs but 'energize' still matches.",
+    "flag_rules": "PM-defined keyword patterns scanned against every activity name, resource, and ID on upload. Each match carries a risk category, responsible party, and severity. Patterns accept regex; a malformed pattern falls back to literal substring matching rather than throwing and taking the upload down.",
+    "default_rules": "Ships with ten electrical-specific rules: energize, tie-in/cutover, outage, switchgear, transformer, generator/ATS, inspection/AHJ, commissioning, trench/duct bank, core drill. All editable and deletable.",
+    "risk_board": "Single ranked board combining overdue and urgent procurement releases, flagged activities starting within 60 days, and delay notice deadlines. Sorted by severity.",
+    "contract_intake": "PDF upload with clause mining for delay notice window, retainage, liquidated damages, payment terms, CO markup, contract value, substantial completion, and warranty period. Each extracted value is shown with the surrounding contract language and must be confirmed by the PM before taking effect.",
+    "notice_clock_now_contract_driven": "The delay notice clock previously ran on a hardcoded 7 days. It now reads the confirmed contract value. The test fixture's 5-day window changes a delay found 4 days ago from '3 days left' to '1 day left' — the kind of error that loses a defensible claim.",
+    "ld_exposure": "Liquidated damages per day multiplied by unexcused slip days, where excusability comes from delay attribution. Unattributed delay counts against you.",
+    "contract_vs_sov_check": "Flags when the stated contract value and the SOV total disagree by more than 1%."
+  },
+  "v0_25_0_bugs_found_in_testing": {
+    "warranty_clause_missed": "The warranty pattern used [^.] which cannot cross the period in a heading like 'ARTICLE 18 - WARRANTY.', and matched only 'warranty'/'warranties' not 'warrants'. Both fixed.",
+    "pdf_line_breaks_split_clauses": "PDF text extraction inserts newlines wherever the page layout wrapped, splitting clauses that the patterns expect to be contiguous. All whitespace is now normalised before mining."
+  },
+  "v0_25_1_critical_fix": {
+    "four_pages_unreachable": "Schedule of Values, Schedule Risk, Constraints, and Contract were fully built and tested in isolation but renderAll() never called their render functions, so their sections stayed empty. The module tiles existed and navigation worked, but every page opened blank — no input fields, no tables, nothing.",
+    "root_cause": "The build script wired these with plain string replacements rather than the asserted sub() helper. When the anchor text shifted between versions the replacement silently matched nothing and the build still reported success. Every unit test passed because they called the render functions directly.",
+    "fix": "Single asserted edit wiring all four. A missed anchor now fails the build instead of shipping empty pages.",
+    "regression_guard": "Added verify_pages.js: walks every module tile in the built HTML, confirms its page actually renders, and asserts each expected input field id is present. Covers all 18 tiles and the 8 generated contract term editors."
+  },
+  "v0_26_0": {
+    "1_finance_sov_merged": "Financial Command and Schedule of Values are one page. Dashboard up top (revised contract, forecast at complete, left to spend, margin, then base/CO/pending/cost-to-date, then billing position), followed by SOV upload, billing period controls, manual line entry, WBS rollup, and the full SOV table. The standalone SOV page and its module tile are gone.",
+    "1_sov_template": "Download Template produces a blank .xlsx in the exact shape the importer expects, so column naming is not guesswork.",
+    "2_drawing_compare": "New page. Load two issues of a sheet by upload or from already-loaded drawings. Diffs sheet attributes, file metadata, and revision blocks keyed by revision number, distinguishing new revisions from amended entries. Word-level diff on amended descriptions shows what was added. Exports to .xlsx, copies as plain text for email, and raises a triage packet.",
+    "2_guards": "Flags when the two sides have different sheet numbers, and when either side is a scan with no text layer.",
+    "3_gantt": "SVG Gantt, 12 weeks default (6/12/16/26 selectable), one week of trailing context, today marker, critical path first, milestones as diamonds, risk findings as dots. Incomplete activities only.",
+    "3_milestones": "Detected from zero-duration activities and milestone-like names, with per-activity manual override. Listed with days-out, float, and risk count.",
+    "3_external_variables": "Eight types (weather window, vendor slip, access restriction, outage window, permit delay, labor availability, owner event, utility date) with date or range, keyword scoping, impact mode (blocks / slows / gates), severity, confidence, day cap, and source.",
+    "3_risk_assessment": "Tests every variable against every incomplete activity. Overlap for windows, gate arithmetic for dates. Net impact subtracts available float. Severity escalates on critical path or 10+ net days. Each finding carries specific potential outcomes and mitigation recommendations written per variable type, plus downstream milestone exposure. High-severity findings raise a packet. Exports to .xlsx."
+  },
+  "v0_26_0_critical_fix": {
+    "missing_view_sections": "Constraints and Contract had module tiles and render functions but NO <section> element in the HTML, so $(id) returned null and renderPage silently did nothing — both pages were blank in a real browser. The previous page guard used a permissive DOM shim that auto-created any missing element, which hid the fault entirely.",
+    "strict_dom_guard": "verify_pages.js now runs against strictdom.js, which only pre-creates ids actually declared in index.html and returns null otherwise, exactly like a browser. renderPage also logs an explicit console error instead of failing silently."
+  },
+  "v0_27_0": {
+    "three_registers": "Vendor, Innovation Center (prefab shop), and Subcontractor lead-time registers on Schedule Intake. Each has name, a category-specific attribute field, lead weeks, activity link (by ID or keyword), status, confirmed date, PO/subcontract number, contact, and notes.",
+    "attribute_fields": "Vendor: Manufacturer / Equipment Class. Innovation Center: Assembly Type / Release Status. Subcontractor: Trade / Scope. The attribute is the thing that determines the lead time, so it is captured rather than buried in notes.",
+    "shared_engine": "Lead times deliberately reuse the constraint engine's backward-walk rather than duplicating it: release-by = linked activity start minus lead weeks, compared to today. One implementation means the arithmetic cannot drift between pages.",
+    "confirmed_date_override": "A confirmed vendor or sub date supersedes the theoretical release window. If that date lands after the need-by, the item is flagged ARRIVES LATE with the shortfall in days, even when the PO is already released.",
+    "statuses": "Planned, Quoted, Released/Ordered, Confirmed Date, Received/Mobilised. Received stops all flagging.",
+    "risk_board_integration": "Overdue, urgent, and arriving-late items join the same ranked risk board as constraints and delay notices, tagged by register. Severity escalates when the linked activity is on the critical path or is a milestone.",
+    "urgency_window": "21 days, wider than the 14-day constraint window, because a release decision usually needs approval time ahead of it."
+  },
+  "v0_27_0_bug_caught_in_testing": {
+    "hoisting_recursion": "Wrapping the existing riskBoard() with `function riskBoard(){ ... _base() ... }` recursed infinitely: the function declaration hoists above the const capturing the original, so the base reference resolved to the wrapper itself. Fixed by using assignment (riskBoard = function(){}) so the original is captured before reassignment. The same pattern was corrected on renderSchedule."
+  },
+  "v0_27_1": {
+    "white_background": "Site background changed from ivory to white. Three sources: the --ivory variable (#fffff6), the body's radial+linear gradient wash, and the topbar's white-to-ivory ramp. All flattened to #ffffff.",
+    "neutral_tints": "The warm off-white tints used for panel heads, table row hovers, code blocks, and selected rows (#fffdf6, #fff8ef, #fffdf8, #fff6ea) were remapped to neutral greys (#fafafa, #f7f7f7, #f5f5f5) rather than pure white, so cards, hover states, and pre blocks stay visually distinct from the page. Status tints (red, teal) were left alone."
+  },
+  "v0_28_0": {
+    "engine": "Schedule Risk now checks the loaded schedule against known electrical construction sequencing. Activities are matched to sequencing roles by keyword, then actual start and finish dates are tested for four failure modes.",
+    "failure_modes": {
+      "inverted": "Successor finishes before the predecessor starts — scheduled in the wrong order entirely. Always high severity.",
+      "overlap": "Successor starts before the predecessor finishes. Flagged when the rule forbids overlap, or when the successor starts before the predecessor is half complete even for rules where overlap by area or run is legitimate.",
+      "lag": "Gap shorter than a required cure, inspection, or energisation hold.",
+      "missing": "A successor exists with no matching predecessor anywhere in the schedule. Downgraded one severity level and carries an explicit caveat that the work may exist under a different name."
+    },
+    "default_rules": "Twelve electrical rules: duct bank before backfill, concrete cure before gear set (7 days), rough-in inspection before close-in, raceway before pull, pull before terminate, terminate before test, test before energize (2 day report review), energize before commissioning, submittal approval before fabrication, gear set before branch, core/scan before raceway, punch before turnover.",
+    "findings_content": "Each finding carries the rule's rationale, specific impacts if it stands, and concrete resolutions — averaging seven bullets per finding. Context is appended automatically: critical-path escalation, imminence when work starts within 21 days, and the naming caveat on missing predecessors.",
+    "customisable": "Predecessor and successor patterns, minimum gap, overlap allowance, severity, rationale, impacts, and resolutions are all editable, and new rules can be added. Patterns accept regex with literal-substring fallback on malformed input.",
+    "outputs": "High-severity findings raise a triage packet. Activities are tagged so the Gantt shows them. Full analysis exports to .xlsx.",
+    "stated_limits": "This is a checklist, not a scheduler. It does not rebuild logic or recompute the critical path, and some overlaps are deliberate and correct. Findings are surfaced for PM judgement."
+  }
+}
