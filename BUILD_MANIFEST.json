@@ -1,0 +1,40 @@
+{
+  "name": "Ωboy V0.24.0 — Command Map + Cost Report",
+  "version": "0.24.0",
+  "base": "V0.22.0 Ops Build (V0.23.0 Command Map carried forward)",
+  "added": {
+    "cost_report": "Cost Report intake (.pdf). Reads accounting's 'Detail Job Overview by Cost Type' report: the job header (contract, executed/pending/proposed changes, billed, earned, over/under billed, retention, JTD cost, open AP) and every phase-code row (hours and cost: this period, job to date, projected, estimate; open commitments). Column positions are measured from the report's own subtotal rows. Line sums are checked against every subtotal row and the Totals row. Sets the job figures on the cockpit unless they were typed in by hand (contract = original + executed changes; pending and proposed changes are shown but not counted), feeds actuals to every node card, is the phase-code source for the Project Map, and keeps the previous report so the page shows what moved. Flags: lines described as one place but coded to another, one description on two codes, a labor line off its task's usual rate, projections far from their estimates, codes over projected hours or cost, cost with no budget. Reconciles line by line against the WBS + Cost workbook when both are loaded.",
+    "pdf_reader": "Hand-rolled PDF text reader (object and xref streams, FlateDecode via DecompressionStream, text positioning operators). No library.",
+    "wbs_cost": "WBS + Cost intake (.xlsx). Finds the tab with Phase Code and Description, reads hours and dollars for Initial Projection and Original Estimate, drops subtotal rows, and checks its own sums against the sheet's subtotal and Totals rows. Flags uncoded lines, phase codes shared by more than one line, and lines whose description names one area while the code belongs to another. When a cost report is loaded the workbook becomes the cross-check: its lines file under the same nodes and node cards show where the two disagree.",
+    "project_map": "Area → system skeleton. Builds from phase codes (letter + AA area + BB sub-area + CCC task) in the cost report, or the WBS + Cost workbook when no report is loaded; from a schedule's WBS; from SOV lines; or from a data center starter breakdown. Editable; imports and exports project-map.json.",
+    "record_filing": "Every record files under one node: budget lines by phase-code prefix, schedule activities by WBS prefix, everything else by whole-word keyword. A hand placement overrides. Map Links lists each record with the reason, and everything unfiled.",
+    "one_line": "The map drawn as a single-line diagram (source, riser, area buses, system feeders). Breaker state shows node status. On the cockpit and as its own view; a tap list replaces the drawing at phone width.",
+    "node_card": "Six slots in fixed order — Scope, Money, Schedule, People, Risks, Open Items — fed by the Cost Report, WBS + Cost, SOV, schedule, PO report, RFI log, CO log, packets, drawings, takeoffs, and notes entered on the node. With a cost report the Money slot shows hours and cost used against projection, the current period, and open commitments. Area cards roll up their systems.",
+    "sov_intake": "Schedule of Values upload (G703-style). Picks the right tab, skips subtotal and total rows, reads section headers as groups, reports which columns it matched.",
+    "job_setup": "Contract, approved and pending change orders, cost to date, EAC, key dates — filled from the cost report, or entered by the PM. Hand-entered figures are not overwritten by a later report unless asked. Full-state backup download and restore.",
+    "vitals_bar": "Sticky bar on every view: contract, EAC, margin, cost to date, billed %, over/under billed, hours used, earned hours %, PF, CPI, open RFIs, pending COs, next key date, top risks.",
+    "morning_walk": "Step through nodes, recall the six slots, reveal, grade. Misses become the day's study list and go to the front of the drill queue. Whole line, areas only, or one area.",
+    "cold_drill": "Ten random node-slot questions on a 30-second clock, self-graded, with Leitner spacing (0/1/3/7/14 days). Tracks hit rate, response time, slowest nodes.",
+    "prediction_log": "Forecasts with a probability and a score-on date. Brier score and a calibration table by confidence band."
+  },
+  "bugs_fixed": {
+    "xlsx_currency_read_as_date": "The reader treated number-format ids 164–167 as dates. Those are custom formats and can be anything; a workbook whose first custom format was currency had every such cell converted to a date serial ($4,380,000 read as $13,892). Affected Open PO and Aging uploads in v0.22. Only built-in date ids are now assumed; custom formats are judged by their pattern with quoted literals and bracket tags stripped.",
+    "p6_actual_dates_unparsed": "Dates like '05-Oct-26 A' failed new Date(), so slip comparison skipped every started activity without saying so. P6 'A' and '*' markers are stripped; day-month-year and US slash dates are built as UTC midnight to match ISO dates.",
+    "p6_two_row_header": "A native P6 spreadsheet export has a field-code row and a caption row. The caption row was read as an activity. It is now skipped, and float captioned in hours is converted to days.",
+    "wbs_used_as_activity_id": "WBS was a fallback alias for Activity ID. Many activities share a WBS, so slip comparison keyed to the wrong row. WBS and WBS Name are now their own fields.",
+    "rfi_overdue_utc": "Overdue compared a UTC-midnight due date to the local clock, flagging RFIs from the evening before they were due. Now compares local calendar days; due today is not overdue. todayISO() returns the local day.",
+    "storage_key_reset": "The storage key changed every release, wiping saved data on deploy. v0.23 adopts the v0.22 save and keeps one key going forward.",
+    "negative_money_format": "money() printed '$-405,000'. Now '−$405,000'.",
+    "silent_save_failure": "save() threw on a full or blocked store and the caller carried on. It now reports the failure; an unparseable save is copied to ohmboy_unreadable_save before a fresh state is started.",
+    "clear_without_confirm": "Clear Local State wiped everything on one click. It now confirms, and also clears the adopted v0.22 save."
+  },
+  "verification": {
+    "method": "Driven in headless Chromium against the shipped index.html, with no test-side DOM. Every view is checked for a real <section>, non-empty render, and visible height.",
+    "checks": "337 checks across five runs: main flow (110), carry-over / alternate paths / existing features / 12,000-activity schedule (44), the CMH-232 WBS + Cost workbook (33), time zones / hostile text / odd saved states (32), the cost report (118).",
+    "cost_report_parse": "All 899 phase-code lines × 9 numeric columns, every description, six subtotal rows and the Totals row of the CMH-232 report equal an independent parse of the same PDF made with a different library (pdfplumber). Line sums equal every subtotal and the Totals row. A second, fictional report produced by a different PDF writer (classic xref, uncompressed streams) also reads exactly.",
+    "wbs_reconciliation": "Parsed line sums equal the workbook's own subtotal row for all six cost types and its Totals row to the cent.",
+    "not_tested": "Safari and Firefox; a live Netlify deploy; cost reports from other jobs, other report versions, or reports re-printed through a PDF printer."
+  },
+  "dependencies": "None. XLSX reading uses the native DecompressionStream API; PDF reading is hand-rolled. No CDN, no npm install, no build step.",
+  "browser_requirements": "DecompressionStream (Chrome/Edge 80+, Safari 16.4+, Firefox 113+) for .xlsx and PDF uploads. overflow:clip (Chrome/Edge 90+, Safari 16+, Firefox 81+) for the sticky vitals bar; older browsers fall back to a bar that scrolls with the page."
+}
